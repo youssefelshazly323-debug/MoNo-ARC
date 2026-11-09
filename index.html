@@ -172,23 +172,38 @@ const PRODUCTS=[
  lead:"A tapered shape with articulated knees and a drawcord waist. Sharp enough to dress up.",
  details:["Tapered fit","Articulated knees","Drawcord waist","Zip pocket at the thigh"],
  fabric:"Stretch cotton twill. Machine wash cold. Hang dry."},
-{id:"exclusive-naruto",cat:"hoodies",name:"Exclusive Naruto",price:1095,colour:"Black",imgs:["https://thefandom.co/cdn/shop/files/2_47d5f77e-bc16-49e4-861e-f2f3d9687c19.jpg?v=1764569370&width=1000"],
+{id:"exclusive-naruto",cat:"hoodies",name:"Exclusive Naruto",price:1095,colour:"Black",sizes:["S","M","L","XL","XXL"],imgs:["https://thefandom.co/cdn/shop/files/2_47d5f77e-bc16-49e4-861e-f2f3d9687c19.jpg?v=1764569370&width=1000"],
  lead:"Anime-inspired hoodie featuring Naruto artwork.",
  details:["Available sizes: S, M, L, XL and XXL","Anime graphic design","Hoodie silhouette"],
  fabric:"Exact fabric composition and care details have not yet been verified."},
-{id:"godspeed-knit",cat:"knitwear",name:"Godspeed Knit",price:1049,colour:"Navy Blue",imgs:[
+{id:"godspeed-knit",cat:"knitwear",name:"Godspeed Knit",price:1049,colour:"Navy Blue",sizes:["M","L","XL","XXL"],imgs:[
 "https://thefandom.co/cdn/shop/files/4_e3a3d00c-c093-4fab-8fa8-eb6af650722e.jpg?v=1764510655&width=1000",
 "https://thefandom.co/cdn/shop/files/1_05b08864-2d9f-47f1-b2c0-4525950169e9.jpg?v=1764510655&width=1000",
 "https://thefandom.co/cdn/shop/files/3_10450599-f692-4f23-8bf0-b880b3172723.jpg?v=1764510655&width=1000"],
  lead:"A navy knit inspired by Killua's Godspeed technique from Hunter x Hunter.",
  details:["Relaxed unisex fit","Soft, warm knit","Sizes M, L, XL and XXL","Navy blue colour"],
  fabric:"Hand wash cold and lay flat to dry."},
-{id:"ultimate-berserk-tee",cat:"tees",name:"Ultimate Berserk Tee",price:750,colour:"Black",imgs:[
+{id:"ultimate-berserk-tee",cat:"tees",name:"Ultimate Berserk Tee",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[
 "https://thefandom.co/cdn/shop/files/2_3f432a6d-6fef-4229-b453-28655c2f26c2.png?v=1774937558&width=1000",
 "https://thefandom.co/cdn/shop/files/3_92ec26b3-5509-4bdf-9a77-438d6454949f.png?v=1774937558&width=1000"],
  lead:"A Berserk-inspired graphic tee from the Fandom collection.",
  details:["Available sizes: M, L, XL and XXL","Graphic T-shirt","Black colour"],
  fabric:"Exact fabric composition and care details have not yet been verified."}
+,{id:"ultimate-berserk-hoodie",cat:"hoodies",name:"Ultimate Berserk Hoodie",price:1049,colour:"Charcoal",sizes:["M","L","XL","XXL"],imgs:[
+"https://thefandom.co/cdn/shop/files/2_b7ab1741-dae1-4e38-b823-d75fc4e2b605.jpg?v=1764508749&width=1000",
+"https://thefandom.co/cdn/shop/files/1_b4ed3811-d1a8-4bd1-8907-6948d611ca7a.jpg?v=1764508749&width=1000",
+"https://thefandom.co/cdn/shop/files/3_dfea29a1-44ed-497f-b7ac-0e6db18a6d50.jpg?v=1764508736&width=1000"],
+lead:"A limited Berserk hoodie with a heavyweight cotton build, bold artwork and detailed print inspired by Guts.",
+details:["Heavyweight cotton","Embroidered and puff-print details","Relaxed oversized fit","Available sizes: M, L, XL and XXL"],
+fabric:"Premium heavyweight cotton. Follow the garment care label."},
+{id:"berserk-armor-tee",cat:"tees",name:"Berserk ARMOR Tee",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[
+"https://thefandom.co/cdn/shop/files/1_3bf2b417-ad5a-4a34-9908-3bb98abfb8f1.png?v=1774937807&width=1000",
+"https://thefandom.co/cdn/shop/files/2_f5bb35c5-3798-40f9-b8f9-d1b110e29312.png?v=1774937807&width=1000",
+"https://thefandom.co/cdn/shop/files/4_e7a1c4e2-94a3-4f1c-83b7-25876b90e71e.png?v=1774937807&width=1000",
+"https://thefandom.co/cdn/shop/files/3_e948bd84-df64-4b8b-9432-f2d947b2b917.png?v=1774937807&width=1000"],
+lead:"A dark Berserk graphic tee featuring Guts in the Berserker Armor.",
+details:["Premium 100% cotton","Regular unisex fit","Available sizes: M, L, XL and XXL"],
+fabric:"Machine wash cold inside out. Hang to dry and avoid ironing directly over the print."}
 ];
 const SHAPE={hoodies:'M26 20 L4 34 L12 62 L26 56 L26 92 L74 92 L74 56 L88 62 L96 34 L74 20 L64 12 Q50 -2 36 12Z M40 30 Q50 44 60 30 L60 50 L40 50Z',
 tees:'M30 12 L10 24 L18 40 L28 35 L28 90 L72 90 L72 35 L82 40 L90 24 L70 12 Q50 26 30 12Z',
@@ -226,7 +241,7 @@ product:(id)=>{const p=PRODUCTS.find(x=>x.id===id);if(!p)return pages.shop();
 <div class="pdp"><div class="gallery">${pic(p,0,"Front")}${pic(p,1,"Back")}${pic(p,2,"Detail")}</div>
 <div class="buy"><h1>${p.name}</h1><div class="price">${R(p.price)} · ${p.colour}</div><p class="lead">${p.lead}</p>
 <div class="label"><span>SELECT SIZE</span><a href="#/info">Size guide</a></div>
-<div class="sizes" id="sizes">${["S","M","L","XL","XXL"].map(s=>`<button aria-pressed="false">${s}</button>`).join("")}</div>
+<div class="sizes" id="sizes">${(p.sizes || ["S","M","L","XL","XXL"]).map(s=>`<button aria-pressed="false">${s}</button>`).join("")}</div>
 <button class="btn fill" id="add">ADD TO BAG</button>
 <div class="acc"><details open><summary>Details</summary><ul>${p.details.map(d=>`<li>${d}</li>`).join("")}</ul></details>
 <details><summary>Fabric and care</summary><p style="margin-top:14px">${p.fabric}</p></details>
@@ -279,7 +294,7 @@ const TYPE_GROUPS = {
   "new-arrivals":"New Arrivals", "best-sellers":"Best Sellers",
   essentials:"Essentials", oversized:"Oversized", "limited-edition":"Limited Edition"
 };
-const ANIME_GROUPS = ["Naruto","One Piece","Jujutsu Kaisen","Attack on Titan","Demon Slayer","Dragon Ball"];
+const ANIME_GROUPS = ["Naruto","One Piece","Jujutsu Kaisen","Attack on Titan","Demon Slayer","Dragon Ball","Berserk","Hunter x Hunter","Bleach","Black Clover","Blue Lock","Chainsaw Man","Death Note","Solo Leveling","Vinland Saga","Vagabond"];
 const EXTRA_STYLES = `
 .store-tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:28px}
 .store-tools input,.store-tools select{background:#090909;border:1px solid var(--line);color:var(--silver);padding:12px 14px;font:inherit;min-width:180px}
@@ -410,6 +425,8 @@ render();
    Add typeTags, animeTags and collectionTags when adding real products. */
 const PRODUCT_TAGS = {
   "ultimate-berserk-tee": {typeTags:["best-sellers"], animeTags:["Berserk"], collectionTags:["core"]},
+  "ultimate-berserk-hoodie": {typeTags:["new-arrivals","best-sellers","oversized","limited-edition"], animeTags:["Berserk"], collectionTags:["new","limited"]},
+  "berserk-armor-tee": {typeTags:["best-sellers"], animeTags:["Berserk"], collectionTags:["core"]},
   "godspeed-knit": {typeTags:["new-arrivals","limited-edition"], animeTags:["Hunter x Hunter"], collectionTags:["new","limited"]},
   "exclusive-naruto": {typeTags:["new-arrivals","best-sellers","oversized"], animeTags:["Naruto"], collectionTags:["new"]},
   "shadow-hoodie": {typeTags:["essentials","oversized"], animeTags:[], collectionTags:["core"]},
