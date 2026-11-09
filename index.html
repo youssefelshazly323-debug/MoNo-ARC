@@ -386,6 +386,62 @@ render=function(){
 };
 render();
 
+
+
+/* ===== CONNECT PRODUCT CATEGORIES AND COLLECTION FILTERS =====
+   Each product stays in PRODUCTS once and can belong to multiple edits.
+   Add typeTags, animeTags and collectionTags when adding real products. */
+const PRODUCT_TAGS = {
+  "shadow-hoodie": {typeTags:["essentials","oversized"], animeTags:[], collectionTags:["core"]},
+  "arc-zip-hoodie": {typeTags:["new-arrivals","oversized"], animeTags:[], collectionTags:["new"]},
+  "mono-tee": {typeTags:["essentials"], animeTags:[], collectionTags:["core"]},
+  "eclipse-tee": {typeTags:["new-arrivals","oversized"], animeTags:[], collectionTags:["new"]},
+  "relaxed-pants": {typeTags:["essentials","oversized"], animeTags:[], collectionTags:["core"]},
+  "tapered-pants": {typeTags:["best-sellers"], animeTags:[], collectionTags:["core"]},
+  "arc-jacket": {typeTags:["new-arrivals"], animeTags:[], collectionTags:["new"]},
+  "mono-sweatshirt": {typeTags:["essentials"], animeTags:[], collectionTags:["core"]},
+  "arc-jeans": {typeTags:["oversized"], animeTags:[], collectionTags:["core"]},
+  "mono-knit": {typeTags:["essentials"], animeTags:[], collectionTags:["core"]}
+};
+PRODUCTS.forEach(p => {
+  const tags = PRODUCT_TAGS[p.id] || {};
+  p.typeTags = tags.typeTags || p.typeTags || [];
+  p.animeTags = tags.animeTags || p.animeTags || [];
+  p.collectionTags = tags.collectionTags || p.collectionTags || [];
+});
+function taggedProducts(field, value) {
+  return PRODUCTS.filter(p => Array.isArray(p[field]) && p[field].includes(value));
+}
+function taggedPage(title, intro, products, emptyMessage) {
+  return `<div class="pagehead"><h1>${title}</h1><p>${intro}</p></div>
+  <section style="padding-top:8vh"><div class="products">${products.length ? products.map(card).join("") : `<div class="empty-state">${emptyMessage}</div>`}</div></section>`;
+}
+pages.type = slug => {
+  const title = TYPE_GROUPS[slug];
+  if (!title) return pages.shopByType();
+  return taggedPage(title, "Explore pieces selected for this edit.", taggedProducts("typeTags", slug), "No products have been added to this edit yet.");
+};
+pages.anime = slug => {
+  const title = ANIME_GROUPS.find(x => x.toLowerCase().replace(/[^a-z0-9]+/g,"-") === slug);
+  if (!title) return pages.shopByAnime();
+  return taggedPage(title, "Explore pieces inspired by " + title + ".", taggedProducts("animeTags", title), "No products have been added to this anime collection yet.");
+};
+pages.collection = slug => {
+  const names = {core:"Core Collection",new:"New Arrivals",limited:"Limited Edition"};
+  const title = names[slug];
+  if (!title) return pages.collections();
+  return taggedPage(title, "Explore the " + title + ".", taggedProducts("collectionTags", slug), "No products have been added to this collection yet.");
+};
+/* Keep product breadcrumbs working for every item category. */
+const productPageWithAllCategories = pages.product;
+pages.product = id => {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return pages.shop();
+  const originalCategory = CATS[p.cat];
+  if (!originalCategory && ITEM_GROUPS[p.cat]) CATS[p.cat] = ITEM_GROUPS[p.cat];
+  return productPageWithAllCategories(id);
+};
+
 </script>
 </body>
 </html>
