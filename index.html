@@ -317,6 +317,68 @@ render=function(){
 };
 
 render();
+
+/* ===== PRODUCT DISCOVERY AND CART PERSISTENCE ===== */
+const extraCatalogue = [
+ {id:"arc-jacket",cat:"jackets",name:"Arc Jacket",price:2350,colour:"Black",imgs:[],lead:"A clean outer layer with a structured shape.",details:["Relaxed fit","Minimal finish"],fabric:"Care details to be confirmed."},
+ {id:"mono-sweatshirt",cat:"sweatshirts",name:"Mono Sweatshirt",price:1650,colour:"Graphite",imgs:[],lead:"A simple heavyweight layer for everyday wear.",details:["Relaxed fit","Ribbed cuffs"],fabric:"Care details to be confirmed."},
+ {id:"arc-jeans",cat:"jeans",name:"Arc Denim",price:1750,colour:"Washed Black",imgs:[],lead:"A relaxed denim silhouette.",details:["Relaxed fit","Classic five-pocket styling"],fabric:"Care details to be confirmed."},
+ {id:"mono-knit",cat:"knitwear",name:"Mono Knit",price:1900,colour:"Onyx",imgs:[],lead:"A minimal knit layer.",details:["Soft hand feel","Clean silhouette"],fabric:"Care details to be confirmed."}
+];
+extraCatalogue.forEach(p=>{if(!PRODUCTS.some(x=>x.id===p.id))PRODUCTS.push(p);});
+const expandedShop = pages.shop;
+pages.shop = function(c){
+ const allowed=Object.keys(ITEM_GROUPS);
+ const valid=!c||CATS[c]||allowed.includes(c);
+ if(!valid)return expandedShop(c);
+ const title=c?(CATS[c]?.[0]||ITEM_GROUPS[c]?.[0]||"Accessories"):"All Pieces";
+ const list=PRODUCTS.filter(p=>!c||p.cat===c);
+ return `<div class="pagehead"><h1>${title}</h1><p>${c?"Explore the pieces in this category.":"Every Mono Arc piece, in one place."}</p></div>
+ <section style="padding-top:8vh"><div class="store-tools">
+ <input id="productSearch" type="search" placeholder="Search products..." aria-label="Search products">
+ <select id="productSort" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="name">Name: A to Z</option></select>
+ <select id="productColour" aria-label="Filter by colour"><option value="">All colours</option>${[...new Set(list.map(p=>p.colour))].map(v=>`<option>${v}</option>`).join("")}</select>
+ </div><div class="tabs"><a href="#/shop" class="${!c?"on":""}">ALL</a>${Object.entries(ITEM_GROUPS).map(([k,v])=>`<a href="#/shop/${k}" class="${c===k?"on":""}">${v[0].toUpperCase()}</a>`).join("")}</div>
+ <div class="products" id="productResults">${list.length?list.map(card).join(""):'<div class="empty-state">New pieces in this category are coming soon.</div>'}</div></section>`;
+};
+const cartStoreKey="monoArcBagV1";
+function readCart(){try{return JSON.parse(localStorage.getItem(cartStoreKey)||"[]")}catch{return []}}
+function saveCart(items){try{localStorage.setItem(cartStoreKey,JSON.stringify(items))}catch{}}
+let cartItems=readCart();
+function syncBag(){const count=cartItems.reduce((n,x)=>n+x.qty,0);const counter=$("#bc");if(counter)counter.textContent=count;}
+const originalBagHandler=$("#bag").onclick;
+$("#bag").onclick=()=>{
+ if(!cartItems.length)return toast("Your bag is empty");
+ const summary=cartItems.map(x=>{const p=PRODUCTS.find(y=>y.id===x.id);return p?`${p.name} · ${x.size} × ${x.qty} — ${R(p.price*x.qty)}`:null}).filter(Boolean).join("\\n");
+ const total=cartItems.reduce((n,x)=>n+(PRODUCTS.find(p=>p.id===x.id)?.price||0)*x.qty,0);
+ toast("Bag saved on this device · "+R(total));
+ alert("YOUR BAG\\n\\n"+summary+"\\n\\nTOTAL: "+R(total)+"\\n\\nCheckout is not connected yet.");
+};
+const previousRender=render;
+render=function(){
+ previousRender();
+ syncBag();
+ const search=$("#productSearch"),sort=$("#productSort"),colour=$("#productColour"),results=$("#productResults");
+ if(search&&sort&&colour&&results){
+  const update=()=>{
+   let items=PRODUCTS.filter(p=>(!location.hash.split("/")[2]||p.cat===location.hash.split("/")[2])&&p.name.toLowerCase().includes(search.value.trim().toLowerCase())&&(!colour.value||p.colour===colour.value));
+   if(sort.value==="low")items.sort((a,b)=>a.price-b.price);
+   if(sort.value==="high")items.sort((a,b)=>b.price-a.price);
+   if(sort.value==="name")items.sort((a,b)=>a.name.localeCompare(b.name));
+   results.innerHTML=items.length?items.map(card).join(""):'<div class="empty-state">No products match your search.</div>';
+  };
+  search.addEventListener("input",update);sort.addEventListener("change",update);colour.addEventListener("change",update);
+ }
+ const add=$("#add");
+ if(add)add.onclick=()=>{
+  if(!size)return toast("Select a size first");
+  const id=location.hash.split("/")[2],found=cartItems.find(x=>x.id===id&&x.size===size);
+  if(found)found.qty++;else cartItems.push({id,size,qty:1});
+  saveCart(cartItems);syncBag();toast("Added to your bag");
+ };
+};
+render();
+
 </script>
 </body>
 </html>
