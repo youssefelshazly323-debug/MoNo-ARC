@@ -442,6 +442,42 @@ pages.product = id => {
   return productPageWithAllCategories(id);
 };
 
+
+/* ===== RELIABLE SHOP-BY-ITEM NAVIGATION ===== */
+const ITEM_MENU_LABELS = {
+  hoodies:"Hoodies", sweatshirts:"Sweatshirts", tees:"T-shirts", pants:"Pants",
+  jeans:"Jeans", jackets:"Jackets", knitwear:"Knitwear", accessories:"Accessories"
+};
+pages.shopByItem = () => `
+  <div class="pagehead"><h1>Shop by Item</h1><p>Choose the type of item you want to explore.</p></div>
+  <section style="padding-top:5vh">
+    <div class="category-grid">
+      ${Object.entries(ITEM_MENU_LABELS).map(([slug,label]) => `
+        <a class="category-tile" href="#/shop/${slug}">
+          <span>SHOP CATEGORY</span><h3>${label}</h3><span>VIEW ${label.toUpperCase()} →</span>
+        </a>`).join("")}
+    </div>
+  </section>`;
+/* Normalize all item routes and re-render on menu activation. */
+document.querySelectorAll('a[href="#/shop-by-item"]').forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    if (location.hash !== "#/shop-by-item") location.hash = "/shop-by-item";
+    else render();
+  });
+});
+const itemMenuStyle = document.createElement("style");
+itemMenuStyle.textContent = `
+#app .category-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+#app .category-tile{min-height:190px;padding:26px 20px;border:1px solid var(--line);background:linear-gradient(145deg,#191a1d,#050505);display:flex;flex-direction:column;justify-content:space-between;transition:border-color .25s,transform .25s}
+#app .category-tile:hover{border-color:var(--silver);transform:translateY(-3px)}
+#app .category-tile h3{font-size:clamp(1.5rem,2.4vw,2.2rem)}
+#app .category-tile span{font-size:.68rem;letter-spacing:.14em;color:var(--steel)}
+@media(max-width:850px){#app .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+`;
+document.head.appendChild(itemMenuStyle);
+
+render();
 </script>
 </body>
 </html>
