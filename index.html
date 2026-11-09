@@ -126,9 +126,9 @@ footer a{display:block}footer a:hover{color:var(--silver)}
   <a class="brand" href="#/" style="justify-self:start;margin:0">MONO ARC</a>
   <nav aria-label="Main navigation">
     <a href="#/shop" data-n="shop">SHOP ALL</a>
-    <a href="#/shop-by-item" data-n="shop-by-item">SHOP BY ITEM</a>
-    <a href="#/shop-by-type" data-n="shop-by-type">SHOP BY TYPE</a>
-    <a href="#/shop-by-anime" data-n="shop-by-anime">SHOP BY ANIME</a>
+    <a href="shop-by-item.html" data-n="shop-by-item">SHOP BY ITEM</a>
+    <a href="shop-by-type.html" data-n="shop-by-type">SHOP BY TYPE</a>
+    <a href="shop-by-anime.html" data-n="shop-by-anime">SHOP BY ANIME</a>
     <a href="#/collections" data-n="collections">OUR COLLECTION</a>
     <a href="#/accessories" data-n="accessories">ACCESSORIES</a>
     <a href="#/track" data-n="track">TRACK ORDER</a>
@@ -138,7 +138,7 @@ footer a{display:block}footer a:hover{color:var(--silver)}
 <main id="app"></main>
 <footer>
   <div><span class="brand" style="margin:0">MONO ARC</span><p style="margin-top:12px;max-width:34ch">Hoodies, tees and pants cut in shadow.</p></div>
-  <div><h4>SHOP</h4><a href="#/shop">Shop All</a><a href="#/shop-by-item">Shop by Item</a><a href="#/shop-by-type">Shop by Type</a><a href="#/shop-by-anime">Shop by Anime</a><a href="#/collections">Our Collection</a><a href="#/accessories">Accessories</a></div>
+  <div><h4>SHOP</h4><a href="#/shop">Shop All</a><a href="shop-by-item.html">Shop by Item</a><a href="shop-by-type.html">Shop by Type</a><a href="shop-by-anime.html">Shop by Anime</a><a href="#/collections">Our Collection</a><a href="#/accessories">Accessories</a></div>
   <div><h4>HELP</h4><a href="#/track">Track Your Order</a><a href="#/info">Sizing and shipping</a><a href="#/contact">Contact</a><a href="#/about">Philosophy</a></div>
 </footer>
 <div id="toast" role="status"></div>
@@ -966,7 +966,7 @@ pages.shopByItem = () => `
     </div>
   </section>`;
 /* Normalize all item routes and re-render on menu activation. */
-document.querySelectorAll('a[href="#/shop-by-item"]').forEach(link => {
+document.querySelectorAll('a[href="shop-by-item.html"]').forEach(link => {
   link.addEventListener("click", event => {
     event.preventDefault();
     if (location.hash !== "#/shop-by-item") location.hash = "/shop-by-item";
