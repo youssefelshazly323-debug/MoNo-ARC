@@ -318,7 +318,14 @@ render=function(){
 
 render();
 
-/* ===== PRODUCT DISCOVERY AND CART PERSISTENCE ===== */
+
+/* Shape fallbacks for newly added item categories. */
+SHAPE.jackets=SHAPE.hoodies;
+SHAPE.sweatshirts=SHAPE.hoodies;
+SHAPE.jeans=SHAPE.pants;
+SHAPE.knitwear=SHAPE.tees;
+SHAPE.accessories=SHAPE.tees;
+\n/* ===== PRODUCT DISCOVERY AND CART PERSISTENCE ===== */
 const extraCatalogue = [
  {id:"arc-jacket",cat:"jackets",name:"Arc Jacket",price:2350,colour:"Black",imgs:[],lead:"A clean outer layer with a structured shape.",details:["Relaxed fit","Minimal finish"],fabric:"Care details to be confirmed."},
  {id:"mono-sweatshirt",cat:"sweatshirts",name:"Mono Sweatshirt",price:1650,colour:"Graphite",imgs:[],lead:"A simple heavyweight layer for everyday wear.",details:["Relaxed fit","Ribbed cuffs"],fabric:"Care details to be confirmed."},
