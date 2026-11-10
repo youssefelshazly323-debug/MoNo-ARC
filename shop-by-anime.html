@@ -39,7 +39,15 @@
 <script>
 (()=>{
 const products=window.MONO_PRODUCTS||[];
-const cart=JSON.parse(localStorage.getItem("mono_cart")||"[]");
+const accessoryIds=new Set(products.filter(product=>product.cat==="accessories").map(product=>product.id));
+const cart=JSON.parse(localStorage.getItem("mono_cart")||"[]").reduce((items,item)=>{
+  if(!accessoryIds.has(item.id)){items.push(item);return items;}
+  const existing=items.find(entry=>entry.id===item.id&&entry.size==="");
+  if(existing)existing.qty+=item.qty;
+  else items.push({...item,size:""});
+  return items;
+},[]);
+localStorage.setItem("mono_cart",JSON.stringify(cart));
 const titleCase=value=>value.replace(/-/g," ").replace(/\b\w/g,char=>char.toUpperCase());
 const ITEM_LABELS={tees:"T-shirts",frames:"Frames",sets:"Sets"};
 const ITEM_GROUPS=Object.fromEntries([...new Set(products.map(p=>p.cat))].sort().map(category=>{const label=ITEM_LABELS[category]||titleCase(category);return[category,[label,"SHOP BY ITEM"]];}));
@@ -49,10 +57,24 @@ const page=document.body.dataset.page;const params=new URLSearchParams(location.
 const money=n=>new Intl.NumberFormat("en-ZA",{style:"currency",currency:"ZAR",maximumFractionDigits:0}).format(Number(n||0));
 const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const tile=(url,title,sub)=>'<a class="tile" href="'+url+'"><small>EXPLORE</small><h2>'+title+'</h2><small>'+sub+'</small></a>';
-const card=p=>'<article class="product"><div class="photo">'+(p.imgs&&p.imgs[0]?'<img loading="lazy" src="'+p.imgs[0]+'" alt="'+p.name.replace(/"/g,'&quot;')+'">':'<span class="placeholder">MONO ARC</span>')+'</div><h3>'+p.name+'</h3><p class="price">'+money(p.price)+'</p><select class="card-size" aria-label="Select size for '+p.name.replace(/"/g,'&quot;')+'"><option value="">SELECT SIZE</option>'+((p.sizes&&p.sizes.length?p.sizes:["S","M","L","XL","XXL"]).map(size=>'<option value="'+size+'">'+size+'</option>').join(""))+'</select><button class="card-add" type="button" onclick="addToCart(\''+p.id+'\',this.previousElementSibling.value)">ADD TO CART</button></article>';
+const card=p=>{
+  const sizeSelect=p.cat==="accessories"?"":'<select class="card-size" aria-label="Select size for '+p.name.replace(/"/g,'&quot;')+'"><option value="">SELECT SIZE</option>'+((p.sizes&&p.sizes.length?p.sizes:["S","M","L","XL","XXL"]).map(size=>'<option value="'+size+'">'+size+'</option>').join(""))+'</select>';
+  const sizeArgument=p.cat==="accessories"?"''":"this.previousElementSibling.value";
+  return '<article class="product"><div class="photo">'+(p.imgs&&p.imgs[0]?'<img loading="lazy" src="'+p.imgs[0]+'" alt="'+p.name.replace(/"/g,'&quot;')+'">':'<span class="placeholder">MONO ARC</span>')+'</div><h3>'+p.name+'</h3><p class="price">'+money(p.price)+'</p>'+sizeSelect+'<button class="card-add" type="button" onclick="addToCart(\''+p.id+'\','+sizeArgument+')">ADD TO CART</button></article>';
+};
 function updateCartCount(){document.getElementById("bc").textContent=cart.reduce((count,item)=>count+item.qty,0);}
 function showToast(message){const toast=document.getElementById("toast");toast.textContent=message;toast.classList.add("on");setTimeout(()=>toast.classList.remove("on"),3000);}
-window.addToCart=(productId,size)=>{if(!size){showToast("Please select a size first.");return;}const product=products.find(item=>item.id===productId);if(!product){showToast("Product not found.");return;}const existing=cart.find(item=>item.id===productId&&item.size===size);if(existing){existing.qty++;}else{cart.push({id:product.id,name:product.name,price:Number(product.price),size,img:(product.imgs&&product.imgs[0])||"",qty:1});}localStorage.setItem("mono_cart",JSON.stringify(cart));updateCartCount();showToast(product.name+" ("+size+") added to cart.");};
+window.addToCart=(productId,size)=>{
+  const product=products.find(item=>item.id===productId);
+  if(!product){showToast("Product not found.");return;}
+  const cartSize=product.cat==="accessories"?"":size;
+  if(product.cat!=="accessories"&&!cartSize){showToast("Please select a size first.");return;}
+  const existing=cart.find(item=>item.id===productId&&item.size===cartSize);
+  if(existing){existing.qty++;}else{cart.push({id:product.id,name:product.name,price:Number(product.price),size:cartSize,img:(product.imgs&&product.imgs[0])||"",qty:1});}
+  localStorage.setItem("mono_cart",JSON.stringify(cart));
+  updateCartCount();
+  showToast(product.name+(cartSize?" ("+cartSize+")":"")+" added to cart.");
+};
 function showProducts(list){root.innerHTML='<div class="tools"><input id="search" type="search" placeholder="Search products..." aria-label="Search products"><select id="sort" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="name">Name: A to Z</option></select></div><div class="products" id="results">'+(list.length?list.map(card).join(""):'<div class="empty">Nothing in this section yet, check back soon.</div>')+'</div>';
 const search=document.getElementById("search"),sort=document.getElementById("sort"),results=document.getElementById("results");const update=()=>{let found=list.filter(p=>p.name.toLowerCase().includes(search.value.trim().toLowerCase()));if(sort.value==="low")found.sort((a,b)=>a.price-b.price);if(sort.value==="high")found.sort((a,b)=>b.price-a.price);if(sort.value==="name")found.sort((a,b)=>a.name.localeCompare(b.name));results.innerHTML=found.length?found.map(card).join(""):'<div class="empty">Nothing matches your search.</div>';};search.addEventListener("input",update);sort.addEventListener("change",update);}
 function setHead(title,description){document.title=title+" | MONO ARC";document.getElementById("heading").textContent=title;document.getElementById("description").textContent=description;}
