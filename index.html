@@ -1,124 +1,797 @@
-﻿#!/usr/bin/env python3
-"""
-Rewrites ONLY the wording (product descriptions + site copy) so it reads like a
-normal person wrote it. Nothing else in the file is touched: no code, no CSS,
-no colours, no layout, no prices, no sizes, no image paths, no product ids.
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mono Arc</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--panel:#0c0c0d;--line:#232427;--steel:#85878e;--silver:#d6d7da;--text:#b4b6bb}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:300 1rem/1.8 Manrope,system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+h1,h2,h3,.brand{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;color:var(--silver)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--silver);outline-offset:4px}
+header{position:fixed;inset:0 0 auto 0;z-index:30;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:22px 5vw;padding-top:calc(22px + env(safe-area-inset-top,0px));background:linear-gradient(#000e,#0000);transition:background .3s}
+header.solid{background:#000d;backdrop-filter:blur(10px)}
+.brand{letter-spacing:.55em;font-size:1.05rem;margin-right:-.55em}
+nav{display:flex;gap:30px;font-size:.82rem;letter-spacing:.14em}
+nav a{color:var(--steel);transition:color .25s}
+nav a:hover,nav a.on{color:var(--silver)}
+.bag{justify-self:end;background:none;border:0;color:var(--silver);font-size:.82rem;letter-spacing:.14em}
+#app{min-height:100vh}
+.page{animation:fade .9s ease both}
+@keyframes fade{from{opacity:0}}
+.hero{min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;--mx:50%;--my:45%}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(560px circle at var(--mx) var(--my),#ffffff1c,#0000 70%);pointer-events:none}
+.hero::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(#0000,var(--line) 30%,var(--line) 70%,#0000)}
+.mark{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:26px;padding:0 6vw}
+.mark img{width:min(46vw,290px);mix-blend-mode:screen;animation:rise 2.4s ease-out both;filter:drop-shadow(0 0 40px #ffffff14)}
+@keyframes rise{from{opacity:0;transform:scale(.94);filter:blur(10px)}}
+.mark h1{letter-spacing:.7em;font-size:clamp(1.3rem,4vw,2rem);margin-right:-.7em;background:#000;padding:2px 0}
+.mark p{color:var(--steel);max-width:36ch;background:#000;padding:4px 10px}
+.btn{display:inline-block;border:1px solid var(--steel);color:var(--silver);padding:15px 40px;letter-spacing:.2em;font-size:.8rem;background:#000;transition:background .35s,color .35s;cursor:pointer}
+.btn:hover{background:var(--silver);color:#000}
+.btn.fill{background:var(--silver);color:#000;width:100%;text-align:center}
+.btn.fill:hover{background:#fff}
+section{padding:14vh 5vw}
+.title{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:6vh}
+.title h2{font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.05}
+.title p{max-width:36ch}
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.cat{aspect-ratio:3/4.4;position:relative;display:flex;align-items:end;padding:28px;overflow:hidden;background:linear-gradient(160deg,#2b2c30,#0a0a0b 62%)}
+.cat:nth-child(2){background:linear-gradient(200deg,#1d1e21,#050505 60%)}
+.cat:nth-child(3){background:linear-gradient(140deg,#35363b,#0a0a0b 65%)}
+.cat::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,#0000 35%,#ffffff14 50%,#0000 65%);transform:translateX(-100%);transition:transform 1.1s}
+.cat:hover::before{transform:translateX(100%)}
+.cat h3{font-size:2.5rem;position:relative}
+.cat span{position:absolute;top:22px;right:24px;font-size:.78rem;color:var(--steel);letter-spacing:.1em}
+.manifesto{text-align:center;border-block:1px solid var(--line)}
+.manifesto h2{font-size:clamp(2rem,5.5vw,4.4rem);max-width:20ch;margin:0 auto;line-height:1.15;font-style:italic;font-weight:400}
+.manifesto p{margin:2rem auto 0;max-width:52ch}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 18px}
+.item{display:block}
+.pic{aspect-ratio:4/5;background:var(--panel);border:1px solid var(--line);position:relative;overflow:hidden;display:grid;place-items:center;transition:border-color .4s}
+.pic svg{width:46%;fill:#17181a;transition:transform .8s,fill .4s}
+.pic small{position:absolute;bottom:14px;color:#2d2e32;font-size:.75rem;letter-spacing:.1em}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.item:hover .pic{border-color:var(--steel)}
+.item:hover .pic svg{transform:scale(1.07);fill:#222326}
+.item:hover .pic img{transform:scale(1.04)}
+.item h3{font-size:1.5rem;margin-top:14px;line-height:1.2}
+.item p{font-size:.88rem;color:var(--steel);display:flex;justify-content:space-between}
+.tabs{display:flex;gap:30px;flex-wrap:wrap;margin-bottom:5vh;border-bottom:1px solid var(--line)}
+.tabs a{padding:0 0 14px;color:var(--steel);font-size:.82rem;letter-spacing:.14em;margin-bottom:-1px;border-bottom:1px solid #0000}
+.tabs a.on{color:var(--silver);border-color:var(--silver)}
+.pagehead{padding:24vh 5vw 0}
+.pagehead h1{font-size:clamp(3rem,9vw,7rem);line-height:1}
+.pagehead p{margin-top:1.4rem;max-width:48ch}
+.crumbs{font-size:.8rem;color:var(--steel);letter-spacing:.08em;padding:16vh 5vw 0}
+.crumbs a:hover{color:var(--silver)}
+.pdp{display:grid;grid-template-columns:1.4fr 1fr;gap:5vw;padding:3vh 5vw 10vh;align-items:start}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gallery .pic:first-child{grid-column:span 2;aspect-ratio:4/4.6}
+.gallery .pic svg{width:34%}
+.gallery .pic:first-child svg{width:30%}
+.buy{position:sticky;top:110px}
+.buy h1{font-size:clamp(2.2rem,4vw,3.4rem);line-height:1.05}
+.buy .price{font-size:1.2rem;color:var(--silver);margin:10px 0 22px}
+.buy .lead{margin-bottom:28px}
+.label{display:flex;justify-content:space-between;font-size:.8rem;letter-spacing:.1em;color:var(--steel);margin-bottom:10px}
+.label a{text-decoration:underline;text-underline-offset:4px}
+.sizes{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:22px}
+.sizes button{background:none;border:1px solid var(--line);color:var(--text);padding:12px 0;transition:.25s}
+.sizes button:hover{border-color:var(--steel)}
+.sizes button[aria-pressed="true"]{border-color:var(--silver);color:#000;background:var(--silver)}
+.acc{margin-top:30px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line);padding:16px 0}
+.acc summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;color:var(--silver);letter-spacing:.06em}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";color:var(--steel)}
+.acc details[open] summary::after{content:"\2013"}
+.acc ul{margin:14px 0 0 18px}
+.acc p,.acc ul{font-size:.92rem}
+.more{border-top:1px solid var(--line)}
+.prose{display:grid;grid-template-columns:1fr 1.3fr;gap:6vw;padding:6vh 5vw 14vh}
+.prose h2{font-size:2.2rem;line-height:1.15}
+.prose div p+p{margin-top:1.3rem}
+.prose.alt{border-top:1px solid var(--line)}
+.sizetable{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:1rem}
+.sizetable th,.sizetable td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--line)}
+.sizetable th{color:var(--silver);font-weight:400}
+.form{display:grid;gap:14px;max-width:520px}
+.form input,.form textarea{background:none;border:1px solid var(--line);padding:14px 18px;color:var(--silver);font:inherit;width:100%}
+.form input:focus,.form textarea:focus{border-color:var(--steel);outline:0}
+.join{text-align:center;border-top:1px solid var(--line)}
+.join h2{font-size:clamp(2.2rem,5vw,3.6rem)}
+.join form{display:flex;justify-content:center;margin-top:2.2rem;flex-wrap:wrap}
+.join input{background:none;border:1px solid var(--line);border-right:0;padding:14px 22px;color:var(--silver);min-width:min(340px,100%);font:inherit}
+.join button{border:1px solid var(--steel);background:none;color:var(--silver);padding:14px 30px;letter-spacing:.15em}
+.join button:hover{background:var(--silver);color:#000}
+footer{border-top:1px solid var(--line);padding:7vh 5vw;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;font-size:.88rem;color:var(--steel)}
+footer h4{color:var(--silver);font-weight:400;letter-spacing:.12em;margin-bottom:10px}
+footer a{display:block}footer a:hover{color:var(--silver)}
+#toast{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;transform:translate(-50%,220%);background:var(--silver);color:#000;padding:13px 28px;z-index:100;transition:transform .4s;font-size:.9rem}
+#toast.on{transform:translate(-50%,0)}
 
-Usage:
-    python humanize_text.py index.html
-Output:
-    index_natural.html   (your original file is not modified)
-"""
-import re
-import sys
-from pathlib import Path
+/* Cart Drawer */
+.cart-drawer{position:fixed;inset:0;z-index:200;display:none;pointer-events:none}
+.cart-drawer.open{display:block;pointer-events:auto}
+.cart-bg{position:absolute;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px)}
+.cart-panel{position:absolute;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--panel);border-left:1px solid var(--line);padding:30px 24px;display:flex;flex-direction:column;z-index:1}
+.cart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;border-bottom:1px solid var(--line);padding-bottom:16px}
+.cart-head h2{font-size:1.8rem}
+.cart-close{background:none;border:0;color:var(--silver);font-size:1.5rem}
+.cart-items{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:18px}
+.cart-item{display:grid;grid-template-columns:70px 1fr auto;gap:14px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}
+.cart-item-info h4{font-size:1.1rem;color:var(--silver);font-family:"Cormorant Garamond",serif}
+.cart-item-info p{font-size:.8rem;color:var(--steel)}
+.cart-foot{margin-top:20px;border-top:1px solid var(--line);padding-top:20px}
+.cart-total{display:flex;justify-content:space-between;font-size:1.2rem;color:var(--silver);margin-bottom:18px}
+.qty-btn{background:none;border:1px solid var(--line);color:var(--silver);width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;margin:0 4px}
 
-src = Path(sys.argv[1])
-html = src.read_text(encoding="utf-8")
-count = {}
+@media(max-width:860px){nav{display:none}header{grid-template-columns:1fr auto}.brand{margin-right:0}.cats,.products{grid-template-columns:1fr 1fr}.cats{grid-template-columns:1fr}.cat{aspect-ratio:4/3}.pdp,.prose,footer{grid-template-columns:1fr}.buy{position:static}}
+@media(max-width:520px){.products{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header id="hd">
+  <a class="brand" href="#/" style="justify-self:start;margin:0">MONO ARC</a>
+  <nav aria-label="Main navigation">
+    <a href="#/shop" data-n="shop">SHOP ALL</a>
+    <a href="#/shop?cat=hoodies" data-n="hoodies">HOODIES</a>
+    <a href="#/shop?cat=tees" data-n="tees">TEES</a>
+    <a href="#/shop?cat=pants" data-n="pants">PANTS</a>
+    <a href="#/collections" data-n="collections">OUR COLLECTION</a>
+    <a href="#/accessories" data-n="accessories">ACCESSORIES</a>
+    <a href="#/track" data-n="track">TRACK ORDER</a>
+  </nav>
+  <button class="bag" id="bag">BAG (<span id="bc">0</span>)</button>
+</header>
 
-def sub(pattern, repl, text, label, flags=0):
-    new, n = re.subn(pattern, repl, text, flags=flags)
-    count[label] = n
-    return new
+<main id="app"></main>
 
-def rep(old, new, text):
-    n = text.count(old)
-    count[old[:45]] = n
-    return text.replace(old, new)
+<footer>
+  <div><span class="brand" style="margin:0">MONO ARC</span><p style="margin-top:12px;max-width:34ch">Hoodies, tees and pants cut in shadow.</p></div>
+  <div><h4>SHOP</h4><a href="#/shop">Shop All</a><a href="#/shop?cat=hoodies">Hoodies</a><a href="#/shop?cat=tees">Tees</a><a href="#/shop?cat=pants">Pants</a><a href="#/collections">Our Collection</a><a href="#/accessories">Accessories</a></div>
+  <div><h4>HELP</h4><a href="#/track">Track Your Order</a><a href="#/info">Sizing and shipping</a><a href="#/contact">Contact</a><a href="#/about">Philosophy</a></div>
+</footer>
 
-# 1) Broken characters (encoding damage) -> proper characters
-for bad, good in [("â€™", "’"), ("Â·", "·"), ("Ã—", "×"), ("â€”", "—"),
-                  ("â€“", "–"), ("â†’", "→")]:
-    html = html.replace(bad, good)
+<div id="toast" role="status"></div>
 
-# 2) Product "lead" lines that sound like a database export
-html = sub(
-    r'lead:"([^"]+?) (?:from the current Fandom catalogue|from the Fandom collection|'
-    r'listed in the current Fandom catalogue|from the Fandom T-shirt collection)\."',
-    r'lead:"\1. Pick your size below."',
-    html, "lead lines")
-html = sub(
-    r'lead:"([^"]+?) listed in the current Fandom catalogue\."',
-    r'lead:"\1. Pick your size below."', html, "lead lines 2")
-html = rep("Berserk-themed cap listed in the accessories catalogue.",
-           "A Berserk cap to finish off the outfit.", html)
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-bg" id="cartBg"></div>
+  <div class="cart-panel">
+    <div class="cart-head">
+      <h2>YOUR BAG</h2>
+      <button class="cart-close" id="cartClose">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>TOTAL</span><span id="cartTotal">R0</span></div>
+      <button class="btn fill" onclick="checkout()">CHECKOUT</button>
+    </div>
+  </div>
+</div>
 
-# 3) Product "details" bullets
-html = sub(r'"Listed in the (\w+) category"', r'"Part of our \1 range"', html, "category A")
-html = sub(r'"Listed in (\w+)"', r'"Part of our \1 range"', html, "category B")
-html = sub(r'"Category: (\w+)"', r'"Part of our \1 range"', html, "category C")
-html = sub(r'"Available option\(s\): ', '"Sizes: ', html, "sizes label")
-html = rep('"Accessory item"', '"Accessory"', html)
-html = rep('"T-shirt collection listing"', '"Part of our tees range"', html)
-html = rep('"Official Fandom catalogue listing"', '"From the Fandom collection"', html)
-html = rep('"Product availability may change"', '"Availability can change"', html)
-for old in [
-    "Product images and full specifications are not yet available for this listing",
-    "Original product photos and full product specifications are not attached yet",
-    "Original product photos and full specifications are not attached yet",
-    "Original product photos are not yet attached to this listing",
-    "Original product photos are not attached yet",
-    "Product image and full specifications are not yet available",
-    "Product images and full specifications are not yet available",
-]:
-    html = rep(old, "More photos coming soon", html)
+<script>
+const DEFAULT_SIZES = ["S","M","L","XL","XXL"];
 
-# 4) Fabric / care lines
-for old in [
-    "Check the garment label for fabric and care details.",
-    "Check the product label for fabric and care details.",
-    "Check the product label for care details.",
-    "Check the original product label or packaging for material and care details.",
-    "See original product listing for material and care details.",
-    "Care details to be confirmed.",
-    "Exact fabric composition and care details have not yet been verified.",
-    "Care details should follow the garment label.",
-]:
-    html = rep(old, "Fabric and care details coming soon.", html)
-html = rep("Premium heavyweight cotton. Follow the garment care label.",
-           "Heavyweight cotton. Follow the care label on the garment.", html)
+const PRODUCTS = [
+  {id:"shadow-hoodie",cat:"hoodies",name:"Shadow Hoodie",price:1850,colour:"Onyx",sizes:DEFAULT_SIZES,imgs:[],
+   lead:"A heavyweight hoodie with a deep hood and a drop shoulder, finished with the Mono Arc emblem at the chest.",
+   details:["Boxy oversized fit","Double-layer hood","Tonal embroidered emblem","Ribbed cuffs and hem","Made in small batches"],
+   fabric:"480 gsm brushed cotton fleece. Machine wash cold, inside out. Hang dry."},
+  {id:"arc-zip-hoodie",cat:"hoodies",name:"Arc Zip Hoodie",price:2100,colour:"Graphite",sizes:DEFAULT_SIZES,imgs:[],
+   lead:"A full-zip silhouette with a structured collar and a matte metal pull. Built to layer.",
+   details:["Relaxed fit","Matte gunmetal zip","Hidden side pockets","Back arc print","Brushed interior"],
+   fabric:"460 gsm cotton blend fleece. Machine wash cold. Do not tumble dry."},
+  {id:"mono-tee",cat:"tees",name:"Mono Tee",price:750,colour:"Black",sizes:DEFAULT_SIZES,imgs:[],
+   lead:"A short sleeve tee in dense jersey. Clean neckline, long body, nothing you don't need.",
+   details:["Boxy fit","Heavy jersey","Small emblem on the chest","Pre-washed for softness"],
+   fabric:"240 gsm combed cotton. Machine wash cold. Low heat dry."},
+  {id:"eclipse-tee",cat:"tees",name:"Eclipse Tee",price:850,colour:"Steel",sizes:DEFAULT_SIZES,imgs:[],
+   lead:"A washed grey tee with an oversized back print of the emblem, faded at the edges.",
+   details:["Oversized fit","Garment dyed","Large back graphic","Dropped shoulder"],
+   fabric:"260 gsm garment dyed cotton. Machine wash cold, inside out."},
+  {id:"relaxed-pants",cat:"pants",name:"Relaxed Pants",price:1450,colour:"Onyx",sizes:["30","32","34","36","38"],imgs:[],
+   lead:"A wide leg trouser in soft twill with a high waist and a clean drape.",
+   details:["Relaxed wide leg","Elastic back waist","Side and back pockets","Pressed front crease"],
+   fabric:"Heavy cotton twill. Machine wash cold. Iron on low if needed."},
+  {id:"tapered-pants",cat:"pants",name:"Tapered Pants",price:1550,colour:"Graphite",sizes:["30","32","34","36","38"],imgs:[],
+   lead:"A tapered shape with articulated knees and a drawcord waist. Sharp enough to dress up.",
+   details:["Tapered fit","Articulated knees","Drawcord waist","Zip pocket at the thigh"],
+   fabric:"Stretch cotton twill. Machine wash cold. Hang dry."},
+  {id:"exclusive-naruto",cat:"hoodies",name:"Exclusive Naruto",price:1095,colour:"Black",sizes:["S","M","L","XL","XXL"],imgs:[],
+   lead:"Anime-inspired hoodie featuring Naruto artwork.",
+   details:["Available sizes: S, M, L, XL and XXL","Anime graphic design","Hoodie silhouette"],
+   fabric:"Exact fabric composition and care details have not yet been verified."},
+  {id:"godspeed-knit",cat:"knitwear",name:"Godspeed Knit",price:1049,colour:"Navy Blue",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"A navy knit inspired by Killua's Godspeed technique from Hunter x Hunter.",
+   details:["Relaxed unisex fit","Soft, warm knit","Sizes M, L, XL and XXL","Navy blue colour"],
+   fabric:"Hand wash cold and lay flat to dry."},
+  {id:"ultimate-berserk-tee",cat:"tees",name:"Ultimate Berserk Tee",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"A Berserk-inspired graphic tee from the Fandom collection.",
+   details:["Available sizes: M, L, XL and XXL","Graphic T-shirt","Black colour"],
+   fabric:"Exact fabric composition and care details have not yet been verified."},
+  {id:"ultimate-berserk-hoodie",cat:"hoodies",name:"Ultimate Berserk Hoodie",price:1049,colour:"Charcoal",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"A limited Berserk hoodie with a heavyweight cotton build, bold artwork and detailed print inspired by Guts.",
+   details:["Heavyweight cotton","Embroidered and puff-print details","Relaxed oversized fit","Available sizes: M, L, XL and XXL"],
+   fabric:"Premium heavyweight cotton. Follow the garment care label."},
+  {id:"berserk-armor-tee",cat:"tees",name:"Berserk ARMOR Tee",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"A dark Berserk graphic tee featuring Guts in the Berserker Armor.",
+   details:["Premium 100% cotton","Regular unisex fit","Available sizes: M, L, XL and XXL"],
+   fabric:"Machine wash cold inside out. Hang to dry and avoid ironing directly over the print."},
+  {id:"eren-freedom",cat:"hoodies",name:"Eren Freedom",price:949,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"An Attack on Titan hoodie inspired by Eren Yeager, made for a relaxed everyday fit.",
+   details:["Premium heavyweight fleece","Relaxed unisex fit","Oversized cut","Available sizes: M, L, XL and XXL"],
+   fabric:"Heavyweight cotton with high-density print. Wash cold inside out, hang to dry."},
+  {id:"vinland-saga",cat:"sweatshirts",name:"Vinland Saga",price:949,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"A Vinland Saga graphic layer inspired by the series.",
+   details:["Cotton construction","Available sizes: M, L, XL and XXL"],
+   fabric:"Care details should follow the garment label."},
+  {id:"geto-embroidery",cat:"hoodies",name:"Geto Embroidery",price:1049,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"A Jujutsu Kaisen hoodie inspired by Suguru Geto, with red embroidery and detailed print.",
+   details:["100% heavyweight cotton","Oversized unisex fit","Red embroidery and print details","Available sizes: M, L, XL and XXL"],
+   fabric:"Wash cold inside out. Avoid ironing directly over the design."},
+  {id:"zoro-ashura-mode",cat:"tees",name:"Zoro Ashura Mode",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Zoro Ashura Mode from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"hisoka-tee",cat:"tees",name:"Hisoka Tee",price:750,colour:"Black",sizes:["S","M","L","XL","XXL"],imgs:[],
+   lead:"Hisoka Tee from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: S, M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"igris-legendary",cat:"tees",name:"IGRIS Legendary",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"IGRIS Legendary from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"kaiju-no-8",cat:"tees",name:"Kaiju No. 8",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Kaiju No. 8 from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"legendary-broly-tee",cat:"tees",name:"Legendary Broly Tee",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Legendary Broly Tee from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"kenpachi-zaraki",cat:"tees",name:"Kenpachi Zaraki",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Kenpachi Zaraki from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"green-gon",cat:"tees",name:"Green Gon",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Green Gon from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"chainsaw-man-premium",cat:"tees",name:"Chainsaw Man Premium Edition",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Chainsaw Man Premium Edition from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"musashi-miyamoto-tee",cat:"tees",name:"Musashi Miyamoto",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Musashi Miyamoto from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"yhwach-quincy-king",cat:"tees",name:"Yhwach Quincy King",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Yhwach Quincy King from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"black-tokyo-ghoul",cat:"tees",name:"Black Tokyo Ghoul",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Black Tokyo Ghoul from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"tanjiro-premium-tee",cat:"tees",name:"Tanjiro Premium Tee",price:750,colour:"Black",sizes:["M","L","XL"],imgs:[],
+   lead:"Tanjiro Premium Tee from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"sukuna-lava",cat:"tees",name:"Sukuna Lava",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Sukuna Lava from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"bleach-v1",cat:"tees",name:"Bleach V1",price:750,colour:"Black",sizes:["OVER M","OVER 1","OVER 2"],imgs:[],
+   lead:"Bleach V1 from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: OVER M, OVER 1, OVER 2"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"berserk-v4",cat:"tees",name:"Berserk V4",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Berserk V4 from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"naruto-acid",cat:"tees",name:"Naruto Acid",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Naruto Acid from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"eren-yeager-v1",cat:"tees",name:"Eren Yeager V1",price:750,colour:"Black",sizes:["M","L","XL","2XL"],imgs:[],
+   lead:"Eren Yeager V1 from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, 2XL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"shadow-monarch",cat:"tees",name:"Shadow Monarch",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Shadow Monarch from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"aki-hayakawa",cat:"tees",name:"Aki Hayakawa",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Aki Hayakawa from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"asta-red",cat:"tees",name:"Asta Red",price:750,colour:"Black",sizes:["OVER M","OVER 1","OVER 2"],imgs:[],
+   lead:"Asta Red from the current Fandom catalogue.",
+   details:["Listed in the tees category","Sizes: OVER M, OVER 1, OVER 2"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"light-straight-pants-black",cat:"pants",name:"Light Straight Pants - Black",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Light Straight Pants - Black from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"light-straight-pants-gray",cat:"pants",name:"Light Straight Pants - Gray",price:680,colour:"Gray",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Light Straight Pants - Gray from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"light-straight-pants-brown",cat:"pants",name:"Light Straight Pants - Brown",price:680,colour:"Brown",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Light Straight Pants - Brown from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"utility-jogger-black",cat:"pants",name:"The Utility Jogger Black",price:870,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"The Utility Jogger Black from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"utility-jogger-silver",cat:"pants",name:"The Utility Jogger Silver",price:870,colour:"Silver",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"The Utility Jogger Silver from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"sweatpants-black",cat:"pants",name:"Sweatpants - Black",price:799,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Sweatpants - Black from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"sweatpants-brown",cat:"pants",name:"Sweatpants - Brown",price:799,colour:"Brown",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Sweatpants - Brown from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"naruto-straight-pants",cat:"pants",name:"Naruto Straight Pants",price:680,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Naruto Straight Pants from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"sasuke-straight-pants",cat:"pants",name:"Sasuke Straight Pants",price:680,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Sasuke Straight Pants from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"demon-slayer-pants",cat:"pants",name:"Demon Slayer Pants",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Demon Slayer Pants from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"zoro-pants",cat:"pants",name:"Zoro Pants",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Zoro Pants from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"sweat-pants-sasuke",cat:"pants",name:"Sweat Pants Sasuke",price:450,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Sweat Pants Sasuke from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"chains-pants",cat:"pants",name:"Chains Pants",price:849,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Chains Pants from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"basic-pants",cat:"pants",name:"Basic Pants",price:600,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"Basic Pants from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"heavy-straight-pants-gray",cat:"pants",name:"Heavy Straight Pants - Gray",price:790,colour:"Gray",sizes:["S","M","L","XL","XXL"],imgs:[],
+   lead:"Heavy Straight Pants - Gray from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: S, M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"heavy-straight-pants-black",cat:"pants",name:"Heavy Straight Pants - Black",price:790,colour:"Black",sizes:["S","M","L","XL","XXL"],imgs:[],
+   lead:"Heavy Straight Pants - Black from the current Fandom catalogue.",
+   details:["Listed in the pants category","Sizes: S, M, L, XL, XXL"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"balloon-jeans-black",cat:"jeans",name:"Balloon Jeans - Black",price:999,colour:"Black",sizes:["32","34","36","38"],imgs:[],
+   lead:"Balloon Jeans - Black from the current Fandom catalogue.",
+   details:["Listed in the jeans category","Sizes: 32, 34, 36, 38"],
+   fabric:"Check the garment label for fabric and care details."},
+  {id:"balloon-jeans-light-blue",cat:"jeans",name:"Vintage Wash Balloon Jeans - Light Blue",price:999,colour:"Light Blue",sizes:["32","34","36","38"],imgs:[],
+   lead:"Vintage Wash Balloon Jeans - Light Blue from the current Fandom catalogue.",
+   details:["Listed in the jeans category","Sizes: 32, 34, 36, 38"],
+   fabric:"Check the garment label for fabric and care details."}
+];
 
-# 5) Site copy
-for old, new in [
-    ("Hoodies, tees and pants cut in shadow. Made to be worn once and remembered.",
-     "Hoodies, tees and pants in dark, simple designs. Made to be worn again and again."),
-    ("Hoodies, tees and pants cut in shadow.",
-     "Hoodies, tees and pants in dark, simple designs."),
-    ("Three pieces. One tone. Heavy fabric, sharp lines, nothing extra.",
-     "Hoodies, tees, pants and more. Heavy fabrics, clean cuts, nothing extra."),
-    ("Quiet by design. Sharp by nature.",
-     "Simple designs that still stand out."),
-    ("Mono Arc is built on one idea: strip a piece down until only the shape is left. "
-     "Black, graphite and steel. The emblem is the only thing that speaks.",
-     "Mono Arc started with a simple idea: keep the clothes clean and let the fit do the "
-     "talking. Mostly black, grey and steel tones, with our emblem as the only detail."),
-    ("Mono Arc is a study in restraint.", "The idea behind Mono Arc."),
-    ("One tone, one emblem, no noise.", "Simple colours, one emblem, nothing extra."),
-    ("We start with the shape. Every cut is drawn, then reduced, then reduced again until "
-     "only what matters is left.",
-     "We start with the shape of each piece and keep trimming the design until only what "
-     "matters is left."),
-    ("The emblem is a pair of blades meeting around a single point of light. It stands for "
-     "balance: edge and calm, shadow and signal.",
-     "Our emblem is two blades meeting around a single point of light. It stands for "
-     "balance between sharp and calm."),
-    ("Heavy fabrics, clean finishing and limited runs. We would rather make fewer pieces "
-     "that last than many that don’t.",
-     "We use heavy fabrics, finish them cleanly and make limited runs. We’d rather make "
-     "fewer pieces that last than lots that don’t."),
-    ("Our pieces are cut oversized. If you want a closer fit, size down.",
-     "Our pieces run oversized. If you like a closer fit, go one size down."),
-    ("Made in small batches. When a piece sells out, it doesn’t come back.",
-     "Made in small batches. Once a piece sells out, it’s gone."),
-    ("A short sleeve tee in dense jersey. Clean neckline, long body, nothing you don’t need.",
-     "A short sleeve tee in thick jersey. Clean neckline, long body, no extras."),
-]:
-    html = rep(old, new, html)
+// App State
+let cart = JSON.parse(localStorage.getItem("mono_cart") || "[]");
+let selectedSize = "";
 
-out = src.with_name(src.stem + "_natural.html")
-out.write_text(html, encoding="utf-8")
+// Helper SVG Placeholder
+function getSvgPlaceholder(name) {
+  return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M40 60 L100 20 L160 60 L160 160 L40 160 Z" fill="none" stroke="#232427" stroke-width="2"/>
+    <text x="100" y="115" text-anchor="middle" fill="#85878e" font-size="12" font-family="Manrope">${name.substring(0, 15)}</text>
+  </svg>`;
+}
 
-print(f"Saved: {out}")
-for k, v in count.items():
-    print(f"  {v:4d}  {k}")
+// Toast Notification
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("on");
+  setTimeout(() => t.classList.remove("on"), 3000);
+}
+
+// Cart UI Management
+function updateCartCount() {
+  const count = cart.reduce((acc, item) => acc + item.qty, 0);
+  document.getElementById("bc").textContent = count;
+  localStorage.setItem("mono_cart", JSON.stringify(cart));
+}
+
+function renderCart() {
+  const container = document.getElementById("cartItems");
+  if (cart.length === 0) {
+    container.innerHTML = `<p style="color:var(--steel);text-align:center;margin-top:40px;">Your bag is empty.</p>`;
+    document.getElementById("cartTotal").textContent = "R0";
+    return;
+  }
+  let total = 0;
+  container.innerHTML = cart.map((item, idx) => {
+    total += item.price * item.qty;
+    return `
+      <div class="cart-item">
+        <div style="width:60px;height:70px;background:#111;display:grid;place-items:center;">
+          ${item.img ? `<img src="${item.img}" style="width:100%;height:100%;object-fit:cover;">` : getSvgPlaceholder("")}
+        </div>
+        <div class="cart-item-info">
+          <h4>${item.name}</h4>
+          <p>Size: ${item.size} | R${item.price}</p>
+          <div>
+            <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
+            <span>${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+          </div>
+        </div>
+        <button style="background:none;border:0;color:var(--steel);cursor:pointer;" onclick="removeItem(${idx})">&times;</button>
+      </div>
+    `;
+  }).join("");
+  document.getElementById("cartTotal").textContent = `R${total}`;
+}
+
+function changeQty(index, delta) {
+  cart[index].qty += delta;
+  if (cart[index].qty <= 0) cart.splice(index, 1);
+  updateCartCount();
+  renderCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCartCount();
+  renderCart();
+}
+
+function addToCart(productId, size) {
+  if (!size) {
+    showToast("Please select a size first.");
+    return;
+  }
+  const prod = PRODUCTS.find(p => p.id === productId);
+  if (!prod) return;
+  
+  const existing = cart.find(c => c.id === productId && c.size === size);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({
+      id: prod.id,
+      name: prod.name,
+      price: prod.price,
+      size: size,
+      img: prod.imgs[0] || "",
+      qty: 1
+    });
+  }
+  updateCartCount();
+  showToast(`${prod.name} (${size}) added to bag.`);
+}
+
+function checkout() {
+  if(cart.length === 0) return showToast("Your bag is empty.");
+  showToast("Checkout functionality is currently in demo mode.");
+}
+
+// Router & Template Engine
+function renderProductCard(p) {
+  const imageMarkup = p.imgs && p.imgs.length > 0 
+    ? `<img src="${p.imgs[0]}" alt="${p.name}">` 
+    : getSvgPlaceholder(p.name);
+  return `
+    <a class="item" href="#/product/${p.id}">
+      <div class="pic">
+        ${imageMarkup}
+        <small>${p.colour.toUpperCase()}</small>
+      </div>
+      <h3>${p.name}</h3>
+      <p><span>${p.cat.toUpperCase()}</span><span>R${p.price}</span></p>
+    </a>
+  `;
+}
+
+function renderHome() {
+  const featured = PRODUCTS.slice(0, 6);
+  return `
+    <div class="page">
+      <div class="hero" id="hero">
+        <div class="mark">
+          <h1>MONO ARC</h1>
+          <p>Hoodies, tees and pants cut in shadow. Built with heavyweight fabrics and oversized silhouettes.</p>
+          <a class="btn" href="#/shop">EXPLORE COLLECTION</a>
+        </div>
+      </div>
+      <section>
+        <div class="title">
+          <h2>CATEGORIES</h2>
+          <p>Minimalist silhouettes tailored for strength and comfort.</p>
+        </div>
+        <div class="cats">
+          <a class="cat" href="#/shop?cat=hoodies"><span>01</span><h3>HOODIES</h3></a>
+          <a class="cat" href="#/shop?cat=tees"><span>02</span><h3>TEES</h3></a>
+          <a class="cat" href="#/shop?cat=pants"><span>03</span><h3>PANTS</h3></a>
+        </div>
+      </section>
+      <section class="manifesto">
+        <h2>"CUT IN SHADOW, TAILORED TO PERFECTION."</h2>
+        <p>Mono Arc creates durable, dark-aesthetic streetwear inspired by structural geometry, minimalism, and subcultural icons.</p>
+      </section>
+      <section>
+        <div class="title">
+          <h2>FEATURED RELEASES</h2>
+          <a class="btn" href="#/shop">VIEW ALL</a>
+        </div>
+        <div class="products">
+          ${featured.map(renderProductCard).join("")}
+        </div>
+      </section>
+      <section class="join">
+        <h2>JOIN THE INNER ARC</h2>
+        <p style="color:var(--steel);margin-top:10px;">Receive priority notification on limited drops and archives.</p>
+        <form onsubmit="event.preventDefault(); showToast('Subscribed to updates.');">
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit">SUBSCRIBE</button>
+        </form>
+      </section>
+    </div>
+  `;
+}
+
+function renderShop(category = "all") {
+  const filtered = category === "all" ? PRODUCTS : PRODUCTS.filter(p => p.cat === category);
+  return `
+    <div class="page">
+      <div class="pagehead">
+        <h1>${category.toUpperCase()}</h1>
+        <p>Explore our complete inventory of heavy fleece, dense jersey, and structured pants.</p>
+      </div>
+      <section>
+        <div class="tabs">
+          <a href="#/shop" class="${category === "all" ? "on" : ""}">ALL PRODUCTS</a>
+          <a href="#/shop?cat=hoodies" class="${category === "hoodies" ? "on" : ""}">HOODIES</a>
+          <a href="#/shop?cat=tees" class="${category === "tees" ? "on" : ""}">TEES</a>
+          <a href="#/shop?cat=pants" class="${category === "pants" ? "on" : ""}">PANTS</a>
+          <a href="#/shop?cat=jeans" class="${category === "jeans" ? "on" : ""}">JEANS</a>
+        </div>
+        <div class="products">
+          ${filtered.map(renderProductCard).join("")}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
+function renderPDP(id) {
+  const p = PRODUCTS.find(item => item.id === id) || PRODUCTS[0];
+  selectedSize = (p.sizes && p.sizes.length > 0) ? p.sizes[0] : "M";
+
+  const galleryMarkup = (p.imgs && p.imgs.length > 0)
+    ? p.imgs.map(img => `<div class="pic"><img src="${img}" alt="${p.name}"></div>`).join("")
+    : Array(3).fill(0).map(() => `<div class="pic">${getSvgPlaceholder(p.name)}</div>`).join("");
+
+  const sizesMarkup = (p.sizes || DEFAULT_SIZES).map((sz, i) => 
+    `<button aria-pressed="${i === 0 ? 'true' : 'false'}" onclick="selectSize(this, '${sz}')">${sz}</button>`
+  ).join("");
+
+  const detailsMarkup = p.details ? p.details.map(d => `<li>${d}</li>`).join("") : "";
+
+  return `
+    <div class="page">
+      <div class="crumbs">
+        <a href="#/shop">SHOP</a> / <a href="#/shop?cat=${p.cat}">${p.cat.toUpperCase()}</a> / <span>${p.name.toUpperCase()}</span>
+      </div>
+      <div class="pdp">
+        <div class="gallery">
+          ${galleryMarkup}
+        </div>
+        <div class="buy">
+          <h1>${p.name}</h1>
+          <div class="price">R${p.price}</div>
+          <p class="lead">${p.lead || ""}</p>
+          
+          <div class="label">
+            <span>SELECT SIZE</span>
+            <a href="#/info">SIZE GUIDE</a>
+          </div>
+          <div class="sizes">
+            ${sizesMarkup}
+          </div>
+
+          <button class="btn fill" style="margin-bottom:20px;" onclick="addToCart('${p.id}', selectedSize)">ADD TO BAG</button>
+
+          <div class="acc">
+            <details open>
+              <summary>DETAILS</summary>
+              <ul>${detailsMarkup}</ul>
+            </details>
+            <details>
+              <summary>FABRIC & CARE</summary>
+              <p style="margin-top:14px;">${p.fabric || "Follow garment instructions."}</p>
+            </details>
+            <details>
+              <summary>SHIPPING & RETURNS</summary>
+              <p style="margin-top:14px;">Standard shipping takes 3-5 business days. Returns accepted within 14 days of delivery.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function selectSize(btn, sz) {
+  selectedSize = sz;
+  const buttons = btn.parentElement.querySelectorAll("button");
+  buttons.forEach(b => b.setAttribute("aria-pressed", "false"));
+  btn.setAttribute("aria-pressed", "true");
+}
+
+function renderGenericPage(title, lead, content) {
+  return `
+    <div class="page">
+      <div class="pagehead">
+        <h1>${title}</h1>
+        <p>${lead}</p>
+      </div>
+      <section class="prose">
+        ${content}
+      </section>
+    </div>
+  `;
+}
+
+function router() {
+  const hash = window.location.hash || "#/";
+  const app = document.getElementById("app");
+  window.scrollTo(0,0);
+
+  if (hash === "#/" || hash === "") {
+    app.innerHTML = renderHome();
+  } else if (hash.startsWith("#/shop")) {
+    const urlParams = new URLSearchParams(hash.split("?")[1] || "");
+    const cat = urlParams.get("cat") || "all";
+    app.innerHTML = renderShop(cat);
+  } else if (hash.startsWith("#/product/")) {
+    const id = hash.replace("#/product/", "");
+    app.innerHTML = renderPDP(id);
+  } else if (hash === "#/collections") {
+    app.innerHTML = renderGenericPage(
+      "OUR COLLECTION",
+      "Architectural streetwear inspired by shadow and form.",
+      `<div><h2>THE ARCHIVE</h2></div><div><p>Mono Arc collections represent exploration in density, proportion, and texture. Each release is crafted in limited numbers to maintain exceptional quality control.</p></div>`
+    );
+  } else if (hash === "#/accessories") {
+    app.innerHTML = renderGenericPage(
+      "ACCESSORIES",
+      "Hardware, leather goods, and accents built to endure.",
+      `<div><h2>COMING SOON</h2></div><div><p>Our accessory archive is currently being prepared for the next drop. Sign up to the Inner Arc for notifications.</p></div>`
+    );
+  } else if (hash === "#/track") {
+    app.innerHTML = `
+      <div class="page">
+        <div class="pagehead">
+          <h1>TRACK ORDER</h1>
+          <p>Enter your order credentials to monitor delivery status.</p>
+        </div>
+        <section>
+          <form class="form" onsubmit="event.preventDefault(); showToast('Order details found: In Transit.');">
+            <input type="text" placeholder="Order ID (e.g. #MA-9042)" required>
+            <input type="email" placeholder="Email Address" required>
+            <button class="btn fill" type="submit">SEARCH STATUS</button>
+          </form>
+        </section>
+      </div>
+    `;
+  } else if (hash === "#/info") {
+    app.innerHTML = renderGenericPage(
+      "SIZING & INFO",
+      "Specifications for our garment cuts and shipping policies.",
+      `<div>
+        <h2>SIZE GUIDE</h2>
+        <table class="sizetable">
+          <thead><tr><th>SIZE</th><th>CHEST (INCH)</th><th>LENGTH (CM)</th></tr></thead>
+          <tbody>
+            <tr><td>S</td><td>36 - 38</td><td>70</td></tr>
+            <tr><td>M</td><td>40 - 42</td><td>73</td></tr>
+            <tr><td>L</td><td>44 - 46</td><td>76</td></tr>
+            <tr><td>XL</td><td>48 - 50</td><td>79</td></tr>
+            <tr><td>XXL</td><td>52 - 54</td><td>82</td></tr>
+          </tbody>
+        </table>
+       </div>
+       <div>
+        <h2>SHIPPING POLICY</h2>
+        <p>All items are shipped via express courier. Delivery within South Africa typically takes 2-4 business days.</p>
+       </div>`
+    );
+  } else if (hash === "#/contact") {
+    app.innerHTML = `
+      <div class="page">
+        <div class="pagehead">
+          <h1>CONTACT</h1>
+          <p>Get in touch with our support and client care teams.</p>
+        </div>
+        <section>
+          <form class="form" onsubmit="event.preventDefault(); showToast('Message transmitted successfully.');">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button class="btn fill" type="submit">TRANSMIT MESSAGE</button>
+          </form>
+        </section>
+      </div>
+    `;
+  } else if (hash === "#/about") {
+    app.innerHTML = renderGenericPage(
+      "PHILOSOPHY",
+      "Structure, silhouette, and subtle subversion.",
+      `<div><h2>MONO ARC</h2></div><div><p>Mono Arc was established to challenge decorative fast fashion by producing monolithic, dark, and resilient garments. We prioritize heavy textiles and clean geometry over loud branding.</p></div>`
+    );
+  } else {
+    app.innerHTML = renderHome();
+  }
+}
+
+// Event Listeners Initialization
+window.addEventListener("hashchange", router);
+window.addEventListener("load", () => {
+  router();
+  updateCartCount();
+});
+
+// Interactive Bag Modal Controls
+const cartDrawer = document.getElementById("cartDrawer");
+document.getElementById("bag").addEventListener("click", () => {
+  renderCart();
+  cartDrawer.classList.add("open");
+});
+document.getElementById("cartClose").addEventListener("click", () => {
+  cartDrawer.classList.remove("open");
+});
+document.getElementById("cartBg").addEventListener("click", () => {
+  cartDrawer.classList.remove("open");
+});
+
+// Subtle Header Scroll Effect & Hero Dynamic Spotlight
+window.addEventListener("scroll", () => {
+  const hd = document.getElementById("hd");
+  if (window.scrollY > 40) {
+    hd.classList.add("solid");
+  } else {
+    hd.classList.remove("solid");
+  }
+});
+
+document.addEventListener("mousemove", (e) => {
+  const hero = document.getElementById("hero");
+  if(hero) {
+    const rect = hero.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    hero.style.setProperty("--mx", `${x}%`);
+    hero.style.setProperty("--my", `${y}%`);
+  }
+});
+</script>
+</body>
+</html>
