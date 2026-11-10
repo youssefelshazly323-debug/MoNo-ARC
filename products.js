@@ -108,7 +108,10 @@ fabric:"Wash cold inside out. Avoid ironing directly over the design."},
 {id:"light-straight-pants-brown",cat:"pants",name:"Light Straight Pants - Brown",price:680,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"Light Straight Pants - Brown from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
 {id:"utility-jogger-black",cat:"pants",name:"The Utility Jogger Black",price:870,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"The Utility Jogger Black from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
 {id:"utility-jogger-silver",cat:"pants",name:"The Utility Jogger Silver",price:870,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"The Utility Jogger Silver from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
-{id:"sweatpants-black",cat:"pants",name:"Sweatpants - Black",price:799,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"Sweatpants - Black from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
+{id:"sweatpants-black",cat:"pants",name:"Sweatpants - Black",price:799,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[
+"images/products/sweatpants-black-front.webp",
+"images/products/sweatpants-black-back.webp",
+"images/products/sweatpants-black-side.webp"],lead:"Sweatpants - Black from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL"],fabric:"Check the garment label for fabric and care details."},
 {id:"sweatpants-brown",cat:"pants",name:"Sweatpants - Brown",price:799,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"Sweatpants - Brown from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
 {id:"naruto-straight-pants",cat:"pants",name:"Naruto Straight Pants",price:680,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"Naruto Straight Pants from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
 {id:"sasuke-straight-pants",cat:"pants",name:"Sasuke Straight Pants",price:680,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"Sasuke Straight Pants from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
@@ -307,6 +310,165 @@ const extraCatalogue = [
  {id:"arc-jeans",cat:"jeans",name:"Arc Denim",price:1750,colour:"Washed Black",imgs:[],lead:"A relaxed denim silhouette.",details:["Relaxed fit","Classic five-pocket styling"],fabric:"Care details to be confirmed."},
  {id:"mono-knit",cat:"knitwear",name:"Mono Knit",price:1900,colour:"Onyx",imgs:[],lead:"A minimal knit layer.",details:["Soft hand feel","Clean silhouette"],fabric:"Care details to be confirmed."}
 ];
+const PRODUCT_IMAGE_ASSIGNMENTS = {
+  "heavy-straight-pants-gray": [
+    "images/products/IMG_6315_1.webp",
+    "images/products/IMG_6317_1.webp",
+    "images/products/IMG_6319_1.webp"
+  ],
+  "heavy-straight-pants-black": [
+    "images/products/GenerativeFill6.webp",
+    "images/products/IMG_9488_980e0605-174c-41f7-b503-f3ab17ff945a.webp",
+    "images/products/GenerativeFill8_d7da2447-16e3-459d-b6da-178ed08156ec.webp"
+  ],
+  "sweatpants-brown": [
+    "images/products/IMG_9484_c23e7cee-5be0-4c26-84af-0bf259db0c56.webp",
+    "images/products/2_e18726f8-e251-40ba-9cee-30851b69b2ac.webp",
+    "images/products/4_8cb9d022-dde1-430b-ae50-01a115ba6f6b.webp",
+    "images/products/1_0ac364fe-e208-49c5-9403-5221ebfc3d19.webp",
+    "images/products/3_1d6a7335-c0e6-4cfb-b894-beb804c1701a.webp"
+  ],
+  "light-straight-pants-gray": [
+    "images/products/IMG_9399.webp",
+    "images/products/GenerativeFill7_d414b0ba-d80c-40e9-b87c-315deddd7b04.webp",
+    "images/products/IMG_9409.webp",
+    "images/products/IMG_9420.webp"
+  ],
+  "basic-pants": [
+    "images/products/black.webp",
+    "images/products/beige.webp",
+    "images/products/gray.webp",
+    "images/products/navy-blue.webp"
+  ],
+  "zoro-pants": [
+    "images/products/GenerativeFill3_38c45b9e-6f6e-44ea-865b-d13290a7fce6.webp",
+    "images/products/zoro-joggers-zams-2.webp",
+    "images/products/zoro-joggers-zams-4-157115_76ef4447-807d-4317-bba7-69c34f3d49e9.webp"
+  ],
+  "balloon-jeans-olive": [
+    "images/products/fandom-balloon-jeans-1.webp",
+    "images/products/fandom-balloon-jeans-2.webp"
+  ],
+  "balloon-jeans-indigo": [
+    "images/products/1000240765.webp",
+    "images/products/1000240764.webp",
+    "images/products/1000240766.webp"
+  ],
+  "balloon-jeans-light-blue": [
+    "images/products/fandom-light-blue-balloon-1.webp",
+    "images/products/fandom-light-blue-balloon-detail.webp"
+  ],
+  "balloon-jeans-black": [
+    "images/products/fandom-black-balloon-0.webp",
+    "images/products/fandom-black-balloon-2.webp"
+  ],
+  "musashi-miyamoto-tee": [
+    "images/products/Musashi Miyamoto.webp"
+  ],
+  "kenpachi-zaraki": [
+    "images/products/IMG_8050.webp",
+    "images/products/IMG_8052.webp",
+    "images/products/IMG_8053.webp"
+  ],
+  "brutal-crest-mark": [
+    "images/products/Brutal Crest Mark.webp"
+  ],
+  "demon-slayer-pants": [
+    "images/products/demon-slayer-joggers-zams-1.webp",
+    "images/products/demon-slayer-joggers-zams-2.webp",
+    "images/products/3_c6c2aa65-a64b-495a-ab05-3c3d7a484774.webp",
+    "images/products/4_ae80ab54-c25a-4f6d-8ccc-f37e19227304.webp",
+    "images/products/4_6c82151d-88ab-426e-b8b7-17ba0bbf32d2.webp"
+  ],
+  "frame-anime-university": [
+    "images/products/Anime University.webp"
+  ],
+  "keychain-luffy-straw-hat": [
+    "images/products/LUFFY STRAW HAT.webp"
+  ],
+  "frame-hxh-last-mission": [
+    "images/products/HxH Last Mission.webp"
+  ],
+  "frame-dbz-v1": [
+    "images/products/DBZ v1.webp"
+  ],
+  "frame-naruto-vs-sasuke": [
+    "images/products/Naruto vs Sasuke.webp"
+  ],
+  "frame-levi-from-aot": [
+    "images/products/Levi from AOT.webp"
+  ],
+  "basic-red-tee": [
+    "images/products/Basic Red Tee.webp",
+    "images/products/4_79d81d03-a413-443b-80c0-7e588f0fdf52.webp",
+    "images/products/1_e44161ff-393f-4e8b-a6c6-25ad159b43ae.webp"
+  ],
+  "basic-pink-tee": [
+    "images/products/2_f350efca-1c15-4772-be5d-75a216bd73d7.webp",
+    "images/products/3_ef334ef5-769d-4689-883f-616130e62659.webp",
+    "images/products/4_bd1741a5-401b-4b09-b3f0-54e9440b625c.webp"
+  ],
+  "basic-yellow-tee": [
+    "images/products/1_b0b93abc-cb50-42f4-8724-da4cf1be0417.webp",
+    "images/products/2_afaaf9b2-8a33-4646-b728-8f5f25e1ee34.webp",
+    "images/products/3_c6a36657-4e1e-4d35-a021-ff99a09abe1c.webp"
+  ],
+  "basic-gray-tee": [
+    "images/products/gray_deec856b-2024-452f-bdab-94fdc273bccf.webp",
+    "images/products/4_8b24d7e5-bd41-4cab-86ef-bfa44478bb2e.webp",
+    "images/products/5_d72671d3-598b-47b5-906d-565f93d55631.webp"
+  ],
+  "cap-survey-corps": [
+    "images/products/exec-84bc7b37-d182-43d7-bdb4-b21e0cbbc7d3.webp",
+    "images/products/exec-d34e5765-f4bf-491c-ba81-e94b4c454bd1.webp",
+    "images/products/exec-ec89a2e5-a24f-480c-9416-5088c0b1b95f.webp"
+  ],
+  "hoodie-freedom-black": [
+    "images/products/freedom-black-hoodie-front.webp",
+    "images/products/1_79059f2c-80e9-40f7-8355-4d1a2380c3ad.webp",
+    "images/products/freedom-black-hoodie-side.webp"
+  ],
+  "crimson-cloud-sticker": [
+    "images/products/NARUTO68.webp"
+  ],
+  "cursed-arm-manifestation": [
+    "images/products/JUJUTSU76.webp"
+  ],
+  "crimson-crescent-blade": [
+    "images/products/BLEACH37.webp"
+  ],
+  "sticker-hunter-logo": [
+    "images/products/HUNTERX23.webp"
+  ],
+  "winged-vanguard-sticker": [
+    "images/products/ATTACK-ON-TITAN46.webp"
+  ],
+  "sticker-hunter-logo-alt": [
+    "images/products/HUNTERX7_2822d5de-7861-4b7a-aef3-737d6313eaff.webp"
+  ],
+  "joyful-ascension-sticker": [
+    "images/products/ONEPIECE63.webp",
+    "images/products/ONEPIECE75.webp"
+  ],
+  "blue-lock-sweater": [
+    "images/products/1_cccd4eb6-2dd4-4e57-b0d8-d5f86ed73a09.webp",
+    "images/products/2_358d1463-fd76-40ef-b8d7-d83c179bcbcb.webp",
+    "images/products/3_91378bbc-6a27-4ada-8735-a8b5a290e197.webp",
+    "images/products/IMG_9488.webp",
+    "images/products/IMG_9487.webp"
+  ],
+  "tee-99-killua-long-sleeve": [
+    "images/products/2_f02d2b4c-4951-490f-b99b-14d5a29346b5.webp",
+    "images/products/1_7fba4c76-a79b-4f13-b78d-f691aa47e6b8.webp"
+  ]
+};
+PRODUCTS.forEach(product => {
+  const assignedImages = PRODUCT_IMAGE_ASSIGNMENTS[product.id];
+  if (assignedImages) {
+    product.imgs = [...new Set([...assignedImages, ...(product.imgs || [])])];
+  }
+});
+
 const PRODUCT_TAGS = {
 "tee-luffy-golden-boy":{typeTags:["tees"],animeTags:["One Piece"],collectionTags:[]},
 "tee-luffy-thunder":{typeTags:["tees"],animeTags:["One Piece"],collectionTags:[]},
@@ -556,4 +718,3 @@ const PRODUCT_TAGS = {
 PRODUCTS.forEach(p=>{const t=PRODUCT_TAGS[p.id]||{};p.typeTags=t.typeTags||p.typeTags||[];p.animeTags=t.animeTags||p.animeTags||[];p.collectionTags=t.collectionTags||p.collectionTags||[];});
 window.MONO_PRODUCTS=PRODUCTS;
 })();
-
