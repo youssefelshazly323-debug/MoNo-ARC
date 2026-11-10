@@ -106,8 +106,8 @@ fabric:"Wash cold inside out. Avoid ironing directly over the design."},
 {id:"light-straight-pants-black",cat:"pants",name:"Light Straight Pants - Black",price:750,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"Light Straight Pants - Black from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
 {id:"light-straight-pants-gray",cat:"pants",name:"Light Straight Pants - Gray",price:680,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"Light Straight Pants - Gray from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
 {id:"light-straight-pants-brown",cat:"pants",name:"Light Straight Pants - Brown",price:680,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"Light Straight Pants - Brown from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
-{id:"utility-jogger-black",cat:"pants",name:"The Utility Jogger Black",price:870,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"The Utility Jogger Black from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
-{id:"utility-jogger-silver",cat:"pants",name:"The Utility Jogger Silver",price:870,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"The Utility Jogger Silver from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
+{id:"utility-jogger-black",cat:"pants",name:"The Utility Jogger Gray",price:870,colour:"Gray",sizes:["M","L","XL","XXL"],imgs:[],lead:"The Utility Jogger Gray from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
+{id:"utility-jogger-silver",cat:"pants",name:"The Utility Jogger Silver",price:870,colour:"Silver",sizes:["M","L","XL","XXL"],imgs:[],lead:"The Utility Jogger Silver from the current Fandom catalogue.",details:["Listed in the pants category","Sizes: M, L, XL, XXL","Product images and full specifications are not yet available for this listing"],fabric:"Check the garment label for fabric and care details."},
 {id:"sweatpants-black",cat:"pants",name:"Sweatpants - Black",price:799,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[
 "images/products/sweatpants-black-front.webp",
 "images/products/sweatpants-black-back.webp",
@@ -229,11 +229,11 @@ fabric:"Wash cold inside out. Avoid ironing directly over the design."},
 {id:"valhalla-tee",cat:"tees",name:"VALHALLA TEE",price:680,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],lead:"VALHALLA TEE from the Fandom T-shirt collection.",details:["T-shirt collection listing","Sizes: M, L, XL, XXL","Original product photos are not attached yet"],fabric:"Check the product label for fabric and care details."},
 {id:"keychain-berserk",cat:"accessories",name:"BERSERK",price:60,colour:"Original",sizes:["One size"],imgs:[],lead:"BERSERK from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
 {id:"keychain-luffy-straw-hat",cat:"accessories",name:"LUFFY STRAW HAT",price:60,colour:"Original",sizes:["One size"],imgs:[],lead:"LUFFY STRAW HAT from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
-{id:"frame-anime-university",cat:"frames",name:"Anime University",price:250,colour:"Original",sizes:["One size"],imgs:[],lead:"Anime University from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
-{id:"frame-hxh-last-mission",cat:"frames",name:"HxH Last Mission",price:300,colour:"Original",sizes:["One size"],imgs:[],lead:"HxH Last Mission from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
-{id:"frame-dbz-v1",cat:"frames",name:"DBZ v1",price:300,colour:"Original",sizes:["One size"],imgs:[],lead:"DBZ v1 from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
-{id:"frame-naruto-vs-sasuke",cat:"frames",name:"Naruto vs Sasuke",price:300,colour:"Original",sizes:["One size"],imgs:[],lead:"Naruto vs Sasuke from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
-{id:"frame-levi-from-aot",cat:"frames",name:"Levi from AOT",price:300,colour:"Original",sizes:["One size"],imgs:[],lead:"Levi from AOT from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
+{id:"frame-anime-university",cat:"accessories",name:"Anime University",price:250,colour:"Original",sizes:["One size"],imgs:[],lead:"Anime University from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
+{id:"frame-hxh-last-mission",cat:"accessories",name:"HxH Last Mission",price:300,colour:"Original",sizes:["One size"],imgs:[],lead:"HxH Last Mission from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
+{id:"frame-dbz-v1",cat:"accessories",name:"DBZ v1",price:300,colour:"Original",sizes:["One size"],imgs:[],lead:"DBZ v1 from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
+{id:"frame-naruto-vs-sasuke",cat:"accessories",name:"Naruto vs Sasuke",price:300,colour:"Original",sizes:["One size"],imgs:[],lead:"Naruto vs Sasuke from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
+{id:"frame-levi-from-aot",cat:"accessories",name:"Levi from AOT",price:300,colour:"Original",sizes:["One size"],imgs:[],lead:"Levi from AOT from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
 {id:"lamp-goku-super-saiyajin",cat:"accessories",name:"Goku Super Saiyajin shadow lamp",price:1200,colour:"Original",sizes:["One size"],imgs:[],lead:"Goku Super Saiyajin shadow lamp from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
 {id:"lamp-luffy-gear-5",cat:"accessories",name:"Luffy Gear 5 Shadow Lamp",price:1200,colour:"Original",sizes:["One size"],imgs:[],lead:"Luffy Gear 5 Shadow Lamp from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
 {id:"lamp-zoro",cat:"accessories",name:"Zoro Shadow Lamp",price:1200,colour:"Original",sizes:["One size"],imgs:[],lead:"Zoro Shadow Lamp from the Fandom collection.",details:["Official Fandom catalogue listing","Product availability may change","Original product photos are not attached yet"],fabric:"See original product listing for material and care details."},
@@ -334,6 +334,11 @@ const PRODUCT_IMAGE_ASSIGNMENTS = {
     "images/products/IMG_9409.webp",
     "images/products/IMG_9420.webp"
   ],
+  "light-straight-pants-brown": [
+    "images/products/GenerativeFill2_6d2dcee7-787a-4d26-8e35-6c6e0cdfa458.webp",
+    "images/products/GenerativeFill_fd14b58f-4b9b-4c72-bce7-e9150e2aaf0d.webp",
+    "images/products/IMG_9453.webp"
+  ],
   "basic-pants": [
     "images/products/black.webp",
     "images/products/beige.webp",
@@ -344,6 +349,12 @@ const PRODUCT_IMAGE_ASSIGNMENTS = {
     "images/products/GenerativeFill3_38c45b9e-6f6e-44ea-865b-d13290a7fce6.webp",
     "images/products/zoro-joggers-zams-2.webp",
     "images/products/zoro-joggers-zams-4-157115_76ef4447-807d-4317-bba7-69c34f3d49e9.webp"
+  ],
+  "chains-pants": [
+    "images/products/GenerativeFill3_faabf748-f6e6-4d00-9cb9-6cdfbc6b878c.webp",
+    "images/products/GenerativeFill_9d42c636-9ade-487d-abbc-1eaa60e72605.webp",
+    "images/products/IMG_9425.webp",
+    "images/products/GenerativeFill2_4d5cc54e-fc58-4213-afb4-1fc703eb02a2.webp"
   ],
   "balloon-jeans-olive": [
     "images/products/fandom-balloon-jeans-1.webp",
@@ -363,7 +374,9 @@ const PRODUCT_IMAGE_ASSIGNMENTS = {
     "images/products/fandom-black-balloon-2.webp"
   ],
   "musashi-miyamoto-tee": [
-    "images/products/Musashi Miyamoto.webp"
+    "images/products/IMG_0156.webp",
+    "images/products/IMG_0159.webp",
+    "images/products/IMG_0158.webp"
   ],
   "kenpachi-zaraki": [
     "images/products/IMG_8050.webp",
@@ -375,10 +388,7 @@ const PRODUCT_IMAGE_ASSIGNMENTS = {
   ],
   "demon-slayer-pants": [
     "images/products/demon-slayer-joggers-zams-1.webp",
-    "images/products/demon-slayer-joggers-zams-2.webp",
-    "images/products/3_c6c2aa65-a64b-495a-ab05-3c3d7a484774.webp",
-    "images/products/4_ae80ab54-c25a-4f6d-8ccc-f37e19227304.webp",
-    "images/products/4_6c82151d-88ab-426e-b8b7-17ba0bbf32d2.webp"
+    "images/products/demon-slayer-joggers-zams-2.webp"
   ],
   "frame-anime-university": [
     "images/products/Anime University.webp"
@@ -401,12 +411,24 @@ const PRODUCT_IMAGE_ASSIGNMENTS = {
   "basic-red-tee": [
     "images/products/Basic Red Tee.webp",
     "images/products/4_79d81d03-a413-443b-80c0-7e588f0fdf52.webp",
-    "images/products/1_e44161ff-393f-4e8b-a6c6-25ad159b43ae.webp"
+    "images/products/1_e44161ff-393f-4e8b-a6c6-25ad159b43ae.webp",
+    "images/products/IMG_9375.webp",
+    "images/products/IMG_9378.webp",
+    "images/products/3_b234d50f-1b04-4497-9736-2440d2ccd206.webp",
+    "images/products/4_12169467-4d33-4720-870b-27ee45971f96.webp",
+    "images/products/1_40eb9d93-d52d-4b2f-8d01-6cbab7f2d9c8.webp",
+    "images/products/IMG_5058.webp",
+    "images/products/IMG_5061.webp",
+    "images/products/IMG_5060.webp"
   ],
   "basic-pink-tee": [
     "images/products/2_f350efca-1c15-4772-be5d-75a216bd73d7.webp",
     "images/products/3_ef334ef5-769d-4689-883f-616130e62659.webp",
     "images/products/4_bd1741a5-401b-4b09-b3f0-54e9440b625c.webp"
+  ],
+  "basic-brown-tee": [
+    "images/products/3_47d517b6-7125-42c9-b3c1-8d73593da7c4.webp",
+    "images/products/4_79c9cd7d-b45d-4a3d-815f-df7681ceab1a.webp"
   ],
   "basic-yellow-tee": [
     "images/products/1_b0b93abc-cb50-42f4-8724-da4cf1be0417.webp",
@@ -430,6 +452,16 @@ const PRODUCT_IMAGE_ASSIGNMENTS = {
   ],
   "crimson-cloud-sticker": [
     "images/products/NARUTO68.webp"
+  ],
+  "tee-gaara": [
+    "images/products/IMG_4983.webp",
+    "images/products/IMG_4986.webp",
+    "images/products/IMG_4985.webp"
+  ],
+  "tee-naruto": [
+    "images/products/IMG_4960.webp",
+    "images/products/IMG_4963.webp",
+    "images/products/IMG_4962.webp"
   ],
   "cursed-arm-manifestation": [
     "images/products/JUJUTSU76.webp"
@@ -455,17 +487,204 @@ const PRODUCT_IMAGE_ASSIGNMENTS = {
     "images/products/2_358d1463-fd76-40ef-b8d7-d83c179bcbcb.webp",
     "images/products/3_91378bbc-6a27-4ada-8735-a8b5a290e197.webp",
     "images/products/IMG_9488.webp",
-    "images/products/IMG_9487.webp"
+    "images/products/IMG_9487.webp",
+    "images/products/IMG_9485.webp"
   ],
   "tee-99-killua-long-sleeve": [
-    "images/products/2_f02d2b4c-4951-490f-b99b-14d5a29346b5.webp",
-    "images/products/1_7fba4c76-a79b-4f13-b78d-f691aa47e6b8.webp"
+    "images/products/IMG_6415.webp",
+    "images/products/IMG_6418.webp",
+    "images/products/IMG_6417.webp"
+  ],
+  "phantom-troupe-varsity": [
+    "images/products/4_d3a87af7-6c59-4882-803d-68ab03c56c40.webp",
+    "images/products/3_caf5ee8d-25e9-4fc9-9d22-17f74fee73b1.webp",
+    "images/products/2_069d2e02-b7fd-4cee-86b2-5d05ef616d5f.webp"
+  ],
+  "itachi-varsity": [
+    "images/products/1_b761b95f-16a4-4944-964e-a91c088b2b0b.webp",
+    "images/products/4_6e579b40-48d1-4628-b03f-d1a65511032b.webp"
+  ],
+  "red-zipper-jacket": [
+    "images/products/3_fda13ac1-8db3-485a-9cb3-24f56ec506b3.webp"
+  ],
+  "ultimate-berserk-hoodie": [
+    "images/products/1_a0525e22-2f5d-494c-8a58-a7850cdaf97f.webp",
+    "images/products/3_07f4cae0-822f-4a2c-945f-f8d30e17b4b2.webp",
+    "images/products/2_2485d3f4-b8bb-4d52-a221-0ef7a6995e47.webp"
+  ],
+  "basic-green-tee": [
+    "images/products/ChatGPT_Image_Aug_25_2026_06_02_02_AM.webp",
+    "images/products/IMG_5057.webp",
+    "images/products/IMG_5055.webp"
+  ],
+  "bizarre-bloodline-zip-hoodie": [
+    "images/products/47D56C3E-1FE0-4E6C-A28E-FF81CE3921F5.webp",
+    "images/products/01B8B633-DC04-4031-912D-41D5A6837481.webp",
+    "images/products/0E796B08-39F4-4FA1-BFB6-F0602D46E2E8.webp"
+  ],
+  "gyro-zeppeli": [
+    "images/products/2_f0aafd42-698f-469c-96dc-6534b9503b24.webp",
+    "images/products/1_3b3d0f65-df63-487e-b90a-5cf40248cce0.webp",
+    "images/products/3_6bcb824b-99cb-4f73-8c5c-0f8b3e7ac8ab.webp"
+  ],
+  "utility-jogger-black": [
+    "images/products/IMG_6262.webp",
+    "images/products/IMG_6261.webp",
+    "images/products/IMG_6263.webp"
+  ],
+  "utility-jogger-silver": [
+    "images/products/Hue_Saturation1.webp",
+    "images/products/Hue_Saturation1copy2.webp",
+    "images/products/Hue_Saturation1copy.webp"
+  ],
+  "socks-one-piece": [
+    "images/products/5_b8cbf7c7-565e-4c29-8dd1-35ffa16cb2b6.webp"
+  ],
+  "basic-black-tee": [
+    "images/products/IMG_4951.webp",
+    "images/products/IMG_4948.webp",
+    "images/products/IMG_4950.webp"
+  ],
+  "tee-gyomei-red": [
+    "images/products/3_c6c2aa65-a64b-495a-ab05-3c3d7a484774.webp",
+    "images/products/4_ae80ab54-c25a-4f6d-8ccc-f37e19227304.webp",
+    "images/products/4_6c82151d-88ab-426e-b8b7-17ba0bbf32d2.webp"
+  ],
+  "sukuna-v1-tee": [
+    "images/products/IMG_6407.webp",
+    "images/products/IMG_6410.webp",
+    "images/products/IMG_6409.webp"
+  ],
+  "spiders-hoodie": [
+    "images/products/1_478ecea0-5daf-466a-9378-d8258826d839.webp",
+    "images/products/2_add76b38-f35c-462d-82d0-4f783d9f264d.webp",
+    "images/products/3_ac8a2048-c868-44c6-ac3e-fcc6dda8498f.webp"
+  ],
+  "ulquiorra-cifer": [
+    "images/products/IMG_6248.webp",
+    "images/products/IMG_6251.webp",
+    "images/products/IMG_6250.webp"
+  ],
+  "akatsuki-cap": [
+    "images/products/6736ab67-a573-4612-b4ef-64d7a3ac2234.webp",
+    "images/products/b9fb0c63-724f-4715-85f3-e8f4030b47af.webp",
+    "images/products/9ccaadbc-36dd-4382-8287-415f6c4bc45e.webp"
+  ],
+  "hollow-mask-icon": [
+    "images/products/BLEACH44_f4a01e33-5ffe-490b-a5b4-7f9a618cbb0c.webp"
+  ],
+  "black-tokyo-ghoul": [
+    "images/products/IMG_6228.webp",
+    "images/products/IMG_6231.webp",
+    "images/products/IMG_6230.webp"
+  ],
+  "green-gon": [
+    "images/products/IMG_5080_1.webp",
+    "images/products/IMG_5082_1.webp",
+    "images/products/IMG_5081_1.webp"
+  ],
+  "aot-green-zip-up": [
+    "images/products/6.webp",
+    "images/products/5_07d327e0-83a0-4246-9547-48888bf4e79e.webp"
+  ],
+  "custom-gon-tee": [
+    "images/products/IMG_4968.webp",
+    "images/products/IMG_4971.webp",
+    "images/products/IMG_4970.webp"
+  ],
+  "attack-on-titan-accessory": [
+    "images/products/59.webp"
+  ],
+  "sukuna-cap": [
+    "images/products/3_a5f71c27-778e-4211-9463-50010eb7513b.webp",
+    "images/products/1_dd836ff2-bfe5-43a1-8e23-9fec58dd1c0c.webp",
+    "images/products/2_975fd221-1f91-426b-8735-1765b7c0004e.webp"
+  ],
+  "tee-baki": [
+    "images/products/Baki_4_4e83a602-d975-451e-b444-1fb012011f35.webp",
+    "images/products/Baki_08209954-5fa1-43f4-b508-26100920e4b9.webp"
+  ],
+  "hisoka-tee-alt": [
+    "images/products/IMG_4987.webp",
+    "images/products/IMG_4990.webp",
+    "images/products/IMG_4989.webp"
+  ],
+  "rambling-aot": [
+    "images/products/3_c65f451a-034d-4680-8a92-b1e1a8cfd6e0.webp",
+    "images/products/4_da39e86b-2c7d-4c65-937d-34f82b571924.webp",
+    "images/products/2_472375c4-ce33-4a5e-b59a-8e657abe9227.webp"
+  ],
+  "phantom-troupe-spiders-tee": [
+    "images/products/IMG_4920_5f728230-fa29-43fc-82c8-386e2a7ced18.webp",
+    "images/products/IMG_4923_008cb249-7d97-4942-9579-9d5dc5215cca.webp",
+    "images/products/IMG_4922_d0b81d37-4c1e-4f43-8903-eb5ce66f2ddb.webp"
+  ],
+  "beige-basic-hoodie": [
+    "images/products/IMG_5039.webp",
+    "images/products/IMG_5010.webp",
+    "images/products/IMG_5041.webp"
+  ],
+  "black-basic-hoodie-alt": [
+    "images/products/IMG_6264.webp",
+    "images/products/IMG_6267.webp",
+    "images/products/IMG_6266.webp"
+  ],
+  "zipper-brown": [
+    "images/products/IMG_5042.webp",
+    "images/products/IMG_5045.webp",
+    "images/products/IMG_5044.webp"
+  ],
+  "pink-zipper": [
+    "images/products/3_1248e912-6088-40e1-ae35-bb9528cebae1.webp",
+    "images/products/4_a3827325-61ee-4ab6-b914-8072912ee743.webp",
+    "images/products/1_5b37f884-4496-4916-b482-e40890d7d63c.webp"
+  ],
+  "green-zipper-jacket": [
+    "images/products/3_ff6be0e1-233e-48fb-9836-a22babcf07e8.webp",
+    "images/products/4_3185c370-adec-4f04-a485-87a3c806d527.webp",
+    "images/products/1_a2ad3d16-0458-4be4-8332-25fc5e7f55e0.webp"
+  ],
+  "hunter-license-card": [
+    "images/products/HUNTERX10_fe532896-7d26-44cd-b7cc-6726532209e8.webp"
+  ],
+  "tee-griffith-v1": [
+    "images/products/IMG_1531.webp",
+    "images/products/IMG_1540.webp",
+    "images/products/IMG_1533.webp"
+  ],
+  "asta-red": [
+    "images/products/IMG_4964.webp",
+    "images/products/IMG_4967.webp",
+    "images/products/IMG_4966.webp"
+  ],
+  "tee-blind-faith": [
+    "images/products/IMG_4991.webp",
+    "images/products/IMG_4994.webp",
+    "images/products/IMG_4993.webp"
+  ],
+  "chainsaw-man-premium": [
+    "images/products/IMG_6244.webp",
+    "images/products/IMG_6247.webp",
+    "images/products/IMG_6246.webp"
+  ],
+  "berserk-v4": [
+    "images/products/IMG_6232.webp",
+    "images/products/IMG_6235.webp",
+    "images/products/IMG_6234.webp"
+  ],
+  "patched-one-piece-hoodie": [
+    "images/products/ChatGPTImageNov10_2026_05_42_26AM.webp",
+    "images/products/ChatGPTImageNov10_2026_05_42_32AM.webp",
+    "images/products/3_a7147da2-c023-4efb-995b-c1a00b6b8756.webp",
+    "images/products/4_20925326-a026-4ddd-8d27-58fd1838f181.webp"
   ]
 };
 PRODUCTS.forEach(product => {
   const assignedImages = PRODUCT_IMAGE_ASSIGNMENTS[product.id];
   if (assignedImages) {
-    product.imgs = [...new Set([...assignedImages, ...(product.imgs || [])])];
+    product.imgs = [...new Set([...assignedImages, ...(product.imgs || [])])].slice(0, 4);
+  } else {
+    product.imgs = [...new Set(product.imgs || [])].slice(0, 4);
   }
 });
 
@@ -517,11 +736,11 @@ const PRODUCT_TAGS = {
 
 "keychain-berserk":{typeTags:["accessories"],animeTags:["Berserk"],collectionTags:[]},
 "keychain-luffy-straw-hat":{typeTags:["accessories"],animeTags:["One Piece"],collectionTags:[]},
-"frame-anime-university":{typeTags:["frames"],animeTags:[],collectionTags:[]},
-"frame-hxh-last-mission":{typeTags:["frames"],animeTags:["Hunter X Hunter"],collectionTags:[]},
-"frame-dbz-v1":{typeTags:["frames"],animeTags:["Dragon Ball Z"],collectionTags:[]},
-"frame-naruto-vs-sasuke":{typeTags:["frames"],animeTags:["Naruto"],collectionTags:[]},
-"frame-levi-from-aot":{typeTags:["frames"],animeTags:["Attack on Titan"],collectionTags:[]},
+"frame-anime-university":{typeTags:["accessories"],animeTags:[],collectionTags:[]},
+"frame-hxh-last-mission":{typeTags:["accessories"],animeTags:["Hunter X Hunter"],collectionTags:[]},
+"frame-dbz-v1":{typeTags:["accessories"],animeTags:["Dragon Ball Z"],collectionTags:[]},
+"frame-naruto-vs-sasuke":{typeTags:["accessories"],animeTags:["Naruto"],collectionTags:[]},
+"frame-levi-from-aot":{typeTags:["accessories"],animeTags:["Attack on Titan"],collectionTags:[]},
 "lamp-goku-super-saiyajin":{typeTags:["accessories"],animeTags:["Dragon Ball Z"],collectionTags:[]},
 "lamp-luffy-gear-5":{typeTags:["accessories"],animeTags:["One Piece"],collectionTags:[]},
 "lamp-zoro":{typeTags:["accessories"],animeTags:["One Piece"],collectionTags:[]},
@@ -716,5 +935,12 @@ const PRODUCT_TAGS = {
   "mono-knit": {typeTags:["essentials"], animeTags:[], collectionTags:["core"]}
 };
 PRODUCTS.forEach(p=>{const t=PRODUCT_TAGS[p.id]||{};p.typeTags=t.typeTags||p.typeTags||[];p.animeTags=t.animeTags||p.animeTags||[];p.collectionTags=t.collectionTags||p.collectionTags||[];});
+PRODUCTS.forEach(p=>{
+  if(p.cat==="accessories"){
+    delete p.sizes;
+    if(!p.typeTags.includes("accessories"))p.typeTags.push("accessories");
+  }
+  p.imgs=[...new Set(p.imgs||[])].slice(0,4);
+});
 window.MONO_PRODUCTS=PRODUCTS;
 })();
