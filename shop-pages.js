@@ -6,7 +6,7 @@ const ITEM_GROUPS={hoodies:["Hoodies","Heavyweight layers"],sweatshirts:["Sweats
 const TYPE_GROUPS={"new-arrivals":"New Arrivals","best-sellers":"Best Sellers",essentials:"Essentials",oversized:"Oversized","limited-edition":"Limited Edition"};
 const ANIME_GROUPS=["Naruto","One Piece","Jujutsu Kaisen","Attack on Titan","Demon Slayer","Dragon Ball","Berserk","Hunter X Hunter","Bleach","Black Clover","Blue Lock","Chainsaw Man","Death Note","Solo Leveling","Vinland Saga","Vagabond","JoJo's Bizarre Adventure","My Hero Academia","Tokyo Ghoul","Kaiju No. 8"];
 const page=document.body.dataset.page;const params=new URLSearchParams(location.search);const root=document.getElementById("content");
-const money=n=>"EGP "+Number(n||0).toLocaleString("en-EG");
+const money=n=>new Intl.NumberFormat("en-ZA",{style:"currency",currency:"ZAR",maximumFractionDigits:0}).format(Number(n||0));
 const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const tile=(url,title,sub)=>'<a class="tile" href="'+url+'"><small>EXPLORE</small><h2>'+title+'</h2><small>'+sub+'</small></a>';
 const card=p=>'<article class="product"><a class="product-link" href="index.html#/product/'+encodeURIComponent(p.id)+'"><div class="photo">'+(p.imgs&&p.imgs[0]?'<img loading="lazy" src="'+p.imgs[0]+'" alt="'+p.name.replace(/"/g,'&quot;')+'">':'<span class="placeholder">MONO ARC</span>')+'</div><h3>'+p.name+'</h3><p class="price">'+money(p.price)+'</p></a><a class="card-add" href="index.html#/product/'+encodeURIComponent(p.id)+'">ADD TO CART</a></article>';
