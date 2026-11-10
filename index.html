@@ -190,12 +190,13 @@ footer a{display:block}footer a:hover{color:var(--silver)}
     </div>
     <div class="cart-items" id="cartItems"></div>
     <div class="cart-foot">
-      <div class="cart-total"><span>TOTAL</span><span id="cartTotal">R0</span></div>
+      <div class="cart-total"><span>TOTAL</span><span id="cartTotal">R 0</span></div>
       <button class="btn fill" onclick="checkout()">CHECKOUT</button>
     </div>
   </div>
 </div>
 
+<script src="products.js"></script>
 <script>
 const DEFAULT_SIZES = ["S","M","L","XL","XXL"];
 
@@ -356,7 +357,10 @@ const PRODUCTS = [
    lead:"The Utility Jogger Silver from the current Fandom catalogue.",
    details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
    fabric:"Check the garment label for fabric and care details."},
-  {id:"sweatpants-black",cat:"pants",name:"Sweatpants - Black",price:799,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+  {id:"sweatpants-black",cat:"pants",name:"Sweatpants - Black",price:799,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[
+    "images/products/sweatpants-black-front.webp",
+    "images/products/sweatpants-black-back.webp",
+    "images/products/sweatpants-black-side.webp"],
    lead:"Sweatpants - Black from the current Fandom catalogue.",
    details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
    fabric:"Check the garment label for fabric and care details."},
@@ -410,9 +414,16 @@ const PRODUCTS = [
    fabric:"Check the garment label for fabric and care details."}
 ];
 
+const sharedProductImages = new Map((window.MONO_PRODUCTS || []).map(product => [product.id, product.imgs]));
+PRODUCTS.forEach(product => {
+  const images = sharedProductImages.get(product.id);
+  if (images && images.length) product.imgs = images.slice();
+});
+
 // App State
 let cart = JSON.parse(localStorage.getItem("mono_cart") || "[]");
 let selectedSize = "";
+const money = value => new Intl.NumberFormat("en-ZA", {style:"currency", currency:"ZAR", maximumFractionDigits:0}).format(Number(value || 0));
 
 // Helper SVG Placeholder
 function getSvgPlaceholder(name) {
@@ -441,7 +452,7 @@ function renderCart() {
   const container = document.getElementById("cartItems");
   if (cart.length === 0) {
     container.innerHTML = `<p style="color:var(--steel);text-align:center;margin-top:40px;">Your bag is empty.</p>`;
-    document.getElementById("cartTotal").textContent = "R0";
+    document.getElementById("cartTotal").textContent = money(0);
     return;
   }
   let total = 0;
@@ -454,7 +465,7 @@ function renderCart() {
         </div>
         <div class="cart-item-info">
           <h4>${item.name}</h4>
-          <p>Size: ${item.size} | R${item.price}</p>
+          <p>Size: ${item.size} | ${money(item.price)}</p>
           <div>
             <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
             <span>${item.qty}</span>
@@ -465,7 +476,7 @@ function renderCart() {
       </div>
     `;
   }).join("");
-  document.getElementById("cartTotal").textContent = `R${total}`;
+  document.getElementById("cartTotal").textContent = money(total);
 }
 
 function changeQty(index, delta) {
@@ -527,7 +538,7 @@ function renderProductCard(p) {
           <small>${p.colour.toUpperCase()}</small>
         </div>
         <h3>${p.name}</h3>
-        <p><span>${p.cat.toUpperCase()}</span><span>R${p.price}</span></p>
+        <p><span>${p.cat.toUpperCase()}</span><span>${money(p.price)}</span></p>
       </a>
       <select class="card-size" aria-label="Select size for ${p.name}">
         <option value="">SELECT SIZE</option>
@@ -635,7 +646,7 @@ function renderPDP(id) {
         </div>
         <div class="buy">
           <h1>${p.name}</h1>
-          <div class="price">R${p.price}</div>
+          <div class="price">${money(p.price)}</div>
           <p class="lead">${p.lead || ""}</p>
           
           <div class="label">
