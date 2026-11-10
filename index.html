@@ -349,8 +349,8 @@ const PRODUCTS = [
    lead:"Light Straight Pants - Brown from the current Fandom catalogue.",
    details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
    fabric:"Check the garment label for fabric and care details."},
-  {id:"utility-jogger-black",cat:"pants",name:"The Utility Jogger Black",price:870,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
-   lead:"The Utility Jogger Black from the current Fandom catalogue.",
+  {id:"utility-jogger-black",cat:"pants",name:"The Utility Jogger Gray",price:870,colour:"Gray",sizes:["M","L","XL","XXL"],imgs:[],
+   lead:"The Utility Jogger Gray from the current Fandom catalogue.",
    details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
    fabric:"Check the garment label for fabric and care details."},
   {id:"utility-jogger-silver",cat:"pants",name:"The Utility Jogger Silver",price:870,colour:"Silver",sizes:["M","L","XL","XXL"],imgs:[],
@@ -419,9 +419,26 @@ PRODUCTS.forEach(product => {
   const images = sharedProductImages.get(product.id);
   if (images && images.length) product.imgs = images.slice();
 });
+(window.MONO_PRODUCTS || []).filter(product => product.cat === "accessories").forEach(product => {
+  if (!PRODUCTS.some(existing => existing.id === product.id)) {
+    PRODUCTS.push({...product, imgs: [...(product.imgs || [])]});
+  }
+});
 
 // App State
 let cart = JSON.parse(localStorage.getItem("mono_cart") || "[]");
+const accessoryIds = new Set(PRODUCTS.filter(product => product.cat === "accessories").map(product => product.id));
+cart = cart.reduce((items, item) => {
+  if (!accessoryIds.has(item.id)) {
+    items.push(item);
+    return items;
+  }
+  const existing = items.find(entry => entry.id === item.id && entry.size === "");
+  if (existing) existing.qty += item.qty;
+  else items.push({...item, size: ""});
+  return items;
+}, []);
+localStorage.setItem("mono_cart", JSON.stringify(cart));
 let selectedSize = "";
 const money = value => new Intl.NumberFormat("en-ZA", {style:"currency", currency:"ZAR", maximumFractionDigits:0}).format(Number(value || 0));
 
@@ -465,7 +482,7 @@ function renderCart() {
         </div>
         <div class="cart-item-info">
           <h4>${item.name}</h4>
-          <p>Size: ${item.size} | ${money(item.price)}</p>
+          <p>${item.size ? `Size: ${item.size} | ` : ""}${money(item.price)}</p>
           <div>
             <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
             <span>${item.qty}</span>
@@ -493,14 +510,15 @@ function removeItem(index) {
 }
 
 function addToCart(productId, size) {
-  if (!size) {
+  const prod = PRODUCTS.find(p => p.id === productId);
+  if (!prod) return;
+  if (prod.cat !== "accessories" && !size) {
     showToast("Please select a size first.");
     return;
   }
-  const prod = PRODUCTS.find(p => p.id === productId);
-  if (!prod) return;
+  const cartSize = prod.cat === "accessories" ? "" : size;
   
-  const existing = cart.find(c => c.id === productId && c.size === size);
+  const existing = cart.find(c => c.id === productId && c.size === cartSize);
   if (existing) {
     existing.qty++;
   } else {
@@ -508,13 +526,13 @@ function addToCart(productId, size) {
       id: prod.id,
       name: prod.name,
       price: prod.price,
-      size: size,
+      size: cartSize,
       img: prod.imgs[0] || "",
       qty: 1
     });
   }
   updateCartCount();
-  showToast(`${prod.name} (${size}) added to bag.`);
+  showToast(`${prod.name}${cartSize ? ` (${cartSize})` : ""} added to bag.`);
 }
 
 function checkout() {
@@ -527,9 +545,14 @@ function renderProductCard(p) {
   const imageMarkup = p.imgs && p.imgs.length > 0 
     ? `<img src="${p.imgs[0]}" alt="${p.name}">` 
     : getSvgPlaceholder(p.name);
-  const sizesMarkup = (p.sizes || DEFAULT_SIZES)
-    .map(size => `<option value="${size}">${size}</option>`)
-    .join("");
+  const hasSizes = p.cat !== "accessories";
+  const sizesMarkup = hasSizes
+    ? `<select class="card-size" aria-label="Select size for ${p.name}">
+        <option value="">SELECT SIZE</option>
+        ${(p.sizes || DEFAULT_SIZES).map(size => `<option value="${size}">${size}</option>`).join("")}
+      </select>`
+    : "";
+  const addSize = hasSizes ? "this.previousElementSibling.value" : "''";
   return `
     <article class="item">
       <a class="item-link" href="#/product/${p.id}">
@@ -540,11 +563,8 @@ function renderProductCard(p) {
         <h3>${p.name}</h3>
         <p><span>${p.cat.toUpperCase()}</span><span>${money(p.price)}</span></p>
       </a>
-      <select class="card-size" aria-label="Select size for ${p.name}">
-        <option value="">SELECT SIZE</option>
-        ${sizesMarkup}
-      </select>
-      <button class="card-add" type="button" onclick="addToCart('${p.id}', this.previousElementSibling.value)">ADD TO CART</button>
+      ${sizesMarkup}
+      <button class="card-add" type="button" onclick="addToCart('${p.id}', ${addSize})">ADD TO CART</button>
     </article>
   `;
 }
@@ -623,15 +643,16 @@ function renderShop(category = "all") {
 
 function renderPDP(id) {
   const p = PRODUCTS.find(item => item.id === id) || PRODUCTS[0];
-  selectedSize = (p.sizes && p.sizes.length > 0) ? p.sizes[0] : "M";
+  const hasSizes = p.cat !== "accessories";
+  selectedSize = hasSizes ? ((p.sizes && p.sizes.length > 0) ? p.sizes[0] : "M") : "";
 
   const galleryMarkup = (p.imgs && p.imgs.length > 0)
     ? p.imgs.map(img => `<div class="pic"><img src="${img}" alt="${p.name}"></div>`).join("")
     : Array(3).fill(0).map(() => `<div class="pic">${getSvgPlaceholder(p.name)}</div>`).join("");
 
-  const sizesMarkup = (p.sizes || DEFAULT_SIZES).map((sz, i) => 
+  const sizesMarkup = hasSizes ? (p.sizes || DEFAULT_SIZES).map((sz, i) =>
     `<button aria-pressed="${i === 0 ? 'true' : 'false'}" onclick="selectSize(this, '${sz}')">${sz}</button>`
-  ).join("");
+  ).join("") : "";
 
   const detailsMarkup = p.details ? p.details.map(d => `<li>${d}</li>`).join("") : "";
 
@@ -649,13 +670,11 @@ function renderPDP(id) {
           <div class="price">${money(p.price)}</div>
           <p class="lead">${p.lead || ""}</p>
           
-          <div class="label">
+          ${hasSizes ? `<div class="label">
             <span>SELECT SIZE</span>
             <a href="#/info">SIZE GUIDE</a>
           </div>
-          <div class="sizes">
-            ${sizesMarkup}
-          </div>
+          <div class="sizes">${sizesMarkup}</div>` : ""}
 
           <button class="btn fill" style="margin-bottom:20px;" onclick="addToCart('${p.id}', selectedSize)">ADD TO CART</button>
 
@@ -663,7 +682,7 @@ function renderPDP(id) {
             <li>Order now — ships the next business day</li>
             <li>Estimated delivery in 2–5 days across Egypt</li>
             <li>Cash on delivery available</li>
-            <li>Need another size? Contact us for an exchange</li>
+            ${hasSizes ? "<li>Need another size? Contact us for an exchange</li>" : ""}
           </ul>
 
           <div class="acc">
@@ -671,18 +690,18 @@ function renderPDP(id) {
               <summary>THE DETAILS</summary>
               <ul>${detailsMarkup}</ul>
             </details>
-            <details>
+            ${hasSizes ? `<details>
               <summary>SIZE & FIT</summary>
               <p style="margin-top:14px;">Available sizes: ${(p.sizes || DEFAULT_SIZES).join(", ")}. Choose your size above before adding the item to your bag.</p>
-            </details>
+            </details>` : ""}
             <details>
               <summary>SHIPPING & DELIVERY</summary>
               <p style="margin-top:14px;">Orders ship the next business day. Estimated delivery is 2–5 days across Egypt. Cash on delivery is available.</p>
             </details>
-            <details>
+            ${hasSizes ? `<details>
               <summary>SIZE EXCHANGES</summary>
               <p style="margin-top:14px;">Contact our team if you need to exchange your size. A replacement typically arrives within 2–5 days after the exchange is confirmed.</p>
-            </details>
+            </details>` : ""}
             <details>
               <summary>FABRIC & CARE</summary>
               <p style="margin-top:14px;">${p.fabric || "Follow garment instructions."}</p>
@@ -693,7 +712,7 @@ function renderPDP(id) {
       <div class="service-strip" aria-label="MONO ARC service benefits">
         <div>▣ &nbsp; CASH ON DELIVERY</div>
         <div>□ &nbsp; 2–5 DAY DELIVERY</div>
-        <div>↻ &nbsp; EASY SIZE EXCHANGES</div>
+        ${hasSizes ? "<div>↻ &nbsp; EASY SIZE EXCHANGES</div>" : ""}
         <div>☆ &nbsp; MADE IN EGYPT</div>
       </div>
     </div>
@@ -737,6 +756,23 @@ function renderCollection() {
   `;
 }
 
+function renderAccessories() {
+  const accessories = PRODUCTS.filter(product => product.cat === "accessories");
+  return `
+    <div class="page">
+      <div class="pagehead">
+        <h1>ACCESSORIES</h1>
+        <p>Collectibles and accents from the MONO ARC catalogue.</p>
+      </div>
+      <section>
+        <div class="products">
+          ${accessories.map(renderProductCard).join("")}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
 function router() {
   const hash = window.location.hash || "#/";
   const app = document.getElementById("app");
@@ -754,11 +790,7 @@ function router() {
   } else if (hash === "#/collections") {
     app.innerHTML = renderCollection();
   } else if (hash === "#/accessories") {
-    app.innerHTML = renderGenericPage(
-      "ACCESSORIES",
-      "Hardware, leather goods, and accents built to endure.",
-      `<div><h2>COMING SOON</h2></div><div><p>Our accessory archive is currently being prepared for the next drop. Sign up to the Inner Arc for notifications.</p></div>`
-    );
+    app.innerHTML = renderAccessories();
   } else if (hash === "#/track") {
     app.innerHTML = `
       <div class="page">
