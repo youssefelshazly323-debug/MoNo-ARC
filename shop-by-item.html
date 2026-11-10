@@ -46,7 +46,7 @@ const ITEM_GROUPS=Object.fromEntries([...new Set(products.map(p=>p.cat))].sort()
 const TYPE_GROUPS=Object.fromEntries([...new Set(products.flatMap(p=>p.typeTags||[]))].sort().map(type=>[type,titleCase(type)]));
 const ANIME_GROUPS=[...new Map(products.flatMap(p=>p.animeTags||[]).map(anime=>[anime.toLowerCase(),anime])).values()].sort((a,b)=>a.localeCompare(b));
 const page=document.body.dataset.page;const params=new URLSearchParams(location.search);const root=document.getElementById("content");
-const money=n=>"EGP "+Number(n||0).toLocaleString("en-EG");
+const money=n=>new Intl.NumberFormat("en-ZA",{style:"currency",currency:"ZAR",maximumFractionDigits:0}).format(Number(n||0));
 const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const tile=(url,title,sub)=>'<a class="tile" href="'+url+'"><small>EXPLORE</small><h2>'+title+'</h2><small>'+sub+'</small></a>';
 const card=p=>'<article class="product"><div class="photo">'+(p.imgs&&p.imgs[0]?'<img loading="lazy" src="'+p.imgs[0]+'" alt="'+p.name.replace(/"/g,'&quot;')+'">':'<span class="placeholder">MONO ARC</span>')+'</div><h3>'+p.name+'</h3><p class="price">'+money(p.price)+'</p><select class="card-size" aria-label="Select size for '+p.name.replace(/"/g,'&quot;')+'"><option value="">SELECT SIZE</option>'+((p.sizes&&p.sizes.length?p.sizes:["S","M","L","XL","XXL"]).map(size=>'<option value="'+size+'">'+size+'</option>').join(""))+'</select><button class="card-add" type="button" onclick="addToCart(\''+p.id+'\',this.previousElementSibling.value)">ADD TO CART</button></article>';
