@@ -29,7 +29,7 @@ nav a:hover,nav a.on{color:var(--silver)}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(560px circle at var(--mx) var(--my),#ffffff1c,#0000 70%);pointer-events:none}
 .hero::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(#0000,var(--line) 30%,var(--line) 70%,#0000)}
 .mark{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px;padding:0 6vw}
-.mark img{display:block;width:min(48vw,190px);height:clamp(220px,40vh,300px);object-fit:cover;object-position:center;mix-blend-mode:screen;animation:rise 2.4s ease-out both;filter:drop-shadow(0 0 40px #ffffff14)}
+.mark img{display:block;width:min(62vw,230px);height:clamp(280px,52vh,400px);object-fit:cover;object-position:center;mix-blend-mode:screen;animation:rise 2.4s ease-out both;filter:drop-shadow(0 0 40px #ffffff14)}
 @keyframes rise{from{opacity:0;transform:scale(.94);filter:blur(10px)}}
 .mark h1{letter-spacing:.5em;font-size:clamp(1rem,2.8vw,1.35rem);margin-right:-.5em;background:#000;padding:2px 8px}
 .mark p{color:var(--steel);max-width:36ch;background:#000;padding:4px 10px}
@@ -67,6 +67,13 @@ section{padding:14vh 5vw}
 .card-size{width:100%;margin-top:12px;padding:10px 12px;border:1px solid var(--line);background:#080809;color:var(--silver);font:inherit;font-size:.78rem;letter-spacing:.08em}
 .card-add{width:100%;margin-top:8px;padding:11px 12px;border:1px solid var(--steel);background:transparent;color:var(--silver);letter-spacing:.14em;font-size:.72rem;transition:background .25s,color .25s}
 .card-add:hover{background:var(--silver);color:#000}
+.products{align-items:stretch}
+.item{display:flex;flex-direction:column}
+.item-link{display:flex;flex:1;flex-direction:column}
+.item h3{height:2.4em;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.item p{min-height:1.8em}
+.item .card-size{margin-top:auto}
+.item .card-add{min-height:42px}
 .tabs{display:flex;gap:30px;flex-wrap:wrap;margin-bottom:5vh;border-bottom:1px solid var(--line)}
 .tabs a{padding:0 0 14px;color:var(--steel);font-size:.82rem;letter-spacing:.14em;margin-bottom:-1px;border-bottom:1px solid #0000}
 .tabs a.on{color:var(--silver);border-color:var(--silver)}
