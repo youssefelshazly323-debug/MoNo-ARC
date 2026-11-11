@@ -46,10 +46,7 @@ const PRODUCTS = [
  lead:"A Berserk-inspired graphic tee from the Fandom collection.",
  details:["Available sizes: M, L, XL and XXL","Graphic T-shirt","Black colour"],
  fabric:"Exact fabric composition and care details have not yet been verified."}
-,{id:"ultimate-berserk-hoodie",cat:"hoodies",name:"Ultimate Berserk Hoodie",price:1049,colour:"Charcoal",sizes:["M","L","XL","XXL"],imgs:[
-"images/products/product-010.jpg",
-"images/products/product-011.jpg",
-"images/products/product-012.jpg"],
+,{id:"ultimate-berserk-hoodie",cat:"hoodies",name:"Ultimate Berserk Hoodie",price:1049,colour:"Charcoal",sizes:["M","L","XL","XXL"],imgs:[],
 lead:"A limited Berserk hoodie with a heavyweight cotton build, bold artwork and detailed print inspired by Guts.",
 details:["Heavyweight cotton","Embroidered and puff-print details","Relaxed oversized fit","Available sizes: M, L, XL and XXL"],
 fabric:"Premium heavyweight cotton. Follow the garment care label."},
@@ -317,12 +314,12 @@ const PRODUCT_IMAGE_ASSIGNMENTS = {
     "images/products/IMG_6319_1.webp"
   ],
   "heavy-straight-pants-black": [
+    "images/products/IMG_9484_c23e7cee-5be0-4c26-84af-0bf259db0c56.webp",
     "images/products/GenerativeFill6.webp",
     "images/products/IMG_9488_980e0605-174c-41f7-b503-f3ab17ff945a.webp",
     "images/products/GenerativeFill8_d7da2447-16e3-459d-b6da-178ed08156ec.webp"
   ],
   "sweatpants-brown": [
-    "images/products/IMG_9484_c23e7cee-5be0-4c26-84af-0bf259db0c56.webp",
     "images/products/2_e18726f8-e251-40ba-9cee-30851b69b2ac.webp",
     "images/products/4_8cb9d022-dde1-430b-ae50-01a115ba6f6b.webp",
     "images/products/1_0ac364fe-e208-49c5-9403-5221ebfc3d19.webp",
@@ -346,7 +343,6 @@ const PRODUCT_IMAGE_ASSIGNMENTS = {
     "images/products/navy-blue.webp"
   ],
   "zoro-pants": [
-    "images/products/GenerativeFill3_38c45b9e-6f6e-44ea-865b-d13290a7fce6.webp",
     "images/products/zoro-joggers-zams-2.webp",
     "images/products/zoro-joggers-zams-4-157115_76ef4447-807d-4317-bba7-69c34f3d49e9.webp"
   ],
@@ -377,6 +373,20 @@ const PRODUCT_IMAGE_ASSIGNMENTS = {
     "images/products/IMG_0156.webp",
     "images/products/IMG_0159.webp",
     "images/products/IMG_0158.webp"
+  ],
+  "naruto-acid": [
+    "images/products/ChatGPT_Image_Aug_25_2026_06_15_02_AM.webp",
+    "images/products/ChatGPT_Image_Aug_25_2026_06_17_34_AM.webp"
+  ],
+  "tee-gojo-v3": [
+    "images/products/IMG_0172.webp",
+    "images/products/IMG_0160.webp",
+    "images/products/IMG_0162.webp"
+  ],
+  "tee-limitless": [
+    "images/products/ChatGPTImageSep5_2026_04_32_46PM_1.webp",
+    "images/products/ChatGPTImageSep5_2026_04_32_46PM_2.webp",
+    "images/products/ChatGPTImageSep5_2026_04_16_57PM.webp"
   ],
   "kenpachi-zaraki": [
     "images/products/IMG_8050.webp",
@@ -444,6 +454,42 @@ const PRODUCT_IMAGE_ASSIGNMENTS = {
     "images/products/exec-84bc7b37-d182-43d7-bdb4-b21e0cbbc7d3.webp",
     "images/products/exec-d34e5765-f4bf-491c-ba81-e94b4c454bd1.webp",
     "images/products/exec-ec89a2e5-a24f-480c-9416-5088c0b1b95f.webp"
+  ],
+  "one-piece-cap": [
+    "images/products/CodexImageAug19_2026_04_10_28PM.webp",
+    "images/products/exec-243547fb-5f6a-421f-b88b-77ca50687929.webp"
+  ],
+  "hidden-leaf-cap": [
+    "images/products/exec-1156c395-81d8-4dce-97b4-530b9fc7ca96.webp",
+    "images/products/exec-4327dd0d-5ea1-4c16-8bce-d8d32ce4b4f4.webp",
+    "images/products/exec-a8e98b6c-0f58-4485-9a98-434de0befd45.webp"
+  ],
+  "cap-uchiha-clan": [
+    "images/products/CodexImageAug19_2026_07_38_09PM.webp",
+    "images/products/exec-41a6aae4-f436-44b6-9f3b-3fff7b2bab19.webp"
+  ],
+  "cap-death-note": [
+    "images/products/CodexImageAug30_2026_06_32_43PM.webp",
+    "images/products/CodexImageAug30_2026_06_33_13PM.webp",
+    "images/products/CodexImageAug30_2026_06_38_54PM.webp"
+  ],
+  "paradis-quarter-zip": [
+    "images/products/1_0f76af01-5bd8-46f1-90da-595367399b8c.webp"
+  ],
+  "kaiju-no-8": [
+    "images/products/2_6a922374-909c-4ba2-bc0d-d47ea33b11d9.webp"
+  ],
+  "white-basic-hoodie": [
+    "images/products/1_093ecdc7-baa3-4271-bf9d-6fec95a3460c.webp"
+  ],
+  "pink-basic-hoodie": [
+    "images/products/09C9C0DF-0A3E-457D-B301-761AED39C787.jpg"
+  ],
+  "basic-baby-blue-tee": [
+    "images/products/1_277cda11-3f8f-40fe-9dd1-2587c5e3d4c6.webp"
+  ],
+  "lamp-batman": [
+    "images/products/Y7WwQge08G7rpNAr.webp"
   ],
   "hoodie-freedom-black": [
     "images/products/freedom-black-hoodie-front.webp",
@@ -679,12 +725,13 @@ const PRODUCT_IMAGE_ASSIGNMENTS = {
     "images/products/4_20925326-a026-4ddd-8d27-58fd1838f181.webp"
   ]
 };
+const productImageLimit = product => product.id === "heavy-straight-pants-black" ? 4 : 3;
 PRODUCTS.forEach(product => {
   const assignedImages = PRODUCT_IMAGE_ASSIGNMENTS[product.id];
   if (assignedImages) {
-    product.imgs = [...new Set([...assignedImages, ...(product.imgs || [])])].slice(0, 4);
+    product.imgs = [...new Set([...assignedImages, ...(product.imgs || [])])].slice(0, productImageLimit(product));
   } else {
-    product.imgs = [...new Set(product.imgs || [])].slice(0, 4);
+    product.imgs = [...new Set(product.imgs || [])].slice(0, productImageLimit(product));
   }
 });
 
@@ -940,7 +987,7 @@ PRODUCTS.forEach(p=>{
     delete p.sizes;
     if(!p.typeTags.includes("accessories"))p.typeTags.push("accessories");
   }
-  p.imgs=[...new Set(p.imgs||[])].slice(0,4);
+  p.imgs=[...new Set(p.imgs||[])].slice(0,productImageLimit(p));
 });
 window.MONO_PRODUCTS=PRODUCTS;
 })();
