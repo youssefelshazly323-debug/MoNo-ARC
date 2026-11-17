@@ -2421,7 +2421,7 @@ const PRODUCTS = [
 },
 {
  id:"sweatpants-black",
- cat:"pants",
+ cat:"sweatpants",
  name:"Sweatpants - Black",
  price:799,
  colour:"Black",
@@ -2440,7 +2440,7 @@ const PRODUCTS = [
 },
 {
  id:"sweatpants-brown",
- cat:"pants",
+ cat:"sweatpants",
  name:"Sweatpants - Brown",
  price:799,
  colour:"Black",
@@ -2530,7 +2530,7 @@ const PRODUCTS = [
 },
 {
  id:"sweat-pants-sasuke",
- cat:"pants",
+ cat:"sweatpants",
  name:"Sweat Pants Sasuke",
  price:450,
  colour:"Black",
