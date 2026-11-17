@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -93,7 +93,7 @@ section{padding:14vh 5vw}
 .buy .lead{margin-bottom:28px}
 .delivery-points{list-style:none;padding:0;margin:20px 0 26px;border-bottom:1px solid var(--line)}
 .delivery-points li{position:relative;padding:9px 0 9px 28px;color:var(--text);font-size:.92rem;line-height:1.55}
-.delivery-points li::before{content:"✓";position:absolute;left:2px;color:var(--silver)}
+.delivery-points li::before{content:"âœ“";position:absolute;left:2px;color:var(--silver)}
 .service-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:0 5vw 10vh;border:1px solid var(--line);background:#09050f}
 .service-strip div{padding:18px 20px;color:var(--silver);font-size:.76rem;letter-spacing:.1em}
 .service-strip div:nth-child(odd){border-right:1px solid var(--line)}
@@ -175,7 +175,7 @@ footer a{display:block}footer a:hover{color:var(--silver)}
 
 <footer>
   <div><span class="brand" style="margin:0">MONO ARC</span><p style="margin-top:12px;max-width:34ch">Hoodies, tees and pants cut in shadow.</p></div>
-  <div><h4>SHOP</h4><a href="#/shop">Shop All</a><a href="#/shop?cat=hoodies">Hoodies</a><a href="#/shop?cat=tees">Tees</a><a href="#/shop?cat=pants">Pants</a><a href="#/shop?cat=sweatpants">Sweatpants</a><a href="#/collections">Our Collection</a><a href="#/accessories">Accessories</a></div>
+  <div><h4>SHOP</h4><a href="#/shop">Shop All</a><a href="#/shop?cat=hoodies">Hoodies</a><a href="#/shop?cat=tees">Tees</a><a href="#/shop?cat=jeans">Jeans</a><a href="#/shop?cat=sweatpants">Sweatpants</a><a href="#/collections">Our Collection</a><a href="#/accessories">Accessories</a></div>
   <div><h4>HELP</h4><a href="#/track">Track Your Order</a><a href="#/info">Sizing and shipping</a><a href="#/contact">Contact</a><a href="#/about">Philosophy</a></div>
 </footer>
 
@@ -414,6 +414,14 @@ const PRODUCTS = [
    fabric:"Check the garment label for fabric and care details."}
 ];
 
+const extraJeansIds = new Set([
+  "balloon-jeans-indigo",
+  "balloon-jeans-pale-blue",
+  "balloon-jeans-olive"
+]);
+(window.MONO_PRODUCTS || [])
+  .filter(p => extraJeansIds.has(p.id) && !PRODUCTS.some(existing => existing.id === p.id))
+  .forEach(p => PRODUCTS.push({...p, imgs:[...(p.imgs || [])]}));
 const sharedProductImages = new Map((window.MONO_PRODUCTS || []).map(product => [product.id, product.imgs]));
 PRODUCTS.forEach(product => {
   const images = sharedProductImages.get(product.id);
@@ -589,7 +597,7 @@ function renderHome() {
         <div class="cats">
           <a class="cat" href="#/shop?cat=hoodies"><span>01</span><h3>HOODIES</h3></a>
           <a class="cat" href="#/shop?cat=tees"><span>02</span><h3>TEES</h3></a>
-          <a class="cat" href="#/shop?cat=pants"><span>03</span><h3>PANTS</h3></a><a class="cat" href="#/shop?cat=sweatpants"><span>04</span><h3>SWEATPANTS</h3></a>
+          <a class="cat" href="#/shop?cat=jeans"><span>03</span><h3>JEANS</h3></a><a class="cat" href="#/shop?cat=sweatpants"><span>04</span><h3>SWEATPANTS</h3></a>
         </div>
       </section>
       <section class="manifesto">
@@ -630,9 +638,8 @@ function renderShop(category = "all") {
           <a href="#/shop" class="${category === "all" ? "on" : ""}">ALL PRODUCTS</a>
           <a href="#/shop?cat=hoodies" class="${category === "hoodies" ? "on" : ""}">HOODIES</a>
           <a href="#/shop?cat=tees" class="${category === "tees" ? "on" : ""}">TEES</a>
-          <a href="#/shop?cat=pants" class="${category === "pants" ? "on" : ""}">PANTS</a>
-          <a href="#/shop?cat=sweatpants" class="${category === "sweatpants" ? "on" : ""}">SWEATPANTS</a>
           <a href="#/shop?cat=jeans" class="${category === "jeans" ? "on" : ""}">JEANS</a>
+          <a href="#/shop?cat=sweatpants" class="${category === "sweatpants" ? "on" : ""}">SWEATPANTS</a>
         </div>
         <div class="products">
           ${filtered.map(renderProductCard).join("")}
@@ -680,8 +687,8 @@ function renderPDP(id) {
           <button class="btn fill" style="margin-bottom:20px;" onclick="addToCart('${p.id}', selectedSize)">ADD TO CART</button>
 
           <ul class="delivery-points" aria-label="Delivery and payment information">
-            <li>Order now — ships the next business day</li>
-            <li>Estimated delivery in 2–5 days across Egypt</li>
+            <li>Order now â€” ships the next business day</li>
+            <li>Estimated delivery in 2â€“5 days across Egypt</li>
             <li>Cash on delivery available</li>
             ${hasSizes ? "<li>Need another size? Contact us for an exchange</li>" : ""}
           </ul>
@@ -697,11 +704,11 @@ function renderPDP(id) {
             </details>` : ""}
             <details>
               <summary>SHIPPING & DELIVERY</summary>
-              <p style="margin-top:14px;">Orders ship the next business day. Estimated delivery is 2–5 days across Egypt. Cash on delivery is available.</p>
+              <p style="margin-top:14px;">Orders ship the next business day. Estimated delivery is 2â€“5 days across Egypt. Cash on delivery is available.</p>
             </details>
             ${hasSizes ? `<details>
               <summary>SIZE EXCHANGES</summary>
-              <p style="margin-top:14px;">Contact our team if you need to exchange your size. A replacement typically arrives within 2–5 days after the exchange is confirmed.</p>
+              <p style="margin-top:14px;">Contact our team if you need to exchange your size. A replacement typically arrives within 2â€“5 days after the exchange is confirmed.</p>
             </details>` : ""}
             <details>
               <summary>FABRIC & CARE</summary>
@@ -711,10 +718,10 @@ function renderPDP(id) {
         </div>
       </div>
       <div class="service-strip" aria-label="MONO ARC service benefits">
-        <div>▣ &nbsp; CASH ON DELIVERY</div>
-        <div>□ &nbsp; 2–5 DAY DELIVERY</div>
-        ${hasSizes ? "<div>↻ &nbsp; EASY SIZE EXCHANGES</div>" : ""}
-        <div>☆ &nbsp; MADE IN EGYPT</div>
+        <div>â–£ &nbsp; CASH ON DELIVERY</div>
+        <div>â–¡ &nbsp; 2â€“5 DAY DELIVERY</div>
+        ${hasSizes ? "<div>â†» &nbsp; EASY SIZE EXCHANGES</div>" : ""}
+        <div>â˜† &nbsp; MADE IN EGYPT</div>
       </div>
     </div>
   `;
@@ -827,7 +834,7 @@ function router() {
        </div>
        <div>
         <h2>SHIPPING POLICY</h2>
-        <p>Orders ship the next business day. Estimated delivery is 2–5 days across Egypt. Cash on delivery is available.</p>
+        <p>Orders ship the next business day. Estimated delivery is 2â€“5 days across Egypt. Cash on delivery is available.</p>
        </div>`
     );
   } else if (hash === "#/contact") {
