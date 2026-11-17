@@ -66,9 +66,9 @@ const PRODUCTS = [
  colour:"Charcoal",
  sizes:["M","L","XL","XXL"],
  imgs:[
-  "images/products/hoodies/1_a0525e22-2f5d-494c-8a58-a7850cdaf97f.webp",
-  "images/products/hoodies/3_07f4cae0-822f-4a2c-945f-f8d30e17b4b2.webp",
-  "images/products/hoodies/2_2485d3f4-b8bb-4d52-a221-0ef7a6995e47.webp"
+  "images/products/knitwear/1_a0525e22-2f5d-494c-8a58-a7850cdaf97f.webp",
+  "images/products/knitwear/3_07f4cae0-822f-4a2c-945f-f8d30e17b4b2.webp",
+  "images/products/knitwear/2_2485d3f4-b8bb-4d52-a221-0ef7a6995e47.webp"
  ],
  lead:"A limited Berserk hoodie with a heavyweight cotton build, bold artwork and detailed print inspired by Guts.",
  details:["Heavyweight cotton","Embroidered and puff-print details","Relaxed oversized fit","Available sizes: M, L, XL and XXL"],
@@ -4186,4 +4186,5 @@ const PRODUCTS = [
 ];
 window.MONO_PRODUCTS=PRODUCTS;
 })();
+
 
