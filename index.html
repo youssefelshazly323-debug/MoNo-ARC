@@ -175,7 +175,7 @@ footer a{display:block}footer a:hover{color:var(--silver)}
 
 <footer>
   <div><span class="brand" style="margin:0">MONO ARC</span><p style="margin-top:12px;max-width:34ch">Hoodies, tees and pants cut in shadow.</p></div>
-  <div><h4>SHOP</h4><a href="#/shop">Shop All</a><a href="#/shop?cat=hoodies">Hoodies</a><a href="#/shop?cat=tees">Tees</a><a href="#/shop?cat=pants">Pants</a><a href="#/collections">Our Collection</a><a href="#/accessories">Accessories</a></div>
+  <div><h4>SHOP</h4><a href="#/shop">Shop All</a><a href="#/shop?cat=hoodies">Hoodies</a><a href="#/shop?cat=tees">Tees</a><a href="#/shop?cat=pants">Pants</a><a href="#/shop?cat=sweatpants">Sweatpants</a><a href="#/collections">Our Collection</a><a href="#/accessories">Accessories</a></div>
   <div><h4>HELP</h4><a href="#/track">Track Your Order</a><a href="#/info">Sizing and shipping</a><a href="#/contact">Contact</a><a href="#/about">Philosophy</a></div>
 </footer>
 
@@ -357,14 +357,14 @@ const PRODUCTS = [
    lead:"The Utility Jogger Silver from the current Fandom catalogue.",
    details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
    fabric:"Check the garment label for fabric and care details."},
-  {id:"sweatpants-black",cat:"pants",name:"Sweatpants - Black",price:799,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[
+  {id:"sweatpants-black",cat:"sweatpants",name:"Sweatpants - Black",price:799,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[
     "images/products/sweatpants-black-front.webp",
     "images/products/sweatpants-black-back.webp",
     "images/products/sweatpants-black-side.webp"],
    lead:"Sweatpants - Black from the current Fandom catalogue.",
    details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
    fabric:"Check the garment label for fabric and care details."},
-  {id:"sweatpants-brown",cat:"pants",name:"Sweatpants - Brown",price:799,colour:"Brown",sizes:["M","L","XL","XXL"],imgs:[],
+  {id:"sweatpants-brown",cat:"sweatpants",name:"Sweatpants - Brown",price:799,colour:"Brown",sizes:["M","L","XL","XXL"],imgs:[],
    lead:"Sweatpants - Brown from the current Fandom catalogue.",
    details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
    fabric:"Check the garment label for fabric and care details."},
@@ -384,7 +384,7 @@ const PRODUCTS = [
    lead:"Zoro Pants from the current Fandom catalogue.",
    details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
    fabric:"Check the garment label for fabric and care details."},
-  {id:"sweat-pants-sasuke",cat:"pants",name:"Sweat Pants Sasuke",price:450,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
+  {id:"sweat-pants-sasuke",cat:"sweatpants",name:"Sweat Pants Sasuke",price:450,colour:"Black",sizes:["M","L","XL","XXL"],imgs:[],
    lead:"Sweat Pants Sasuke from the current Fandom catalogue.",
    details:["Listed in the pants category","Sizes: M, L, XL, XXL"],
    fabric:"Check the garment label for fabric and care details."},
@@ -589,7 +589,7 @@ function renderHome() {
         <div class="cats">
           <a class="cat" href="#/shop?cat=hoodies"><span>01</span><h3>HOODIES</h3></a>
           <a class="cat" href="#/shop?cat=tees"><span>02</span><h3>TEES</h3></a>
-          <a class="cat" href="#/shop?cat=pants"><span>03</span><h3>PANTS</h3></a>
+          <a class="cat" href="#/shop?cat=pants"><span>03</span><h3>PANTS</h3></a><a class="cat" href="#/shop?cat=sweatpants"><span>04</span><h3>SWEATPANTS</h3></a>
         </div>
       </section>
       <section class="manifesto">
@@ -631,6 +631,7 @@ function renderShop(category = "all") {
           <a href="#/shop?cat=hoodies" class="${category === "hoodies" ? "on" : ""}">HOODIES</a>
           <a href="#/shop?cat=tees" class="${category === "tees" ? "on" : ""}">TEES</a>
           <a href="#/shop?cat=pants" class="${category === "pants" ? "on" : ""}">PANTS</a>
+          <a href="#/shop?cat=sweatpants" class="${category === "sweatpants" ? "on" : ""}">SWEATPANTS</a>
           <a href="#/shop?cat=jeans" class="${category === "jeans" ? "on" : ""}">JEANS</a>
         </div>
         <div class="products">
