@@ -1,4 +1,4 @@
-/* Shared Mono Arc catalogue for the standalone shop pages.
+﻿/* Shared Mono Arc catalogue for the standalone shop pages.
    Products are grouped by category: hoodies, t-shirts, pants, jeans, sweatshirts, jackets, knitwear, sets, accessories.
    Product images live in one sub-folder per category inside the images folder. */
 (()=>{
@@ -4186,3 +4186,4 @@ const PRODUCTS = [
 ];
 window.MONO_PRODUCTS=PRODUCTS;
 })();
+
