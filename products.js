@@ -2635,8 +2635,7 @@ const PRODUCTS = [
  sizes:["32","34","36","38"],
  imgs:[
   "images/products/jeans/fandom-black-balloon-0.webp",
-  "images/products/jeans/fandom-black-balloon-2.webp",
-  "images/products/jeans/fandom-balloon-jeans-1.webp"
+  "images/products/jeans/fandom-black-balloon-2.webp"
  ],
  lead:"Balloon Jeans - Black from the current Fandom catalogue.",
  details:["Listed in the jeans category","Sizes: 32, 34, 36, 38","Product images and full specifications are not yet available for this listing"],
@@ -2653,30 +2652,11 @@ const PRODUCTS = [
  colour:"Black",
  sizes:["32","34","36","38"],
  imgs:[
-  "images/products/jeans/fandom-light-blue-balloon-1.webp",
-  "images/products/jeans/fandom-light-blue-balloon-detail.webp",
-  "images/products/jeans/fandom-balloon-jeans-1.webp"
- ],
- lead:"Vintage Wash Balloon Jeans - Light Blue from the current Fandom catalogue.",
- details:["Listed in the jeans category","Sizes: 32, 34, 36, 38","Product images and full specifications are not yet available for this listing"],
- fabric:"Check the garment label for fabric and care details.",
- typeTags:["new-arrivals"],
- animeTags:[],
- collectionTags:[]
-},
-{
- id:"balloon-jeans-indigo",
- cat:"jeans",
- name:"Vintage Wash Balloon Jeans - Faded Indigo",
- price:999,
- colour:"Black",
- sizes:["32","34","36","38"],
- imgs:[
-  "images/products/jeans/1000240765.webp",
   "images/products/jeans/1000240764.webp",
+  "images/products/jeans/1000240765.webp",
   "images/products/jeans/1000240766.webp"
  ],
- lead:"Vintage Wash Balloon Jeans - Faded Indigo from the current Fandom catalogue.",
+ lead:"Vintage Wash Balloon Jeans - Light Blue from the current Fandom catalogue.",
  details:["Listed in the jeans category","Sizes: 32, 34, 36, 38","Product images and full specifications are not yet available for this listing"],
  fabric:"Check the garment label for fabric and care details.",
  typeTags:["new-arrivals"],
@@ -2691,9 +2671,8 @@ const PRODUCTS = [
  colour:"Black",
  sizes:["32","34","36","38"],
  imgs:[
-  "images/products/jeans/fandom-balloon-jeans-1.webp",
-  "images/products/jeans/fandom-balloon-jeans-2.webp",
-  "images/products/jeans/fandom-black-balloon-0.webp"
+  "images/products/jeans/fandom-light-blue-balloon-1.webp",
+  "images/products/jeans/fandom-light-blue-balloon-detail.webp"
  ],
  lead:"Ice Wash Balloon Jeans - Pale Blue from the current Fandom catalogue.",
  details:["Listed in the jeans category","Sizes: 32, 34, 36, 38","Product images and full specifications are not yet available for this listing"],
@@ -2711,8 +2690,7 @@ const PRODUCTS = [
  sizes:["32","34","36","38"],
  imgs:[
   "images/products/jeans/fandom-balloon-jeans-1.webp",
-  "images/products/jeans/fandom-balloon-jeans-2.webp",
-  "images/products/jeans/fandom-black-balloon-0.webp"
+  "images/products/jeans/fandom-balloon-jeans-2.webp"
  ],
  lead:"Vintage Wash Balloon Jeans - Washed Olive from the current Fandom catalogue.",
  details:["Listed in the jeans category","Sizes: 32, 34, 36, 38","Product images and full specifications are not yet available for this listing"],
@@ -4186,5 +4164,8 @@ const PRODUCTS = [
 ];
 window.MONO_PRODUCTS=PRODUCTS;
 })();
+
+
+
 
 

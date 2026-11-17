@@ -1,0 +1,1432 @@
+﻿9: id:"shadow-hoodie",
+10: cat:"hoodies",
+11: name:"Shadow Hoodie",
+14: imgs:[
+15: "images/products/hoodies/freedom-black-hoodie-side.webp",
+16: "images/products/hoodies/freedom-black-hoodie-front.webp"
+26: id:"arc-zip-hoodie",
+27: cat:"hoodies",
+28: name:"Arc Zip Hoodie",
+31: imgs:[
+32: "images/products/hoodies/freedom-black-hoodie-side.webp",
+33: "images/products/hoodies/freedom-black-hoodie-front.webp"
+43: id:"exclusive-naruto",
+44: cat:"hoodies",
+45: name:"Exclusive Naruto",
+49: imgs:[
+50: "images/products/hoodies/product-001.jpg",
+51: "images/products/hoodies/product-002.jpg",
+52: "images/products/hoodies/product-003.jpg"
+62: id:"ultimate-berserk-hoodie",
+63: cat:"hoodies",
+64: name:"Ultimate Berserk Hoodie",
+68: imgs:[
+69: "images/products/knitwear/1_a0525e22-2f5d-494c-8a58-a7850cdaf97f.webp",
+70: "images/products/knitwear/3_07f4cae0-822f-4a2c-945f-f8d30e17b4b2.webp",
+71: "images/products/knitwear/2_2485d3f4-b8bb-4d52-a221-0ef7a6995e47.webp"
+81: id:"eren-freedom",
+82: cat:"hoodies",
+83: name:"Eren Freedom",
+87: imgs:[
+88: "images/products/hoodies/product-017.jpg",
+89: "images/products/hoodies/product-018.jpg",
+90: "images/products/hoodies/product-019.jpg"
+100: id:"geto-embroidery",
+101: cat:"hoodies",
+102: name:"Geto Embroidery",
+106: imgs:[
+107: "images/products/hoodies/product-023.jpg",
+108: "images/products/hoodies/product-024.jpg",
+109: "images/products/hoodies/product-025.jpg"
+119: id:"musashi-miyamoto-hoodie",
+120: cat:"hoodies",
+121: name:"Musashi Miyamoto Hoodie",
+125: imgs:[
+126: "images/products/accessories/Musashi Miyamoto.webp"
+136: id:"gojo-summer",
+137: cat:"hoodies",
+138: name:"Gojo Summer",
+142: imgs:[
+143: "images/products/hoodies/freedom-black-hoodie-side.webp",
+144: "images/products/hoodies/freedom-black-hoodie-front.webp"
+154: id:"strawhat-solidarity-hoodie",
+155: cat:"hoodies",
+156: name:"Strawhat Solidarity Hoodie",
+160: imgs:[
+161: "images/products/hoodies/freedom-black-hoodie-front.webp",
+162: "images/products/hoodies/freedom-black-hoodie-side.webp"
+172: id:"spiders-hoodie",
+173: cat:"hoodies",
+174: name:"Spiders Hoodie",
+178: imgs:[
+179: "images/products/hoodies/1_478ecea0-5daf-466a-9378-d8258826d839.webp",
+180: "images/products/hoodies/2_add76b38-f35c-462d-82d0-4f783d9f264d.webp",
+181: "images/products/hoodies/3_ac8a2048-c868-44c6-ac3e-fcc6dda8498f.webp"
+191: id:"mahito-hoodie",
+192: cat:"hoodies",
+193: name:"Mahito",
+197: imgs:[
+198: "images/products/hoodies/freedom-black-hoodie-side.webp",
+199: "images/products/hoodies/freedom-black-hoodie-front.webp"
+209: id:"rambling-aot",
+210: cat:"hoodies",
+211: name:"Rambling AOT",
+215: imgs:[
+216: "images/products/hoodies/3_c65f451a-034d-4680-8a92-b1e1a8cfd6e0.webp",
+217: "images/products/hoodies/4_da39e86b-2c7d-4c65-937d-34f82b571924.webp",
+218: "images/products/hoodies/2_472375c4-ce33-4a5e-b59a-8e657abe9227.webp"
+228: id:"gyro-zeppeli",
+229: cat:"hoodies",
+230: name:"Gyro Zeppeli",
+234: imgs:[
+235: "images/products/hoodies/2_f0aafd42-698f-469c-96dc-6534b9503b24.webp",
+236: "images/products/hoodies/1_3b3d0f65-df63-487e-b90a-5cf40248cce0.webp",
+237: "images/products/hoodies/3_6bcb824b-99cb-4f73-8c5c-0f8b3e7ac8ab.webp"
+247: id:"grimmjow-embroidered",
+248: cat:"hoodies",
+249: name:"Grimmjow Embroidered",
+253: imgs:[
+254: "images/products/hoodies/freedom-black-hoodie-side.webp",
+255: "images/products/hoodies/freedom-black-hoodie-front.webp"
+265: id:"ulquiorra-cifer",
+266: cat:"hoodies",
+267: name:"Ulquiorra Cifer",
+271: imgs:[
+272: "images/products/hoodies/IMG_6248.webp",
+273: "images/products/hoodies/IMG_6251.webp",
+274: "images/products/hoodies/IMG_6250.webp"
+284: id:"patched-one-piece-hoodie",
+285: cat:"hoodies",
+286: name:"Patched One Piece Hoodie",
+290: imgs:[
+291: "images/products/hoodies/ChatGPTImageNov10_2026_05_42_26AM.webp",
+292: "images/products/hoodies/ChatGPTImageNov10_2026_05_42_32AM.webp",
+293: "images/products/hoodies/3_a7147da2-c023-4efb-995b-c1a00b6b8756.webp"
+303: id:"exclusive-sasuke",
+304: cat:"hoodies",
+305: name:"Exclusive Sasuke",
+309: imgs:[
+310: "images/products/accessories/Naruto vs Sasuke.webp"
+320: id:"hxh-mission-chimera",
+321: cat:"hoodies",
+322: name:"HxH Mission Chimera",
+326: imgs:[
+327: "images/products/accessories/HxH Last Mission.webp"
+337: id:"levi-embroidery",
+338: cat:"hoodies",
+339: name:"Levi's Embroidery",
+343: imgs:[
+344: "images/products/accessories/Levi from AOT.webp"
+354: id:"blue-grimmjow-zipper",
+355: cat:"hoodies",
+356: name:"Blue Grimmjow Zipper",
+360: imgs:[
+361: "images/products/hoodies/freedom-black-hoodie-front.webp",
+362: "images/products/hoodies/freedom-black-hoodie-side.webp"
+372: id:"bankai-zipper",
+373: cat:"hoodies",
+374: name:"BANKAI Zipper",
+378: imgs:[
+379: "images/products/hoodies/freedom-black-hoodie-side.webp",
+380: "images/products/hoodies/freedom-black-hoodie-front.webp"
+390: id:"ichigo-full-embroidery",
+391: cat:"hoodies",
+392: name:"Ichigo Full Embroidery",
+396: imgs:[
+397: "images/products/hoodies/freedom-black-hoodie-front.webp",
+398: "images/products/hoodies/freedom-black-hoodie-side.webp"
+408: id:"titan-hoodie",
+409: cat:"hoodies",
+410: name:"Titan Hoodie",
+414: imgs:[
+415: "images/products/accessories/ATTACK-ON-TITAN46.webp"
+425: id:"white-toji",
+426: cat:"hoodies",
+427: name:"White Toji",
+431: imgs:[
+432: "images/products/hoodies/freedom-black-hoodie-front.webp",
+433: "images/products/hoodies/freedom-black-hoodie-side.webp"
+443: id:"black-toji",
+444: cat:"hoodies",
+445: name:"Black Toji",
+449: imgs:[
+450: "images/products/hoodies/freedom-black-hoodie-front.webp",
+451: "images/products/hoodies/freedom-black-hoodie-side.webp"
+461: id:"white-basic-hoodie",
+462: cat:"hoodies",
+463: name:"White Basic Hoodie",
+467: imgs:[
+468: "images/products/hoodies/1_093ecdc7-baa3-4271-bf9d-6fec95a3460c.webp",
+469: "images/products/tees/Basic Red Tee.webp"
+479: id:"black-basic-hoodie",
+480: cat:"hoodies",
+481: name:"Black Basic Hoodie",
+485: imgs:[
+486: "images/products/tees/Basic Red Tee.webp"
+496: id:"pink-basic-hoodie",
+497: cat:"hoodies",
+498: name:"Pink Basic Hoodie",
+502: imgs:[
+503: "images/products/hoodies/09C9C0DF-0A3E-457D-B301-761AED39C787.jpg",
+504: "images/products/tees/Basic Red Tee.webp"
+514: id:"pink-zipper",
+515: cat:"hoodies",
+516: name:"Pink Zipper",
+520: imgs:[
+521: "images/products/hoodies/3_1248e912-6088-40e1-ae35-bb9528cebae1.webp",
+522: "images/products/hoodies/4_a3827325-61ee-4ab6-b914-8072912ee743.webp",
+523: "images/products/hoodies/1_5b37f884-4496-4916-b482-e40890d7d63c.webp"
+533: id:"beige-basic-hoodie",
+534: cat:"hoodies",
+535: name:"Beige Basic",
+539: imgs:[
+540: "images/products/hoodies/IMG_5039.webp",
+541: "images/products/hoodies/IMG_5010.webp",
+542: "images/products/hoodies/IMG_5041.webp"
+552: id:"black-basic-hoodie-alt",
+553: cat:"hoodies",
+554: name:"Black Basic",
+558: imgs:[
+559: "images/products/hoodies/IMG_6264.webp",
+560: "images/products/hoodies/IMG_6267.webp",
+561: "images/products/hoodies/IMG_6266.webp"
+571: id:"zipper-brown",
+572: cat:"hoodies",
+573: name:"Zipper - Brown",
+577: imgs:[
+578: "images/products/hoodies/IMG_5042.webp",
+579: "images/products/hoodies/IMG_5045.webp",
+580: "images/products/hoodies/IMG_5044.webp"
+590: id:"hoodie-black-eren",
+591: cat:"hoodies",
+592: name:"Black Eren",
+596: imgs:[
+597: "images/products/hoodies/freedom-black-hoodie-side.webp",
+598: "images/products/hoodies/freedom-black-hoodie-front.webp"
+608: id:"hoodie-musashi-miyamoto",
+609: cat:"hoodies",
+610: name:"Musashi Miyamoto Hoodie",
+614: imgs:[
+615: "images/products/accessories/Musashi Miyamoto.webp"
+625: id:"hoodie-freedom-black",
+626: cat:"hoodies",
+627: name:"Freedom Black Hoodie",
+631: imgs:[
+632: "images/products/hoodies/freedom-black-hoodie-front.webp",
+633: "images/products/hoodies/1_79059f2c-80e9-40f7-8355-4d1a2380c3ad.webp",
+634: "images/products/hoodies/freedom-black-hoodie-side.webp"
+644: id:"hoodie-paradis-quarter-zip",
+645: cat:"hoodies",
+646: name:"Paradis Quarter Zip-Up",
+650: imgs:[
+651: "images/products/hoodies/freedom-black-hoodie-front.webp",
+652: "images/products/hoodies/freedom-black-hoodie-side.webp"
+662: id:"hoodie-hxh-mission-chimera",
+663: cat:"hoodies",
+664: name:"HxH mission Chimera",
+668: imgs:[
+669: "images/products/accessories/HxH Last Mission.webp"
+679: id:"hoodie-strawhat-solidarity-alt",
+680: cat:"hoodies",
+681: name:"Strawhat Solidarity Hoodie",
+685: imgs:[
+686: "images/products/hoodies/freedom-black-hoodie-front.webp",
+687: "images/products/hoodies/freedom-black-hoodie-side.webp"
+697: id:"hoodie-gyro-zeppeli-alt",
+698: cat:"hoodies",
+699: name:"Gyro Zeppeli Hoodie",
+703: imgs:[
+704: "images/products/hoodies/freedom-black-hoodie-front.webp",
+705: "images/products/hoodies/freedom-black-hoodie-side.webp"
+715: id:"hoodie-ulquiorra-cifer-alt",
+716: cat:"hoodies",
+717: name:"Ulquiorra Cifer Hoodie",
+721: imgs:[
+722: "images/products/hoodies/freedom-black-hoodie-side.webp",
+723: "images/products/hoodies/freedom-black-hoodie-front.webp"
+735: id:"mono-tee",
+736: cat:"tees",
+737: name:"Mono Tee",
+740: imgs:[
+741: "images/products/tees/Basic Red Tee.webp"
+751: id:"eclipse-tee",
+752: cat:"tees",
+753: name:"Eclipse Tee",
+756: imgs:[
+757: "images/products/tees/Basic Red Tee.webp"
+767: id:"ultimate-berserk-tee",
+768: cat:"tees",
+769: name:"Ultimate Berserk Tee",
+773: imgs:[
+774: "images/products/tees/product-008.png",
+775: "images/products/tees/product-009.png"
+785: id:"berserk-armor-tee",
+786: cat:"tees",
+787: name:"Berserk ARMOR Tee",
+791: imgs:[
+792: "images/products/tees/product-013.png",
+793: "images/products/tees/product-014.png",
+794: "images/products/tees/product-015.png"
+804: id:"zoro-ashura-mode",
+805: cat:"tees",
+806: name:"Zoro Ashura Mode",
+810: imgs:[
+811: "images/products/tees/Basic Red Tee.webp"
+821: id:"hisoka-tee",
+822: cat:"tees",
+823: name:"Hisoka Tee",
+827: imgs:[
+828: "images/products/tees/Basic Red Tee.webp"
+838: id:"igris-legendary",
+839: cat:"tees",
+840: name:"IGRIS Legendary",
+844: imgs:[
+845: "images/products/tees/Basic Red Tee.webp"
+855: id:"kaiju-no-8",
+856: cat:"tees",
+857: name:"Kaiju No. 8",
+861: imgs:[
+862: "images/products/tees/2_6a922374-909c-4ba2-bc0d-d47ea33b11d9.webp",
+863: "images/products/tees/Basic Red Tee.webp"
+873: id:"legendary-broly-tee",
+874: cat:"tees",
+875: name:"Legendary Broly Tee",
+879: imgs:[
+880: "images/products/tees/Basic Red Tee.webp"
+890: id:"kenpachi-zaraki",
+891: cat:"tees",
+892: name:"Kenpachi Zaraki",
+896: imgs:[
+897: "images/products/tees/IMG_8050.webp",
+898: "images/products/tees/IMG_8052.webp",
+899: "images/products/tees/IMG_8053.webp"
+909: id:"green-gon",
+910: cat:"tees",
+911: name:"Green Gon",
+915: imgs:[
+916: "images/products/tees/IMG_5080_1.webp",
+917: "images/products/tees/IMG_5082_1.webp",
+918: "images/products/tees/IMG_5081_1.webp"
+928: id:"chainsaw-man-premium",
+929: cat:"tees",
+930: name:"Chainsaw Man Premium Edition",
+934: imgs:[
+935: "images/products/tees/IMG_6244.webp",
+936: "images/products/tees/IMG_6247.webp",
+937: "images/products/tees/IMG_6246.webp"
+947: id:"musashi-miyamoto-tee",
+948: cat:"tees",
+949: name:"Musashi Miyamoto",
+953: imgs:[
+954: "images/products/tees/IMG_0156.webp",
+955: "images/products/tees/IMG_0159.webp",
+956: "images/products/tees/IMG_0158.webp"
+966: id:"yhwach-quincy-king",
+967: cat:"tees",
+968: name:"Yhwach Quincy King",
+972: imgs:[
+973: "images/products/tees/Basic Red Tee.webp"
+983: id:"black-tokyo-ghoul",
+984: cat:"tees",
+985: name:"Black Tokyo Ghoul",
+989: imgs:[
+990: "images/products/tees/IMG_6228.webp",
+991: "images/products/tees/IMG_6231.webp",
+992: "images/products/tees/IMG_6230.webp"
+1002: id:"tanjiro-premium-tee",
+1003: cat:"tees",
+1004: name:"Tanjiro Premium Tee",
+1008: imgs:[
+1009: "images/products/tees/Basic Red Tee.webp"
+1019: id:"sukuna-lava",
+1020: cat:"tees",
+1021: name:"Sukuna Lava",
+1025: imgs:[
+1026: "images/products/tees/Basic Red Tee.webp"
+1036: id:"bleach-v1",
+1037: cat:"tees",
+1038: name:"Bleach V1",
+1042: imgs:[
+1043: "images/products/accessories/BLEACH37.webp",
+1044: "images/products/accessories/BLEACH43.webp",
+1045: "images/products/accessories/BLEACH44_f4a01e33-5ffe-490b-a5b4-7f9a618cbb0c.webp"
+1055: id:"berserk-v4",
+1056: cat:"tees",
+1057: name:"Berserk V4",
+1061: imgs:[
+1062: "images/products/tees/IMG_6232.webp",
+1063: "images/products/tees/IMG_6235.webp",
+1064: "images/products/tees/IMG_6234.webp"
+1074: id:"naruto-acid",
+1075: cat:"tees",
+1076: name:"Naruto Acid",
+1080: imgs:[
+1081: "images/products/tees/ChatGPT_Image_Aug_25_2026_06_15_02_AM.webp",
+1082: "images/products/tees/ChatGPT_Image_Aug_25_2026_06_17_34_AM.webp",
+1083: "images/products/accessories/NARUTO68.webp"
+1093: id:"eren-yeager-v1",
+1094: cat:"tees",
+1095: name:"Eren Yeager V1",
+1099: imgs:[
+1100: "images/products/tees/Basic Red Tee.webp"
+1110: id:"shadow-monarch",
+1111: cat:"tees",
+1112: name:"Shadow Monarch",
+1116: imgs:[
+1117: "images/products/tees/Basic Red Tee.webp"
+1127: id:"aki-hayakawa",
+1128: cat:"tees",
+1129: name:"Aki Hayakawa",
+1133: imgs:[
+1134: "images/products/tees/Baki_08209954-5fa1-43f4-b508-26100920e4b9.webp",
+1135: "images/products/tees/Baki_4_4e83a602-d975-451e-b444-1fb012011f35.webp"
+1145: id:"asta-red",
+1146: cat:"tees",
+1147: name:"Asta Red",
+1151: imgs:[
+1152: "images/products/tees/IMG_4964.webp",
+1153: "images/products/tees/IMG_4967.webp",
+1154: "images/products/tees/IMG_4966.webp"
+1164: id:"hisoka-tee-alt",
+1165: cat:"tees",
+1166: name:"Hisoka Tee",
+1170: imgs:[
+1171: "images/products/tees/IMG_4987.webp",
+1172: "images/products/tees/IMG_4990.webp",
+1173: "images/products/tees/IMG_4989.webp"
+1183: id:"phantom-troupe-spiders-tee",
+1184: cat:"tees",
+1185: name:"Phantom Troupe Spiders",
+1189: imgs:[
+1190: "images/products/tees/IMG_4920_5f728230-fa29-43fc-82c8-386e2a7ced18.webp",
+1191: "images/products/tees/IMG_4923_008cb249-7d97-4942-9579-9d5dc5215cca.webp",
+1192: "images/products/tees/IMG_4922_d0b81d37-4c1e-4f43-8903-eb5ce66f2ddb.webp"
+1202: id:"luffy-gear5",
+1203: cat:"tees",
+1204: name:"Luffy Gear5",
+1208: imgs:[
+1209: "images/products/accessories/LUFFY STRAW HAT.webp"
+1219: id:"zoro-three-swords",
+1220: cat:"tees",
+1221: name:"ZORO - THREE SWORDS",
+1225: imgs:[
+1226: "images/products/pants/zoro-joggers-zams-2.webp",
+1227: "images/products/pants/zoro-joggers-zams-4-157115_76ef4447-807d-4317-bba7-69c34f3d49e9.webp"
+1237: id:"zoro-exclusive",
+1238: cat:"tees",
+1239: name:"Zoro Exclusive",
+1243: imgs:[
+1244: "images/products/pants/zoro-joggers-zams-2.webp",
+1245: "images/products/pants/zoro-joggers-zams-4-157115_76ef4447-807d-4317-bba7-69c34f3d49e9.webp"
+1255: id:"zoro-fandom-edition",
+1256: cat:"tees",
+1257: name:"Zoro Fandom Edition",
+1261: imgs:[
+1262: "images/products/jeans/fandom-balloon-jeans-1.webp",
+1263: "images/products/jeans/fandom-balloon-jeans-2.webp",
+1264: "images/products/jeans/fandom-black-balloon-0.webp"
+1274: id:"luFFy-straw-hat-tee",
+1275: cat:"tees",
+1276: name:"LUFFY - STRAW HAT",
+1280: imgs:[
+1281: "images/products/accessories/LUFFY STRAW HAT.webp",
+1282: "images/products/hoodies/ChatGPTImageNov10_2026_05_42_26AM.webp",
+1283: "images/products/hoodies/ChatGPTImageNov10_2026_05_42_32AM.webp"
+1293: id:"basic-black-tee",
+1294: cat:"tees",
+1295: name:"Basic Black Tee",
+1299: imgs:[
+1300: "images/products/tees/IMG_4951.webp",
+1301: "images/products/tees/IMG_4948.webp",
+1302: "images/products/tees/IMG_4950.webp"
+1312: id:"basic-white-tee",
+1313: cat:"tees",
+1314: name:"Basic White Tee",
+1318: imgs:[
+1319: "images/products/tees/Basic Red Tee.webp"
+1329: id:"basic-yellow-tee",
+1330: cat:"tees",
+1331: name:"Basic Yellow Tee",
+1335: imgs:[
+1336: "images/products/tees/1_b0b93abc-cb50-42f4-8724-da4cf1be0417.webp",
+1337: "images/products/tees/2_afaaf9b2-8a33-4646-b728-8f5f25e1ee34.webp",
+1338: "images/products/tees/3_c6a36657-4e1e-4d35-a021-ff99a09abe1c.webp"
+1348: id:"basic-baby-blue-tee",
+1349: cat:"tees",
+1350: name:"Basic Baby Blue Tee",
+1354: imgs:[
+1355: "images/products/tees/1_277cda11-3f8f-40fe-9dd1-2587c5e3d4c6.webp",
+1356: "images/products/tees/Basic Red Tee.webp"
+1366: id:"basic-red-tee",
+1367: cat:"tees",
+1368: name:"Basic Red Tee",
+1372: imgs:[
+1373: "images/products/tees/Basic Red Tee.webp",
+1374: "images/products/tees/4_79d81d03-a413-443b-80c0-7e588f0fdf52.webp",
+1375: "images/products/tees/1_e44161ff-393f-4e8b-a6c6-25ad159b43ae.webp"
+1385: id:"basic-brown-tee",
+1386: cat:"tees",
+1387: name:"Basic Brown Tee",
+1391: imgs:[
+1392: "images/products/tees/3_47d517b6-7125-42c9-b3c1-8d73593da7c4.webp",
+1393: "images/products/tees/4_79c9cd7d-b45d-4a3d-815f-df7681ceab1a.webp",
+1394: "images/products/tees/Basic Red Tee.webp"
+1404: id:"basic-pink-tee",
+1405: cat:"tees",
+1406: name:"Basic Pink Tee",
+1410: imgs:[
+1411: "images/products/tees/2_f350efca-1c15-4772-be5d-75a216bd73d7.webp",
+1412: "images/products/tees/3_ef334ef5-769d-4689-883f-616130e62659.webp",
+1413: "images/products/tees/4_bd1741a5-401b-4b09-b3f0-54e9440b625c.webp"
+1423: id:"basic-gray-tee",
+1424: cat:"tees",
+1425: name:"Basic Gray Tee",
+1429: imgs:[
+1430: "images/products/tees/gray_deec856b-2024-452f-bdab-94fdc273bccf.webp",
+1431: "images/products/tees/4_8b24d7e5-bd41-4cab-86ef-bfa44478bb2e.webp",
+1432: "images/products/tees/5_d72671d3-598b-47b5-906d-565f93d55631.webp"
+1442: id:"basic-green-tee",
+1443: cat:"tees",
+1444: name:"Basic Green Tee",
+1448: imgs:[
+1449: "images/products/tees/ChatGPT_Image_Aug_25_2026_06_02_02_AM.webp",
+1450: "images/products/tees/IMG_5057.webp",
+1451: "images/products/tees/IMG_5055.webp"
+1461: id:"custom-killua-tee",
+1462: cat:"tees",
+1463: name:"Custom Killua Tee",
+1467: imgs:[
+1468: "images/products/tees/Basic Red Tee.webp"
+1478: id:"winds-of-rage-tee",
+1479: cat:"tees",
+1480: name:"Winds of Rage Tee",
+1484: imgs:[
+1485: "images/products/tees/Basic Red Tee.webp"
+1495: id:"hollow-state-tee",
+1496: cat:"tees",
+1497: name:"Hollow State",
+1501: imgs:[
+1502: "images/products/tees/Basic Red Tee.webp"
+1512: id:"custom-gon-tee",
+1513: cat:"tees",
+1514: name:"Custom Gon Tee",
+1518: imgs:[
+1519: "images/products/tees/IMG_4968.webp",
+1520: "images/products/tees/IMG_4971.webp",
+1521: "images/products/tees/IMG_4970.webp"
+1531: id:"sukuna-v1-tee",
+1532: cat:"tees",
+1533: name:"Sukuna v1",
+1537: imgs:[
+1538: "images/products/tees/IMG_6407.webp",
+1539: "images/products/tees/IMG_6410.webp",
+1540: "images/products/tees/IMG_6409.webp"
+1550: id:"legendary-proliy-tee",
+1551: cat:"tees",
+1552: name:"LEGENDARY PROLIY TEE",
+1556: imgs:[
+1557: "images/products/tees/Basic Red Tee.webp"
+1567: id:"valhalla-tee",
+1568: cat:"tees",
+1569: name:"VALHALLA TEE",
+1573: imgs:[
+1574: "images/products/tees/Basic Red Tee.webp"
+1584: id:"tee-eren-yeager-typo",
+1585: cat:"tees",
+1586: name:"Eren Yeager typo",
+1590: imgs:[
+1591: "images/products/tees/Basic Red Tee.webp"
+1601: id:"tee-gara",
+1602: cat:"tees",
+1603: name:"Gara",
+1607: imgs:[
+1608: "images/products/tees/Basic Red Tee.webp"
+1618: id:"tee-gojo-v3",
+1619: cat:"tees",
+1620: name:"Gojo v3",
+1624: imgs:[
+1625: "images/products/tees/IMG_0172.webp",
+1626: "images/products/tees/IMG_0160.webp",
+1627: "images/products/tees/IMG_0162.webp"
+1637: id:"tee-goku",
+1638: cat:"tees",
+1639: name:"GOKU",
+1643: imgs:[
+1644: "images/products/tees/Basic Red Tee.webp"
+1654: id:"tee-golden-joy-boy",
+1655: cat:"tees",
+1656: name:"Golden Joy Boy",
+1660: imgs:[
+1661: "images/products/tees/Basic Red Tee.webp"
+1671: id:"tee-griffith-v1",
+1672: cat:"tees",
+1673: name:"Griffith v1",
+1677: imgs:[
+1678: "images/products/tees/IMG_1531.webp",
+1679: "images/products/tees/IMG_1540.webp",
+1680: "images/products/tees/IMG_1533.webp"
+1690: id:"tee-gyomei-beige",
+1691: cat:"tees",
+1692: name:"Gyomei Tee Beige",
+1696: imgs:[
+1697: "images/products/pants/beige.webp"
+1707: id:"tee-gyomei-red",
+1708: cat:"tees",
+1709: name:"Gyomei Tee Red",
+1713: imgs:[
+1714: "images/products/tees/3_c6c2aa65-a64b-495a-ab05-3c3d7a484774.webp",
+1715: "images/products/tees/4_ae80ab54-c25a-4f6d-8ccc-f37e19227304.webp",
+1716: "images/products/tees/4_6c82151d-88ab-426e-b8b7-17ba0bbf32d2.webp"
+1726: id:"tee-kurapika",
+1727: cat:"tees",
+1728: name:"Kurapika",
+1732: imgs:[
+1733: "images/products/tees/Basic Red Tee.webp"
+1743: id:"tee-99-killua-long-sleeve",
+1744: cat:"tees",
+1745: name:"99 Killua Long Sleeve",
+1749: imgs:[
+1750: "images/products/tees/IMG_6415.webp",
+1751: "images/products/tees/IMG_6418.webp",
+1752: "images/products/tees/IMG_6417.webp"
+1762: id:"tee-baki",
+1763: cat:"tees",
+1764: name:"BAKI",
+1768: imgs:[
+1769: "images/products/tees/Baki_4_4e83a602-d975-451e-b444-1fb012011f35.webp",
+1770: "images/products/tees/Baki_08209954-5fa1-43f4-b508-26100920e4b9.webp"
+1780: id:"tee-berserk-d",
+1781: cat:"tees",
+1782: name:"Berserk-D",
+1786: imgs:[
+1787: "images/products/tees/Basic Red Tee.webp"
+1797: id:"tee-byakuya-kuchiki-bankai",
+1798: cat:"tees",
+1799: name:"Byakuya Kuchiki Bankai",
+1803: imgs:[
+1804: "images/products/tees/Basic Red Tee.webp"
+1814: id:"tee-luffy-v1",
+1815: cat:"tees",
+1816: name:"LUFFY v1",
+1820: imgs:[
+1821: "images/products/accessories/LUFFY STRAW HAT.webp"
+1831: id:"tee-eren-founder",
+1832: cat:"tees",
+1833: name:"EREN: THE FOUNDER",
+1837: imgs:[
+1838: "images/products/tees/Basic Red Tee.webp"
+1848: id:"tee-path-to-freedom",
+1849: cat:"tees",
+1850: name:"Path to Freedom Tee",
+1854: imgs:[
+1855: "images/products/hoodies/freedom-black-hoodie-front.webp",
+1856: "images/products/hoodies/freedom-black-hoodie-side.webp"
+1866: id:"tee-zoro-ashura-mode",
+1867: cat:"tees",
+1868: name:"Zoro Ashura Mode",
+1872: imgs:[
+1873: "images/products/pants/zoro-joggers-zams-2.webp",
+1874: "images/products/pants/zoro-joggers-zams-4-157115_76ef4447-807d-4317-bba7-69c34f3d49e9.webp"
+1884: id:"tee-feitan-exe",
+1885: cat:"tees",
+1886: name:"FEITAN.EXE",
+1890: imgs:[
+1891: "images/products/accessories/exec-1156c395-81d8-4dce-97b4-530b9fc7ca96.webp",
+1892: "images/products/accessories/exec-243547fb-5f6a-421f-b88b-77ca50687929.webp",
+1893: "images/products/accessories/exec-41a6aae4-f436-44b6-9f3b-3fff7b2bab19.webp"
+1903: id:"tee-blind-faith",
+1904: cat:"tees",
+1905: name:"Blind Faith",
+1909: imgs:[
+1910: "images/products/tees/IMG_4991.webp",
+1911: "images/products/tees/IMG_4994.webp",
+1912: "images/products/tees/IMG_4993.webp"
+1922: id:"tee-limitless",
+1923: cat:"tees",
+1924: name:"limitless",
+1928: imgs:[
+1929: "images/products/tees/ChatGPTImageSep5_2026_04_32_46PM_1.webp",
+1930: "images/products/tees/ChatGPTImageSep5_2026_04_32_46PM_2.webp",
+1931: "images/products/tees/ChatGPTImageSep5_2026_04_16_57PM.webp"
+1941: id:"tee-toji-zenin-reject",
+1942: cat:"tees",
+1943: name:"TOJI: ZENIN REJECT",
+1947: imgs:[
+1948: "images/products/tees/Basic Red Tee.webp"
+1958: id:"tee-sorcerer-killer",
+1959: cat:"tees",
+1960: name:"Sorcerer Killer",
+1964: imgs:[
+1965: "images/products/tees/Basic Red Tee.webp"
+1975: id:"tee-true-warrior",
+1976: cat:"tees",
+1977: name:"True Warrior",
+1981: imgs:[
+1982: "images/products/tees/Basic Red Tee.webp"
+1992: id:"tee-naruto",
+1993: cat:"tees",
+1994: name:"Naruto",
+1998: imgs:[
+1999: "images/products/tees/IMG_4960.webp",
+2000: "images/products/tees/IMG_4963.webp",
+2001: "images/products/tees/IMG_4962.webp"
+2011: id:"tee-luffy-golden-boy",
+2012: cat:"tees",
+2013: name:"LUFFY: THE GOLDEN BOY",
+2017: imgs:[
+2018: "images/products/accessories/LUFFY STRAW HAT.webp"
+2028: id:"tee-luffy-thunder",
+2029: cat:"tees",
+2030: name:"LUFFY THUNDER",
+2034: imgs:[
+2035: "images/products/accessories/LUFFY STRAW HAT.webp"
+2045: id:"tee-un-chained",
+2046: cat:"tees",
+2047: name:"Unchained",
+2051: imgs:[
+2052: "images/products/tees/Basic Red Tee.webp"
+2062: id:"tee-forest-division",
+2063: cat:"tees",
+2064: name:"Forest Division",
+2068: imgs:[
+2069: "images/products/tees/Basic Red Tee.webp"
+2079: id:"tee-eclipse-04",
+2080: cat:"tees",
+2081: name:"Eclipse.04",
+2085: imgs:[
+2086: "images/products/tees/Basic Red Tee.webp"
+2096: id:"tee-gaara",
+2097: cat:"tees",
+2098: name:"Gaara",
+2102: imgs:[
+2103: "images/products/tees/IMG_4983.webp",
+2104: "images/products/tees/IMG_4986.webp",
+2105: "images/products/tees/IMG_4985.webp"
+2115: id:"tee-true-warrior-alt",
+2116: cat:"tees",
+2117: name:"True Warrior Tee",
+2121: imgs:[
+2122: "images/products/tees/Basic Red Tee.webp"
+2132: id:"tee-zoro-ashura-mode-alt",
+2133: cat:"tees",
+2134: name:"Zoro Ashura Mode Tee",
+2138: imgs:[
+2139: "images/products/pants/zoro-joggers-zams-2.webp",
+2140: "images/products/pants/zoro-joggers-zams-4-157115_76ef4447-807d-4317-bba7-69c34f3d49e9.webp"
+2150: id:"tee-bleach-v1-alt",
+2151: cat:"tees",
+2152: name:"Bleach v1 Tee",
+2156: imgs:[
+2157: "images/products/accessories/BLEACH37.webp",
+2158: "images/products/accessories/BLEACH43.webp",
+2159: "images/products/accessories/BLEACH44_f4a01e33-5ffe-490b-a5b4-7f9a618cbb0c.webp"
+2169: id:"tee-yhwach-quincy-king-alt",
+2170: cat:"tees",
+2171: name:"Yhwach Quincy King Tee",
+2175: imgs:[
+2176: "images/products/tees/Basic Red Tee.webp"
+2186: id:"tee-custom-gon",
+2187: cat:"tees",
+2188: name:"Custom Gon Tee",
+2192: imgs:[
+2193: "images/products/tees/Basic Red Tee.webp"
+2203: id:"tee-winds-of-rage",
+2204: cat:"tees",
+2205: name:"Winds of Rage Tee",
+2209: imgs:[
+2210: "images/products/tees/Basic Red Tee.webp"
+2220: id:"tee-sukuna-v1-alt",
+2221: cat:"tees",
+2222: name:"Sukuna v1 Tee",
+2226: imgs:[
+2227: "images/products/tees/Basic Red Tee.webp"
+2237: id:"tee-zoro-exclusive",
+2238: cat:"tees",
+2239: name:"Zoro Exclusive",
+2243: imgs:[
+2244: "images/products/pants/zoro-joggers-zams-2.webp",
+2245: "images/products/pants/zoro-joggers-zams-4-157115_76ef4447-807d-4317-bba7-69c34f3d49e9.webp"
+2255: id:"tee-zoro-fandom-edition",
+2256: cat:"tees",
+2257: name:"Zoro Fandom Edition",
+2261: imgs:[
+2262: "images/products/jeans/fandom-balloon-jeans-1.webp",
+2263: "images/products/jeans/fandom-balloon-jeans-2.webp",
+2264: "images/products/jeans/fandom-black-balloon-0.webp"
+2274: id:"tee-legendary-broly",
+2275: cat:"tees",
+2276: name:"LEGENDARY BROLY TEE",
+2280: imgs:[
+2281: "images/products/tees/Basic Red Tee.webp"
+2293: id:"relaxed-pants",
+2294: cat:"pants",
+2295: name:"Relaxed Pants",
+2298: imgs:[
+2299: "images/products/pants/sweatpants-black-side.webp",
+2300: "images/products/jeans/fandom-black-balloon-0.webp",
+2301: "images/products/pants/zoro-joggers-zams-2.webp"
+2311: id:"tapered-pants",
+2312: cat:"pants",
+2313: name:"Tapered Pants",
+2316: imgs:[
+2317: "images/products/pants/sweatpants-black-side.webp",
+2318: "images/products/jeans/fandom-black-balloon-0.webp",
+2319: "images/products/pants/zoro-joggers-zams-2.webp"
+2329: id:"light-straight-pants-black",
+2330: cat:"pants",
+2331: name:"Light Straight Pants - Black",
+2335: imgs:[
+2336: "images/products/jeans/fandom-light-blue-balloon-1.webp",
+2337: "images/products/jeans/fandom-light-blue-balloon-detail.webp"
+2347: id:"light-straight-pants-gray",
+2348: cat:"pants",
+2349: name:"Light Straight Pants - Gray",
+2353: imgs:[
+2354: "images/products/pants/IMG_9399.webp",
+2355: "images/products/pants/GenerativeFill7_d414b0ba-d80c-40e9-b87c-315deddd7b04.webp",
+2356: "images/products/pants/IMG_9409.webp"
+2366: id:"light-straight-pants-brown",
+2367: cat:"pants",
+2368: name:"Light Straight Pants - Brown",
+2372: imgs:[
+2373: "images/products/pants/GenerativeFill2_6d2dcee7-787a-4d26-8e35-6c6e0cdfa458.webp",
+2374: "images/products/pants/GenerativeFill_fd14b58f-4b9b-4c72-bce7-e9150e2aaf0d.webp",
+2375: "images/products/pants/IMG_9453.webp"
+2385: id:"utility-jogger-black",
+2386: cat:"pants",
+2387: name:"The Utility Jogger Gray",
+2391: imgs:[
+2392: "images/products/pants/IMG_6262.webp",
+2393: "images/products/pants/IMG_6261.webp",
+2394: "images/products/pants/IMG_6263.webp"
+2404: id:"utility-jogger-silver",
+2405: cat:"pants",
+2406: name:"The Utility Jogger Silver",
+2410: imgs:[
+2411: "images/products/pants/Hue_Saturation1.webp",
+2412: "images/products/pants/Hue_Saturation1copy2.webp",
+2413: "images/products/pants/Hue_Saturation1copy.webp"
+2423: id:"sweatpants-black",
+2424: cat:"sweatpants",
+2425: name:"Sweatpants - Black",
+2429: imgs:[
+2430: "images/products/pants/sweatpants-black-front.webp",
+2431: "images/products/pants/sweatpants-black-back.webp",
+2432: "images/products/pants/sweatpants-black-side.webp"
+2442: id:"sweatpants-brown",
+2443: cat:"sweatpants",
+2444: name:"Sweatpants - Brown",
+2448: imgs:[
+2449: "images/products/pants/2_e18726f8-e251-40ba-9cee-30851b69b2ac.webp",
+2450: "images/products/pants/4_8cb9d022-dde1-430b-ae50-01a115ba6f6b.webp",
+2451: "images/products/pants/1_0ac364fe-e208-49c5-9403-5221ebfc3d19.webp"
+2461: id:"naruto-straight-pants",
+2462: cat:"pants",
+2463: name:"Naruto Straight Pants",
+2467: imgs:[
+2468: "images/products/accessories/NARUTO68.webp",
+2469: "images/products/accessories/Naruto vs Sasuke.webp"
+2479: id:"sasuke-straight-pants",
+2480: cat:"pants",
+2481: name:"Sasuke Straight Pants",
+2485: imgs:[
+2486: "images/products/accessories/Naruto vs Sasuke.webp"
+2496: id:"demon-slayer-pants",
+2497: cat:"pants",
+2498: name:"Demon Slayer Pants",
+2502: imgs:[
+2503: "images/products/pants/demon-slayer-joggers-zams-1.webp",
+2504: "images/products/pants/demon-slayer-joggers-zams-2.webp"
+2514: id:"zoro-pants",
+2515: cat:"pants",
+2516: name:"Zoro Pants",
+2520: imgs:[
+2521: "images/products/pants/zoro-joggers-zams-2.webp",
+2522: "images/products/pants/zoro-joggers-zams-4-157115_76ef4447-807d-4317-bba7-69c34f3d49e9.webp"
+2532: id:"sweat-pants-sasuke",
+2533: cat:"sweatpants",
+2534: name:"Sweat Pants Sasuke",
+2538: imgs:[
+2539: "images/products/accessories/Naruto vs Sasuke.webp",
+2540: "images/products/pants/sweatpants-black-back.webp",
+2541: "images/products/pants/sweatpants-black-front.webp"
+2551: id:"chains-pants",
+2552: cat:"pants",
+2553: name:"Chains Pants",
+2557: imgs:[
+2558: "images/products/pants/GenerativeFill3_faabf748-f6e6-4d00-9cb9-6cdfbc6b878c.webp",
+2559: "images/products/pants/GenerativeFill_9d42c636-9ade-487d-abbc-1eaa60e72605.webp",
+2560: "images/products/pants/IMG_9425.webp"
+2570: id:"basic-pants",
+2571: cat:"pants",
+2572: name:"Basic Pants",
+2576: imgs:[
+2577: "images/products/pants/black.webp",
+2578: "images/products/pants/beige.webp",
+2579: "images/products/pants/gray.webp"
+2589: id:"heavy-straight-pants-gray",
+2590: cat:"pants",
+2591: name:"Heavy Straight Pants - Gray",
+2595: imgs:[
+2596: "images/products/pants/IMG_6315_1.webp",
+2597: "images/products/pants/IMG_6317_1.webp",
+2598: "images/products/pants/IMG_6319_1.webp"
+2608: id:"heavy-straight-pants-black",
+2609: cat:"pants",
+2610: name:"Heavy Straight Pants - Black",
+2614: imgs:[
+2615: "images/products/pants/IMG_9484_c23e7cee-5be0-4c26-84af-0bf259db0c56.webp",
+2616: "images/products/pants/GenerativeFill6.webp",
+2617: "images/products/pants/IMG_9488_980e0605-174c-41f7-b503-f3ab17ff945a.webp",
+2618: "images/products/pants/GenerativeFill8_d7da2447-16e3-459d-b6da-178ed08156ec.webp"
+2630: id:"balloon-jeans-black",
+2631: cat:"jeans",
+2632: name:"Balloon Jeans - Black",
+2636: imgs:[
+2637: "images/products/jeans/fandom-black-balloon-0.webp",
+2638: "images/products/jeans/fandom-black-balloon-2.webp"
+2648: id:"balloon-jeans-light-blue",
+2649: cat:"jeans",
+2650: name:"Vintage Wash Balloon Jeans - Light Blue",
+2654: imgs:[
+2655: "images/products/jeans/1000240764.webp",
+2656: "images/products/jeans/1000240765.webp",
+2657: "images/products/jeans/1000240766.webp"
+2667: id:"balloon-jeans-pale-blue",
+2668: cat:"jeans",
+2669: name:"Ice Wash Balloon Jeans - Pale Blue",
+2673: imgs:[
+2674: "images/products/jeans/fandom-light-blue-balloon-1.webp",
+2675: "images/products/jeans/fandom-light-blue-balloon-detail.webp"
+2685: id:"balloon-jeans-olive",
+2686: cat:"jeans",
+2687: name:"Vintage Wash Balloon Jeans - Washed Olive",
+2691: imgs:[
+2692: "images/products/jeans/fandom-balloon-jeans-1.webp",
+2693: "images/products/jeans/fandom-balloon-jeans-2.webp"
+2705: id:"vinland-saga",
+2706: cat:"sweatshirts",
+2707: name:"Vinland Saga",
+2711: imgs:[
+2712: "images/products/sweatshirts/product-021.jpg",
+2713: "images/products/sweatshirts/product-022.jpg"
+2723: id:"paradis-quarter-zip",
+2724: cat:"sweatshirts",
+2725: name:"Paradis Quarter Zip-Up",
+2729: imgs:[
+2730: "images/products/sweatshirts/1_0f76af01-5bd8-46f1-90da-595367399b8c.webp",
+2731: "images/products/hoodies/freedom-black-hoodie-side.webp",
+2732: "images/products/hoodies/freedom-black-hoodie-front.webp"
+2742: id:"aot-zip-up-black",
+2743: cat:"sweatshirts",
+2744: name:"AOT Zip Up Black",
+2748: imgs:[
+2749: "images/products/accessories/Levi from AOT.webp"
+2759: id:"blue-lock-sweater",
+2760: cat:"sweatshirts",
+2761: name:"Blue Lock Sweater",
+2765: imgs:[
+2766: "images/products/sweatshirts/1_cccd4eb6-2dd4-4e57-b0d8-d5f86ed73a09.webp",
+2767: "images/products/sweatshirts/2_358d1463-fd76-40ef-b8d7-d83c179bcbcb.webp",
+2768: "images/products/sweatshirts/3_91378bbc-6a27-4ada-8735-a8b5a290e197.webp"
+2778: id:"aot-green-zip-up",
+2779: cat:"sweatshirts",
+2780: name:"AOT Green Zip-Up",
+2784: imgs:[
+2785: "images/products/sweatshirts/6.webp",
+2786: "images/products/sweatshirts/5_07d327e0-83a0-4246-9547-48888bf4e79e.webp",
+2787: "images/products/accessories/Levi from AOT.webp"
+2797: id:"yuta-sweatshirt",
+2798: cat:"sweatshirts",
+2799: name:"Yuta",
+2803: imgs:[
+2804: "images/products/hoodies/freedom-black-hoodie-front.webp",
+2805: "images/products/hoodies/freedom-black-hoodie-side.webp"
+2815: id:"ryuk-embroidered",
+2816: cat:"sweatshirts",
+2817: name:"Ryuk Embroidered",
+2821: imgs:[
+2822: "images/products/hoodies/freedom-black-hoodie-front.webp",
+2823: "images/products/hoodies/freedom-black-hoodie-side.webp"
+2833: id:"aot-sweater",
+2834: cat:"sweatshirts",
+2835: name:"AOT Sweater",
+2839: imgs:[
+2840: "images/products/accessories/Levi from AOT.webp"
+2850: id:"purple-basic-sweatshirt",
+2851: cat:"sweatshirts",
+2852: name:"Purple Basic Sweatshirt",
+2856: imgs:[
+2857: "images/products/tees/Basic Red Tee.webp"
+2867: id:"black-set",
+2868: cat:"sweatshirts",
+2869: name:"Black Set",
+2873: imgs:[
+2874: "images/products/hoodies/freedom-black-hoodie-front.webp",
+2875: "images/products/hoodies/freedom-black-hoodie-side.webp"
+2887: id:"guts-puffer-jacket",
+2888: cat:"jackets",
+2889: name:"Guts Puffer Jacket - Berserk",
+2893: imgs:[
+2894: "images/products/hoodies/freedom-black-hoodie-side.webp",
+2895: "images/products/hoodies/freedom-black-hoodie-front.webp"
+2905: id:"freedom-black-jacket",
+2906: cat:"jackets",
+2907: name:"Freedom Black Jacket",
+2911: imgs:[
+2912: "images/products/hoodies/freedom-black-hoodie-front.webp",
+2913: "images/products/hoodies/freedom-black-hoodie-side.webp"
+2923: id:"phantom-troupe-varsity",
+2924: cat:"jackets",
+2925: name:"Phantom Troupe Varsity",
+2929: imgs:[
+2930: "images/products/jackets/4_d3a87af7-6c59-4882-803d-68ab03c56c40.webp",
+2931: "images/products/jackets/3_caf5ee8d-25e9-4fc9-9d22-17f74fee73b1.webp",
+2932: "images/products/jackets/2_069d2e02-b7fd-4cee-86b2-5d05ef616d5f.webp"
+2942: id:"itachi-varsity",
+2943: cat:"jackets",
+2944: name:"Itachi Varsity",
+2948: imgs:[
+2949: "images/products/jackets/1_b761b95f-16a4-4944-964e-a91c088b2b0b.webp",
+2950: "images/products/jackets/4_6e579b40-48d1-4628-b03f-d1a65511032b.webp",
+2951: "images/products/hoodies/freedom-black-hoodie-side.webp"
+2961: id:"bizarre-bloodline-zip-hoodie",
+2962: cat:"jackets",
+2963: name:"Bizarre Bloodline Zip Hoodie",
+2967: imgs:[
+2968: "images/products/jackets/47D56C3E-1FE0-4E6C-A28E-FF81CE3921F5.webp",
+2969: "images/products/jackets/01B8B633-DC04-4031-912D-41D5A6837481.webp",
+2970: "images/products/jackets/0E796B08-39F4-4FA1-BFB6-F0602D46E2E8.webp"
+2980: id:"freedom-mint-green-jacket",
+2981: cat:"jackets",
+2982: name:"Freedom Mint-Green Jacket",
+2986: imgs:[
+2987: "images/products/hoodies/freedom-black-hoodie-front.webp",
+2988: "images/products/hoodies/freedom-black-hoodie-side.webp",
+2989: "images/products/hoodies/green-1.webp"
+2999: id:"golden-dominance-zip-hoodie",
+3000: cat:"jackets",
+3001: name:"Golden Dominance Zip Hoodie",
+3005: imgs:[
+3006: "images/products/hoodies/freedom-black-hoodie-side.webp",
+3007: "images/products/hoodies/freedom-black-hoodie-front.webp"
+3017: id:"red-zipper-jacket",
+3018: cat:"jackets",
+3019: name:"Red Zipper",
+3023: imgs:[
+3024: "images/products/jackets/3_fda13ac1-8db3-485a-9cb3-24f56ec506b3.webp",
+3025: "images/products/hoodies/freedom-black-hoodie-side.webp",
+3026: "images/products/hoodies/freedom-black-hoodie-front.webp"
+3036: id:"green-zipper-jacket",
+3037: cat:"jackets",
+3038: name:"Green Zipper",
+3042: imgs:[
+3043: "images/products/jackets/3_ff6be0e1-233e-48fb-9836-a22babcf07e8.webp",
+3044: "images/products/jackets/4_3185c370-adec-4f04-a485-87a3c806d527.webp",
+3045: "images/products/jackets/1_a2ad3d16-0458-4be4-8332-25fc5e7f55e0.webp"
+3055: id:"jacket-guts-puffer",
+3056: cat:"jackets",
+3057: name:"Guts Puffer Jacket - Berserk",
+3061: imgs:[
+3062: "images/products/hoodies/freedom-black-hoodie-side.webp",
+3063: "images/products/hoodies/freedom-black-hoodie-front.webp"
+3073: id:"jacket-phantom-troupe-varsity-alt",
+3074: cat:"jackets",
+3075: name:"Phantom Troupe Varsity",
+3079: imgs:[
+3080: "images/products/hoodies/freedom-black-hoodie-side.webp",
+3081: "images/products/hoodies/freedom-black-hoodie-front.webp"
+3091: id:"jacket-itachi-varsity-alt",
+3092: cat:"jackets",
+3093: name:"Itachi Varsity",
+3097: imgs:[
+3098: "images/products/hoodies/freedom-black-hoodie-front.webp",
+3099: "images/products/hoodies/freedom-black-hoodie-side.webp"
+3109: id:"jacket-freedom-mint-green-alt",
+3110: cat:"jackets",
+3111: name:"Freedom Mint-Green Jacket",
+3115: imgs:[
+3116: "images/products/hoodies/freedom-black-hoodie-front.webp",
+3117: "images/products/hoodies/freedom-black-hoodie-side.webp",
+3118: "images/products/hoodies/green-1.webp"
+3130: id:"godspeed-knit",
+3131: cat:"knitwear",
+3132: name:"Godspeed Knit",
+3136: imgs:[
+3137: "images/products/knitwear/product-005.jpg",
+3138: "images/products/knitwear/product-006.jpg",
+3139: "images/products/knitwear/product-007.jpg"
+3149: id:"the-gate-keeper",
+3150: cat:"knitwear",
+3151: name:"The Gate Keeper",
+3155: imgs:[
+3156: "images/products/hoodies/freedom-black-hoodie-front.webp",
+3157: "images/products/hoodies/freedom-black-hoodie-side.webp"
+3167: id:"d-will-knit",
+3168: cat:"knitwear",
+3169: name:"D. Will Knit",
+3173: imgs:[
+3174: "images/products/hoodies/freedom-black-hoodie-front.webp",
+3175: "images/products/hoodies/freedom-black-hoodie-side.webp"
+3187: id:"set-naruto",
+3188: cat:"sets",
+3189: name:"Set Naruto",
+3193: imgs:[
+3194: "images/products/accessories/NARUTO68.webp",
+3195: "images/products/accessories/Naruto vs Sasuke.webp"
+3205: id:"set-sasuke",
+3206: cat:"sets",
+3207: name:"Set SasuKe",
+3211: imgs:[
+3212: "images/products/accessories/Naruto vs Sasuke.webp"
+3225: id:"berserk-cap",
+3226: cat:"accessories",
+3227: name:"Berserk Cap",
+3230: imgs:[
+3231: "images/products/hoodies/product-012.jpg",
+3232: "images/products/hoodies/product-019.jpg",
+3233: "images/products/hoodies/product-026.jpg"
+3243: id:"sukuna-cap",
+3244: cat:"accessories",
+3245: name:"Sukuna Cap",
+3248: imgs:[
+3249: "images/products/accessories/3_a5f71c27-778e-4211-9463-50010eb7513b.webp",
+3250: "images/products/accessories/1_dd836ff2-bfe5-43a1-8e23-9fec58dd1c0c.webp",
+3251: "images/products/accessories/2_975fd221-1f91-426b-8735-1765b7c0004e.webp"
+3261: id:"bankai-cap",
+3262: cat:"accessories",
+3263: name:"BANKAI Cap",
+3266: imgs:[
+3267: "images/products/knitwear/product-006.jpg",
+3268: "images/products/tees/product-013.png",
+3269: "images/products/hoodies/product-020.jpg"
+3279: id:"akatsuki-cap",
+3280: cat:"accessories",
+3281: name:"Akatsuki Cap",
+3284: imgs:[
+3285: "images/products/accessories/6736ab67-a573-4612-b4ef-64d7a3ac2234.webp",
+3286: "images/products/accessories/b9fb0c63-724f-4715-85f3-e8f4030b47af.webp",
+3287: "images/products/accessories/9ccaadbc-36dd-4382-8287-415f6c4bc45e.webp"
+3297: id:"one-piece-cap",
+3298: cat:"accessories",
+3299: name:"One Piece Cap",
+3302: imgs:[
+3303: "images/products/accessories/CodexImageAug19_2026_04_10_28PM.webp",
+3304: "images/products/accessories/exec-243547fb-5f6a-421f-b88b-77ca50687929.webp",
+3305: "images/products/accessories/ONEPIECE63.webp"
+3315: id:"hxh-cap",
+3316: cat:"accessories",
+3317: name:"HxH Cap",
+3320: imgs:[
+3321: "images/products/accessories/HxH Last Mission.webp"
+3331: id:"hidden-leaf-cap",
+3332: cat:"accessories",
+3333: name:"Hidden Leaf Cap",
+3336: imgs:[
+3337: "images/products/accessories/exec-1156c395-81d8-4dce-97b4-530b9fc7ca96.webp",
+3338: "images/products/accessories/exec-4327dd0d-5ea1-4c16-8bce-d8d32ce4b4f4.webp",
+3339: "images/products/accessories/exec-a8e98b6c-0f58-4485-9a98-434de0befd45.webp"
+3349: id:"survey-corps-cap",
+3350: cat:"accessories",
+3351: name:"Survey Corps Cap",
+3354: imgs:[
+3355: "images/products/hoodies/product-024.jpg",
+3356: "images/products/knitwear/product-005.jpg",
+3357: "images/products/hoodies/product-012.jpg"
+3367: id:"uchiha-clan-cap",
+3368: cat:"accessories",
+3369: name:"Uchiha Clan Cap",
+3372: imgs:[
+3373: "images/products/tees/product-009.png",
+3374: "images/products/tees/product-016.png",
+3375: "images/products/hoodies/product-023.jpg"
+3385: id:"soul-eater-cap",
+3386: cat:"accessories",
+3387: name:"Soul Eater Cap",
+3390: imgs:[
+3391: "images/products/hoodies/product-001.jpg",
+3392: "images/products/tees/product-008.png",
+3393: "images/products/tees/product-015.png"
+3403: id:"death-note-cap",
+3404: cat:"accessories",
+3405: name:"Death Note Cap",
+3408: imgs:[
+3409: "images/products/hoodies/product-003.jpg",
+3410: "images/products/hoodies/product-010.jpg",
+3411: "images/products/hoodies/product-017.jpg"
+3421: id:"frieren-cap",
+3422: cat:"accessories",
+3423: name:"Frieren Cap",
+3426: imgs:[
+3427: "images/products/tees/product-009.png",
+3428: "images/products/tees/product-016.png",
+3429: "images/products/hoodies/product-023.jpg"
+3439: id:"cap-survey-corps",
+3440: cat:"accessories",
+3441: name:"Survey Corps Cap",
+3444: imgs:[
+3445: "images/products/accessories/exec-84bc7b37-d182-43d7-bdb4-b21e0cbbc7d3.webp",
+3446: "images/products/accessories/exec-d34e5765-f4bf-491c-ba81-e94b4c454bd1.webp",
+3447: "images/products/accessories/exec-ec89a2e5-a24f-480c-9416-5088c0b1b95f.webp"
+3457: id:"cap-uchiha-clan",
+3458: cat:"accessories",
+3459: name:"Uchiha clan cap",
+3462: imgs:[
+3463: "images/products/accessories/CodexImageAug19_2026_07_38_09PM.webp",
+3464: "images/products/accessories/exec-41a6aae4-f436-44b6-9f3b-3fff7b2bab19.webp",
+3465: "images/products/tees/product-009.png"
+3475: id:"cap-soul-eater",
+3476: cat:"accessories",
+3477: name:"Soul Eater Cap",
+3480: imgs:[
+3481: "images/products/hoodies/product-001.jpg",
+3482: "images/products/tees/product-008.png",
+3483: "images/products/tees/product-015.png"
+3493: id:"cap-death-note",
+3494: cat:"accessories",
+3495: name:"Death Note Cap",
+3498: imgs:[
+3499: "images/products/accessories/CodexImageAug30_2026_06_32_43PM.webp",
+3500: "images/products/accessories/CodexImageAug30_2026_06_33_13PM.webp",
+3501: "images/products/accessories/CodexImageAug30_2026_06_38_54PM.webp"
+3511: id:"cap-frieren",
+3512: cat:"accessories",
+3513: name:"Frieren cap",
+3516: imgs:[
+3517: "images/products/tees/product-009.png",
+3518: "images/products/tees/product-016.png",
+3519: "images/products/hoodies/product-023.jpg"
+3530: id:"socks-bleach",
+3531: cat:"accessories",
+3532: name:"Socks Bleach",
+3535: imgs:[
+3536: "images/products/accessories/BLEACH37.webp",
+3537: "images/products/accessories/BLEACH43.webp",
+3538: "images/products/accessories/BLEACH44_f4a01e33-5ffe-490b-a5b4-7f9a618cbb0c.webp"
+3548: id:"socks-naruto",
+3549: cat:"accessories",
+3550: name:"Socks Naruto",
+3553: imgs:[
+3554: "images/products/accessories/NARUTO68.webp",
+3555: "images/products/accessories/Naruto vs Sasuke.webp"
+3565: id:"socks-hunterxhunter",
+3566: cat:"accessories",
+3567: name:"Socks HunterXHunter",
+3570: imgs:[
+3571: "images/products/tees/product-009.png",
+3572: "images/products/tees/product-016.png",
+3573: "images/products/hoodies/product-023.jpg"
+3583: id:"socks-berserk",
+3584: cat:"accessories",
+3585: name:"Socks Berserk",
+3588: imgs:[
+3589: "images/products/hoodies/product-017.jpg",
+3590: "images/products/hoodies/product-024.jpg",
+3591: "images/products/knitwear/product-005.jpg"
+3601: id:"socks-vinland-saga",
+3602: cat:"accessories",
+3603: name:"Socks Vinland Saga",
+3606: imgs:[
+3607: "images/products/hoodies/product-004.jpg",
+3608: "images/products/hoodies/product-011.jpg",
+3609: "images/products/hoodies/product-018.jpg"
+3619: id:"socks-one-piece",
+3620: cat:"accessories",
+3621: name:"Socks One Piece",
+3624: imgs:[
+3625: "images/products/accessories/5_b8cbf7c7-565e-4c29-8dd1-35ffa16cb2b6.webp",
+3626: "images/products/accessories/ONEPIECE63.webp",
+3627: "images/products/accessories/ONEPIECE75.webp"
+3637: id:"socks-jujutsu-kaisen",
+3638: cat:"accessories",
+3639: name:"Socks Jujutsu Kaisen",
+3642: imgs:[
+3643: "images/products/accessories/JUJUTSU57_8f28b000-3350-4a7a-a9d8-32f7b226906e.webp",
+3644: "images/products/accessories/JUJUTSU76.webp"
+3654: id:"socks-death-note",
+3655: cat:"accessories",
+3656: name:"Socks Death Note",
+3659: imgs:[
+3660: "images/products/tees/product-008.png",
+3661: "images/products/tees/product-015.png",
+3662: "images/products/sweatshirts/product-022.jpg"
+3673: id:"hunter-license-card",
+3674: cat:"accessories",
+3675: name:"Hunter License Card",
+3678: imgs:[
+3679: "images/products/accessories/HUNTERX10_fe532896-7d26-44cd-b7cc-6726532209e8.webp",
+3680: "images/products/accessories/HUNTERX23.webp",
+3681: "images/products/accessories/HUNTERX7_2822d5de-7861-4b7a-aef3-737d6313eaff.webp"
+3691: id:"winged-vanguard-sticker",
+3692: cat:"accessories",
+3693: name:"Winged Vanguard Sticker",
+3696: imgs:[
+3697: "images/products/accessories/ATTACK-ON-TITAN46.webp",
+3698: "images/products/hoodies/product-002.jpg",
+3699: "images/products/tees/product-009.png"
+3709: id:"joyful-ascension-sticker",
+3710: cat:"accessories",
+3711: name:"Joyful Ascension Sticker",
+3714: imgs:[
+3715: "images/products/accessories/ONEPIECE63.webp",
+3716: "images/products/accessories/ONEPIECE75.webp",
+3717: "images/products/knitwear/product-006.jpg"
+3727: id:"brutal-crest-mark",
+3728: cat:"accessories",
+3729: name:"Brutal Crest Mark Sticker",
+3732: imgs:[
+3733: "images/products/accessories/Brutal Crest Mark.webp"
+3743: id:"scarlet-core-symbol",
+3744: cat:"accessories",
+3745: name:"Scarlet Core Symbol Sticker",
+3748: imgs:[
+3749: "images/products/hoodies/product-004.jpg",
+3750: "images/products/hoodies/product-011.jpg",
+3751: "images/products/hoodies/product-018.jpg"
+3761: id:"blade-skull-sticker",
+3762: cat:"accessories",
+3763: name:"Blade Skull Sticker",
+3766: imgs:[
+3767: "images/products/tees/product-009.png",
+3768: "images/products/tees/product-016.png",
+3769: "images/products/hoodies/product-023.jpg"
+3779: id:"cursed-arm-manifestation",
+3780: cat:"accessories",
+3781: name:"Cursed Arm Manifestation Sticker",
+3784: imgs:[
+3785: "images/products/accessories/JUJUTSU76.webp",
+3786: "images/products/knitwear/product-007.jpg",
+3787: "images/products/tees/product-014.png"
+3797: id:"crimson-crescent-blade",
+3798: cat:"accessories",
+3799: name:"Crimson Crescent Blade Sticker",
+3802: imgs:[
+3803: "images/products/accessories/BLEACH37.webp",
+3804: "images/products/hoodies/product-003.jpg",
+3805: "images/products/hoodies/product-010.jpg"
+3815: id:"crimson-cloud-sticker",
+3816: cat:"accessories",
+3817: name:"Crimson Cloud Sticker",
+3820: imgs:[
+3821: "images/products/accessories/NARUTO68.webp",
+3822: "images/products/tees/product-014.png",
+3823: "images/products/sweatshirts/product-021.jpg"
+3833: id:"blindfolded-sorcerer-sprint",
+3834: cat:"accessories",
+3835: name:"Blindfolded Sorcerer Sprint Sticker",
+3838: imgs:[
+3839: "images/products/hoodies/product-019.jpg",
+3840: "images/products/hoodies/product-026.jpg",
+3841: "images/products/knitwear/product-007.jpg"
+3851: id:"hollow-mask-icon",
+3852: cat:"accessories",
+3853: name:"Hollow Mask Icon",
+3856: imgs:[
+3857: "images/products/accessories/BLEACH44_f4a01e33-5ffe-490b-a5b4-7f9a618cbb0c.webp",
+3858: "images/products/hoodies/product-019.jpg",
+3859: "images/products/hoodies/product-026.jpg"
+3869: id:"sticker-hunter-logo",
+3870: cat:"accessories",
+3871: name:"Hunter Logo",
+3874: imgs:[
+3875: "images/products/accessories/HUNTERX23.webp",
+3876: "images/products/accessories/HUNTERX10_fe532896-7d26-44cd-b7cc-6726532209e8.webp",
+3877: "images/products/accessories/HUNTERX7_2822d5de-7861-4b7a-aef3-737d6313eaff.webp"
+3887: id:"sticker-crossed-reaper-sigil",
+3888: cat:"accessories",
+3889: name:"Crossed Reaper Sigil",
+3892: imgs:[
+3893: "images/products/tees/product-015.png",
+3894: "images/products/sweatshirts/product-022.jpg",
+3895: "images/products/hoodies/product-003.jpg"
+3905: id:"sticker-hunter-logo-alt",
+3906: cat:"accessories",
+3907: name:"Hunter Logo Sticker",
+3910: imgs:[
+3911: "images/products/accessories/HUNTERX7_2822d5de-7861-4b7a-aef3-737d6313eaff.webp",
+3912: "images/products/accessories/HUNTERX10_fe532896-7d26-44cd-b7cc-6726532209e8.webp",
+3913: "images/products/accessories/HUNTERX23.webp"
+3924: id:"keychain-berserk",
+3925: cat:"accessories",
+3926: name:"BERSERK",
+3929: imgs:[
+3930: "images/products/hoodies/product-002.jpg",
+3931: "images/products/tees/product-009.png",
+3932: "images/products/tees/product-016.png"
+3942: id:"keychain-luffy-straw-hat",
+3943: cat:"accessories",
+3944: name:"LUFFY STRAW HAT",
+3947: imgs:[
+3948: "images/products/accessories/LUFFY STRAW HAT.webp",
+3949: "images/products/hoodies/ChatGPTImageNov10_2026_05_42_26AM.webp",
+3950: "images/products/hoodies/ChatGPTImageNov10_2026_05_42_32AM.webp"
+3961: id:"frame-anime-university",
+3962: cat:"accessories",
+3963: name:"Anime University",
+3966: imgs:[
+3967: "images/products/accessories/Anime University.webp"
+3977: id:"frame-hxh-last-mission",
+3978: cat:"accessories",
+3979: name:"HxH Last Mission",
+3982: imgs:[
+3983: "images/products/accessories/HxH Last Mission.webp"
+3993: id:"frame-dbz-v1",
+3994: cat:"accessories",
+3995: name:"DBZ v1",
+3998: imgs:[
+3999: "images/products/accessories/DBZ v1.webp"
+4009: id:"frame-naruto-vs-sasuke",
+4010: cat:"accessories",
+4011: name:"Naruto vs Sasuke",
+4014: imgs:[
+4015: "images/products/accessories/Naruto vs Sasuke.webp",
+4016: "images/products/accessories/NARUTO68.webp"
+4026: id:"frame-levi-from-aot",
+4027: cat:"accessories",
+4028: name:"Levi from AOT",
+4031: imgs:[
+4032: "images/products/accessories/Levi from AOT.webp"
+4043: id:"lamp-goku-super-saiyajin",
+4044: cat:"accessories",
+4045: name:"Goku Super Saiyajin shadow lamp",
+4048: imgs:[
+4049: "images/products/hoodies/product-023.jpg",
+4050: "images/products/hoodies/product-004.jpg",
+4051: "images/products/hoodies/product-011.jpg"
+4061: id:"lamp-luffy-gear-5",
+4062: cat:"accessories",
+4063: name:"Luffy Gear 5 Shadow Lamp",
+4066: imgs:[
+4067: "images/products/accessories/LUFFY STRAW HAT.webp"
+4077: id:"lamp-zoro",
+4078: cat:"accessories",
+4079: name:"Zoro Shadow Lamp",
+4082: imgs:[
+4083: "images/products/pants/zoro-joggers-zams-2.webp",
+4084: "images/products/pants/zoro-joggers-zams-4-157115_76ef4447-807d-4317-bba7-69c34f3d49e9.webp"
+4094: id:"lamp-batman",
+4095: cat:"accessories",
+4096: name:"Batman shadow Lamp",
+4099: imgs:[
+4100: "images/products/accessories/Y7WwQge08G7rpNAr.webp",
+4101: "images/products/knitwear/product-007.jpg",
+4102: "images/products/tees/product-014.png"
+4112: id:"lamp-pain-naruto",
+4113: cat:"accessories",
+4114: name:"Pain (Naruto)- Shadow Lamp",
+4117: imgs:[
+4118: "images/products/accessories/NARUTO68.webp",
+4119: "images/products/accessories/Naruto vs Sasuke.webp"
+4129: id:"lamp-uchiha-itachi",
+4130: cat:"accessories",
+4131: name:"Uchiha Itachi Shadow Lamp",
+4134: imgs:[
+4135: "images/products/hoodies/product-001.jpg",
+4136: "images/products/tees/product-008.png",
+4137: "images/products/tees/product-015.png"
+4148: id:"attack-on-titan-accessory",
+4149: cat:"accessories",
+4150: name:"ATTACK ON TITAN",
+4153: imgs:[
+4154: "images/products/accessories/59.webp",
+4155: "images/products/accessories/ATTACK-ON-TITAN46.webp"
