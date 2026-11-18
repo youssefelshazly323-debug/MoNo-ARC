@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoNo ARC - Hoodie Review</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;padding:20px;
+  background:#171717;color:white;
+  font-family:Arial,sans-serif
+}
+header{
+  position:sticky;top:0;z-index:5;
+  background:#222;padding:15px;
+  border-radius:10px;margin-bottom:20px
+}
+h1{margin:0 0 12px}
+select,button{
+  padding:11px;border:0;border-radius:6px;
+  font-size:14px;cursor:pointer
+}
+select{width:100%;margin:10px 0}
+button{background:#c69b54;color:#171717;font-weight:bold}
+button:disabled{opacity:.4}
+.controls{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:10px
+}
+#current{
+  background:#292929;padding:15px;
+  border-radius:10px;margin-bottom:20px
+}
+#currentImages,.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:12px;margin-top:12px
+}
+.card{
+  background:#292929;padding:9px;
+  border-radius:8px;min-width:0;
+  border:2px solid transparent;
+  cursor:pointer
+}
+.card.selected{border-color:#55c987}
+.card img{
+  width:100%;height:180px;
+  object-fit:contain;background:#eee;
+  border-radius:5px
+}
+.number{font-weight:bold;margin-top:8px}
+.filename{
+  color:#bbb;font-size:11px;
+  overflow-wrap:anywhere;margin-top:5px
+}
+.status{color:#55c987;font-size:12px;margin-top:6px}
+#message{color:#55c987;margin-top:10px}
+.section-title{margin-top:25px}
+.small{font-size:12px;color:#aaa}
+@media(max-width:600px){
+  body{padding:10px}
+  #currentImages,.gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>MoNo ARC - Hoodie Review</h1>
+  <div class="small">
+    Product <span id="position">1</span> of 40
+    | 142 available images
+  </div>
+
+  <select id="productSelect"></select>
+
+  <div class="controls">
+    <button id="previous">Previous</button>
+    <button id="next">Next</button>
+    <button id="clear">Clear selection</button>
+    <button id="export">Export JSON</button>
+  </div>
+
+  <div id="message"></div>
+</header>
+
+<section id="current">
+  <h2 id="productName"></h2>
+  <div class="small">Currently assigned images:</div>
+  <div id="currentImages"></div>
+
+  <h3>Selected replacement images</h3>
+  <div id="selectedCount">0 selected</div>
+</section>
+
+<h2 class="section-title">All Hoodie Images</h2>
+<p class="small">
+  Click an image to select or unselect it for the current product.
+  Green border means selected.
+</p>
+
+<div id="gallery" class="gallery"></div>
+
+<script>
+const products = [{"id":"shadow-hoodie","name":"Shadow Hoodie","images":["images/products/hoodies/freedom-black-hoodie-side.webp","images/products/hoodies/freedom-black-hoodie-front.webp"]},{"id":"arc-zip-hoodie","name":"Arc Zip Hoodie","images":["images/products/hoodies/freedom-black-hoodie-side.webp","images/products/hoodies/freedom-black-hoodie-front.webp"]},{"id":"exclusive-naruto","name":"Exclusive Naruto","images":["images/products/hoodies/product-001.jpg","images/products/hoodies/product-002.jpg","images/products/hoodies/product-003.jpg"]},{"id":"ultimate-berserk-hoodie","name":"Ultimate Berserk Hoodie","images":["images/products/knitwear/1_a0525e22-2f5d-494c-8a58-a7850cdaf97f.webp","images/products/knitwear/3_07f4cae0-822f-4a2c-945f-f8d30e17b4b2.webp","images/products/knitwear/2_2485d3f4-b8bb-4d52-a221-0ef7a6995e47.webp"]},{"id":"eren-freedom","name":"Eren Freedom","images":["images/products/hoodies/product-017.jpg","images/products/hoodies/product-018.jpg","images/products/hoodies/product-019.jpg"]},{"id":"geto-embroidery","name":"Geto Embroidery","images":["images/products/hoodies/product-023.jpg","images/products/hoodies/product-024.jpg","images/products/hoodies/product-025.jpg"]},{"id":"musashi-miyamoto-hoodie","name":"Musashi Miyamoto Hoodie","images":["images/products/accessories/Musashi Miyamoto.webp"]},{"id":"gojo-summer","name":"Gojo Summer","images":["images/products/hoodies/freedom-black-hoodie-side.webp","images/products/hoodies/freedom-black-hoodie-front.webp"]},{"id":"strawhat-solidarity-hoodie","name":"Strawhat Solidarity Hoodie","images":["images/products/hoodies/freedom-black-hoodie-front.webp","images/products/hoodies/freedom-black-hoodie-side.webp"]},{"id":"spiders-hoodie","name":"Spiders Hoodie","images":["images/products/hoodies/1_478ecea0-5daf-466a-9378-d8258826d839.webp","images/products/hoodies/2_add76b38-f35c-462d-82d0-4f783d9f264d.webp","images/products/hoodies/3_ac8a2048-c868-44c6-ac3e-fcc6dda8498f.webp"]},{"id":"mahito-hoodie","name":"Mahito","images":["images/products/hoodies/freedom-black-hoodie-side.webp","images/products/hoodies/freedom-black-hoodie-front.webp"]},{"id":"rambling-aot","name":"Rambling AOT","images":["images/products/hoodies/3_c65f451a-034d-4680-8a92-b1e1a8cfd6e0.webp","images/products/hoodies/4_da39e86b-2c7d-4c65-937d-34f82b571924.webp","images/products/hoodies/2_472375c4-ce33-4a5e-b59a-8e657abe9227.webp"]},{"id":"gyro-zeppeli","name":"Gyro Zeppeli","images":["images/products/hoodies/2_f0aafd42-698f-469c-96dc-6534b9503b24.webp","images/products/hoodies/1_3b3d0f65-df63-487e-b90a-5cf40248cce0.webp","images/products/hoodies/3_6bcb824b-99cb-4f73-8c5c-0f8b3e7ac8ab.webp"]},{"id":"grimmjow-embroidered","name":"Grimmjow Embroidered","images":["images/products/hoodies/freedom-black-hoodie-side.webp","images/products/hoodies/freedom-black-hoodie-front.webp"]},{"id":"ulquiorra-cifer","name":"Ulquiorra Cifer","images":["images/products/hoodies/IMG_6248.webp","images/products/hoodies/IMG_6251.webp","images/products/hoodies/IMG_6250.webp"]},{"id":"patched-one-piece-hoodie","name":"Patched One Piece Hoodie","images":["images/products/hoodies/ChatGPTImageNov10_2026_05_42_26AM.webp","images/products/hoodies/ChatGPTImageNov10_2026_05_42_32AM.webp","images/products/hoodies/3_a7147da2-c023-4efb-995b-c1a00b6b8756.webp"]},{"id":"exclusive-sasuke","name":"Exclusive Sasuke","images":["images/products/accessories/Naruto vs Sasuke.webp"]},{"id":"hxh-mission-chimera","name":"HxH Mission Chimera","images":["images/products/accessories/HxH Last Mission.webp"]},{"id":"levi-embroidery","name":"Levi's Embroidery","images":["images/products/accessories/Levi from AOT.webp"]},{"id":"blue-grimmjow-zipper","name":"Blue Grimmjow Zipper","images":["images/products/hoodies/freedom-black-hoodie-front.webp","images/products/hoodies/freedom-black-hoodie-side.webp"]},{"id":"bankai-zipper","name":"BANKAI Zipper","images":["images/products/hoodies/freedom-black-hoodie-side.webp","images/products/hoodies/freedom-black-hoodie-front.webp"]},{"id":"ichigo-full-embroidery","name":"Ichigo Full Embroidery","images":["images/products/hoodies/freedom-black-hoodie-front.webp","images/products/hoodies/freedom-black-hoodie-side.webp"]},{"id":"titan-hoodie","name":"Titan Hoodie","images":["images/products/accessories/ATTACK-ON-TITAN46.webp"]},{"id":"white-toji","name":"White Toji","images":["images/products/hoodies/freedom-black-hoodie-front.webp","images/products/hoodies/freedom-black-hoodie-side.webp"]},{"id":"black-toji","name":"Black Toji","images":["images/products/hoodies/freedom-black-hoodie-front.webp","images/products/hoodies/freedom-black-hoodie-side.webp"]},{"id":"white-basic-hoodie","name":"White Basic Hoodie","images":["images/products/hoodies/1_093ecdc7-baa3-4271-bf9d-6fec95a3460c.webp","images/products/tees/Basic Red Tee.webp"]},{"id":"black-basic-hoodie","name":"Black Basic Hoodie","images":["images/products/tees/Basic Red Tee.webp"]},{"id":"pink-basic-hoodie","name":"Pink Basic Hoodie","images":["images/products/hoodies/09C9C0DF-0A3E-457D-B301-761AED39C787.jpg","images/products/tees/Basic Red Tee.webp"]},{"id":"pink-zipper","name":"Pink Zipper","images":["images/products/hoodies/3_1248e912-6088-40e1-ae35-bb9528cebae1.webp","images/products/hoodies/4_a3827325-61ee-4ab6-b914-8072912ee743.webp","images/products/hoodies/1_5b37f884-4496-4916-b482-e40890d7d63c.webp"]},{"id":"beige-basic-hoodie","name":"Beige Basic","images":["images/products/hoodies/IMG_5039.webp","images/products/hoodies/IMG_5010.webp","images/products/hoodies/IMG_5041.webp"]},{"id":"black-basic-hoodie-alt","name":"Black Basic","images":["images/products/hoodies/IMG_6264.webp","images/products/hoodies/IMG_6267.webp","images/products/hoodies/IMG_6266.webp"]},{"id":"zipper-brown","name":"Zipper - Brown","images":["images/products/hoodies/IMG_5042.webp","images/products/hoodies/IMG_5045.webp","images/products/hoodies/IMG_5044.webp"]},{"id":"hoodie-black-eren","name":"Black Eren","images":["images/products/hoodies/freedom-black-hoodie-side.webp","images/products/hoodies/freedom-black-hoodie-front.webp"]},{"id":"hoodie-musashi-miyamoto","name":"Musashi Miyamoto Hoodie","images":["images/products/accessories/Musashi Miyamoto.webp"]},{"id":"hoodie-freedom-black","name":"Freedom Black Hoodie","images":["images/products/hoodies/freedom-black-hoodie-front.webp","images/products/hoodies/1_79059f2c-80e9-40f7-8355-4d1a2380c3ad.webp","images/products/hoodies/freedom-black-hoodie-side.webp"]},{"id":"hoodie-paradis-quarter-zip","name":"Paradis Quarter Zip-Up","images":["images/products/hoodies/freedom-black-hoodie-front.webp","images/products/hoodies/freedom-black-hoodie-side.webp"]},{"id":"hoodie-hxh-mission-chimera","name":"HxH mission Chimera","images":["images/products/accessories/HxH Last Mission.webp"]},{"id":"hoodie-strawhat-solidarity-alt","name":"Strawhat Solidarity Hoodie","images":["images/products/hoodies/freedom-black-hoodie-front.webp","images/products/hoodies/freedom-black-hoodie-side.webp"]},{"id":"hoodie-gyro-zeppeli-alt","name":"Gyro Zeppeli Hoodie","images":["images/products/hoodies/freedom-black-hoodie-front.webp","images/products/hoodies/freedom-black-hoodie-side.webp"]},{"id":"hoodie-ulquiorra-cifer-alt","name":"Ulquiorra Cifer Hoodie","images":["images/products/hoodies/freedom-black-hoodie-side.webp","images/products/hoodies/freedom-black-hoodie-front.webp"]}];
+const images = [{"number":1,"file":"01B8B633-DC04-4031-912D-41D5A6837481.webp","path":"images/products/hoodies/01B8B633-DC04-4031-912D-41D5A6837481.webp"},{"number":2,"file":"067376D3-37E7-4BE3-A90C-C531445178AD.webp","path":"images/products/hoodies/067376D3-37E7-4BE3-A90C-C531445178AD.webp"},{"number":3,"file":"09C9C0DF-0A3E-457D-B301-761AED39C787.jpg","path":"images/products/hoodies/09C9C0DF-0A3E-457D-B301-761AED39C787.jpg"},{"number":4,"file":"0E796B08-39F4-4FA1-BFB6-F0602D46E2E8.webp","path":"images/products/hoodies/0E796B08-39F4-4FA1-BFB6-F0602D46E2E8.webp"},{"number":5,"file":"1.webp","path":"images/products/hoodies/1.webp"},{"number":6,"file":"1_093ecdc7-baa3-4271-bf9d-6fec95a3460c.webp","path":"images/products/hoodies/1_093ecdc7-baa3-4271-bf9d-6fec95a3460c.webp"},{"number":7,"file":"1_2fbe6031-850a-411e-baeb-78b65c8c7609.webp","path":"images/products/hoodies/1_2fbe6031-850a-411e-baeb-78b65c8c7609.webp"},{"number":8,"file":"1_36986487-bfe9-44f2-ba5a-b39486688836.webp","path":"images/products/hoodies/1_36986487-bfe9-44f2-ba5a-b39486688836.webp"},{"number":9,"file":"1_36fbb623-0ab0-4c69-972a-fe53f88132a8.webp","path":"images/products/hoodies/1_36fbb623-0ab0-4c69-972a-fe53f88132a8.webp"},{"number":10,"file":"1_3b3d0f65-df63-487e-b90a-5cf40248cce0.webp","path":"images/products/hoodies/1_3b3d0f65-df63-487e-b90a-5cf40248cce0.webp"},{"number":11,"file":"1_3c6f7444-e147-4b7b-914a-0d37fb9d0822.webp","path":"images/products/hoodies/1_3c6f7444-e147-4b7b-914a-0d37fb9d0822.webp"},{"number":12,"file":"1_50935ef2-b916-42d8-bd29-f3e900c1fcc0.webp","path":"images/products/hoodies/1_50935ef2-b916-42d8-bd29-f3e900c1fcc0.webp"},{"number":13,"file":"1_5b37f884-4496-4916-b482-e40890d7d63c.webp","path":"images/products/hoodies/1_5b37f884-4496-4916-b482-e40890d7d63c.webp"},{"number":14,"file":"1_69b72121-bea1-4127-a684-c6613cc542f9.webp","path":"images/products/hoodies/1_69b72121-bea1-4127-a684-c6613cc542f9.webp"},{"number":15,"file":"1_79059f2c-80e9-40f7-8355-4d1a2380c3ad.webp","path":"images/products/hoodies/1_79059f2c-80e9-40f7-8355-4d1a2380c3ad.webp"},{"number":16,"file":"1_98506ab7-fd1f-451f-9f8e-560525085bf6.webp","path":"images/products/hoodies/1_98506ab7-fd1f-451f-9f8e-560525085bf6.webp"},{"number":17,"file":"1_a2ad3d16-0458-4be4-8332-25fc5e7f55e0.webp","path":"images/products/hoodies/1_a2ad3d16-0458-4be4-8332-25fc5e7f55e0.webp"},{"number":18,"file":"1_b4ed3811-d1a8-4bd1-8907-6948d611ca7a.webp","path":"images/products/hoodies/1_b4ed3811-d1a8-4bd1-8907-6948d611ca7a.webp"},{"number":19,"file":"1_b7f56ac1-7b7f-4b32-b4dc-06a9755e9f72.webp","path":"images/products/hoodies/1_b7f56ac1-7b7f-4b32-b4dc-06a9755e9f72.webp"},{"number":20,"file":"1_c1dc417e-a658-4639-8eae-da78a6adc61b.webp","path":"images/products/hoodies/1_c1dc417e-a658-4639-8eae-da78a6adc61b.webp"},{"number":21,"file":"1_c59ceab2-1f17-4c7f-a8ba-e06d11a60463.webp","path":"images/products/hoodies/1_c59ceab2-1f17-4c7f-a8ba-e06d11a60463.webp"},{"number":22,"file":"1_f7ee37c3-7ca1-4daf-9c8f-1195edda07b7.webp","path":"images/products/hoodies/1_f7ee37c3-7ca1-4daf-9c8f-1195edda07b7.webp"},{"number":23,"file":"1_f96e7e98-aa3c-4263-a949-eabda71c91a0.webp","path":"images/products/hoodies/1_f96e7e98-aa3c-4263-a949-eabda71c91a0.webp"},{"number":24,"file":"2.webp","path":"images/products/hoodies/2.webp"},{"number":25,"file":"2D3AE4B7-8CD0-4442-A7BD-11BE10DB791B.jpg","path":"images/products/hoodies/2D3AE4B7-8CD0-4442-A7BD-11BE10DB791B.jpg"},{"number":26,"file":"2D735B48-D1CF-4913-9B73-35EAA072FD55.webp","path":"images/products/hoodies/2D735B48-D1CF-4913-9B73-35EAA072FD55.webp"},{"number":27,"file":"2_003ce501-5291-4b31-899f-4688ae0feabe.webp","path":"images/products/hoodies/2_003ce501-5291-4b31-899f-4688ae0feabe.webp"},{"number":28,"file":"2_0ac97605-bc68-4dfe-a0e1-571e2babda72.webp","path":"images/products/hoodies/2_0ac97605-bc68-4dfe-a0e1-571e2babda72.webp"},{"number":29,"file":"2_29c4e52b-d345-40d8-b850-9aa13ea321dc.webp","path":"images/products/hoodies/2_29c4e52b-d345-40d8-b850-9aa13ea321dc.webp"},{"number":30,"file":"2_472375c4-ce33-4a5e-b59a-8e657abe9227.webp","path":"images/products/hoodies/2_472375c4-ce33-4a5e-b59a-8e657abe9227.webp"},{"number":31,"file":"2_83623434-3b14-4da4-b574-5f4c4940108b.webp","path":"images/products/hoodies/2_83623434-3b14-4da4-b574-5f4c4940108b.webp"},{"number":32,"file":"2_a375c7ee-5087-4bcd-8c0f-751629c847b8.webp","path":"images/products/hoodies/2_a375c7ee-5087-4bcd-8c0f-751629c847b8.webp"},{"number":33,"file":"2_a3d0d881-fdd8-435b-af98-76e775e0e193.webp","path":"images/products/hoodies/2_a3d0d881-fdd8-435b-af98-76e775e0e193.webp"},{"number":34,"file":"2_a77e2768-abdf-4f51-9c4f-e19cb7b4acaf.webp","path":"images/products/hoodies/2_a77e2768-abdf-4f51-9c4f-e19cb7b4acaf.webp"},{"number":35,"file":"2_a81a473b-3437-4af2-b86a-567d07f5e79e.webp","path":"images/products/hoodies/2_a81a473b-3437-4af2-b86a-567d07f5e79e.webp"},{"number":36,"file":"2_ad2ab8f5-8afa-4eef-b5c6-908271339321.webp","path":"images/products/hoodies/2_ad2ab8f5-8afa-4eef-b5c6-908271339321.webp"},{"number":37,"file":"2_b7ab1741-dae1-4e38-b823-d75fc4e2b605.webp","path":"images/products/hoodies/2_b7ab1741-dae1-4e38-b823-d75fc4e2b605.webp"},{"number":38,"file":"2_b83c44e3-fe95-4831-9c91-e30e306821b5.webp","path":"images/products/hoodies/2_b83c44e3-fe95-4831-9c91-e30e306821b5.webp"},{"number":39,"file":"2_c3b18154-1cf1-474d-b84a-511a9486451c.webp","path":"images/products/hoodies/2_c3b18154-1cf1-474d-b84a-511a9486451c.webp"},{"number":40,"file":"2_d94ebdee-45a4-44d2-b30c-a0648a33b86d.webp","path":"images/products/hoodies/2_d94ebdee-45a4-44d2-b30c-a0648a33b86d.webp"},{"number":41,"file":"2_ed3fb7d6-06cc-444d-a1c1-ff05a0cc23b5.webp","path":"images/products/hoodies/2_ed3fb7d6-06cc-444d-a1c1-ff05a0cc23b5.webp"},{"number":42,"file":"2_f0aafd42-698f-469c-96dc-6534b9503b24.webp","path":"images/products/hoodies/2_f0aafd42-698f-469c-96dc-6534b9503b24.webp"},{"number":43,"file":"3.webp","path":"images/products/hoodies/3.webp"},{"number":44,"file":"308D23A5-9B93-4DC3-9C70-A8B037A2D389.jpg","path":"images/products/hoodies/308D23A5-9B93-4DC3-9C70-A8B037A2D389.jpg"},{"number":45,"file":"30EB5325-569A-4021-87D7-5A248F902791.webp","path":"images/products/hoodies/30EB5325-569A-4021-87D7-5A248F902791.webp"},{"number":46,"file":"33.webp","path":"images/products/hoodies/33.webp"},{"number":47,"file":"3725932E-8454-4BDF-86D3-146EB90C0CF1.webp","path":"images/products/hoodies/3725932E-8454-4BDF-86D3-146EB90C0CF1.webp"},{"number":48,"file":"3_1248e912-6088-40e1-ae35-bb9528cebae1.webp","path":"images/products/hoodies/3_1248e912-6088-40e1-ae35-bb9528cebae1.webp"},{"number":49,"file":"3_6bcb824b-99cb-4f73-8c5c-0f8b3e7ac8ab.webp","path":"images/products/hoodies/3_6bcb824b-99cb-4f73-8c5c-0f8b3e7ac8ab.webp"},{"number":50,"file":"3_7ac376a3-6a23-4348-a4b5-15b0933ad770.webp","path":"images/products/hoodies/3_7ac376a3-6a23-4348-a4b5-15b0933ad770.webp"},{"number":51,"file":"3_a7147da2-c023-4efb-995b-c1a00b6b8756.webp","path":"images/products/hoodies/3_a7147da2-c023-4efb-995b-c1a00b6b8756.webp"},{"number":52,"file":"3_c65f451a-034d-4680-8a92-b1e1a8cfd6e0.webp","path":"images/products/hoodies/3_c65f451a-034d-4680-8a92-b1e1a8cfd6e0.webp"},{"number":53,"file":"3_d1e99e60-d600-4e6d-96d6-a5aa3b737bbc.webp","path":"images/products/hoodies/3_d1e99e60-d600-4e6d-96d6-a5aa3b737bbc.webp"},{"number":54,"file":"3_dcddae4e-4766-45fe-b629-82dac9ef7038.webp","path":"images/products/hoodies/3_dcddae4e-4766-45fe-b629-82dac9ef7038.webp"},{"number":55,"file":"3_ff6be0e1-233e-48fb-9836-a22babcf07e8.webp","path":"images/products/hoodies/3_ff6be0e1-233e-48fb-9836-a22babcf07e8.webp"},{"number":56,"file":"4.webp","path":"images/products/hoodies/4.webp"},{"number":57,"file":"42801EC7-8A30-4A0D-996C-B22D3700E03B.webp","path":"images/products/hoodies/42801EC7-8A30-4A0D-996C-B22D3700E03B.webp"},{"number":58,"file":"44.webp","path":"images/products/hoodies/44.webp"},{"number":59,"file":"47D56C3E-1FE0-4E6C-A28E-FF81CE3921F5.webp","path":"images/products/hoodies/47D56C3E-1FE0-4E6C-A28E-FF81CE3921F5.webp"},{"number":60,"file":"4C35F3EF-B02B-4CC0-8180-579187CD487E.jpg","path":"images/products/hoodies/4C35F3EF-B02B-4CC0-8180-579187CD487E.jpg"},{"number":61,"file":"4_086ccfd3-c652-43f2-9349-bf033387a990.webp","path":"images/products/hoodies/4_086ccfd3-c652-43f2-9349-bf033387a990.webp"},{"number":62,"file":"4_120eeab6-563f-40bc-aca9-81ec682d617e.webp","path":"images/products/hoodies/4_120eeab6-563f-40bc-aca9-81ec682d617e.webp"},{"number":63,"file":"4_18fc1ef3-8476-4abf-9629-51da4189e45a.webp","path":"images/products/hoodies/4_18fc1ef3-8476-4abf-9629-51da4189e45a.webp"},{"number":64,"file":"4_20925326-a026-4ddd-8d27-58fd1838f181.webp","path":"images/products/hoodies/4_20925326-a026-4ddd-8d27-58fd1838f181.webp"},{"number":65,"file":"4_3185c370-adec-4f04-a485-87a3c806d527.webp","path":"images/products/hoodies/4_3185c370-adec-4f04-a485-87a3c806d527.webp"},{"number":66,"file":"4_51b01076-ab84-4c74-ae80-6475ae3c1f69.webp","path":"images/products/hoodies/4_51b01076-ab84-4c74-ae80-6475ae3c1f69.webp"},{"number":67,"file":"4_6182afca-5f2d-49ca-94f4-9d39ead479e9.webp","path":"images/products/hoodies/4_6182afca-5f2d-49ca-94f4-9d39ead479e9.webp"},{"number":68,"file":"4_7b4b8643-8f91-4976-b72b-394a5b2fcde5.webp","path":"images/products/hoodies/4_7b4b8643-8f91-4976-b72b-394a5b2fcde5.webp"},{"number":69,"file":"4_8b24d7e5-bd41-4cab-86ef-bfa44478bb2e.webp","path":"images/products/hoodies/4_8b24d7e5-bd41-4cab-86ef-bfa44478bb2e.webp"},{"number":70,"file":"4_a3827325-61ee-4ab6-b914-8072912ee743.webp","path":"images/products/hoodies/4_a3827325-61ee-4ab6-b914-8072912ee743.webp"},{"number":71,"file":"4_b28803db-e37b-4351-bb5b-6c50c60fad3e.webp","path":"images/products/hoodies/4_b28803db-e37b-4351-bb5b-6c50c60fad3e.webp"},{"number":72,"file":"4_b6543964-c3d6-4b47-bbf7-650d7dc0a19a.webp","path":"images/products/hoodies/4_b6543964-c3d6-4b47-bbf7-650d7dc0a19a.webp"},{"number":73,"file":"4_ba3a60f8-66eb-45c4-9712-5411126f14e5.webp","path":"images/products/hoodies/4_ba3a60f8-66eb-45c4-9712-5411126f14e5.webp"},{"number":74,"file":"4_cd510ec5-08f4-43fe-baec-4efd8962e5f5.webp","path":"images/products/hoodies/4_cd510ec5-08f4-43fe-baec-4efd8962e5f5.webp"},{"number":75,"file":"4_ced0cbd3-590a-4769-aaa1-20d8771c3cb0.webp","path":"images/products/hoodies/4_ced0cbd3-590a-4769-aaa1-20d8771c3cb0.webp"},{"number":76,"file":"4_da39e86b-2c7d-4c65-937d-34f82b571924.webp","path":"images/products/hoodies/4_da39e86b-2c7d-4c65-937d-34f82b571924.webp"},{"number":77,"file":"4_e2c61543-7cbd-41ef-897c-0e69a584b51b.webp","path":"images/products/hoodies/4_e2c61543-7cbd-41ef-897c-0e69a584b51b.webp"},{"number":78,"file":"4_f7f7c350-4a73-437e-85a1-e93691f787cb.webp","path":"images/products/hoodies/4_f7f7c350-4a73-437e-85a1-e93691f787cb.webp"},{"number":79,"file":"5.webp","path":"images/products/hoodies/5.webp"},{"number":80,"file":"56E12226-5674-483A-9510-9DD85B643486.webp","path":"images/products/hoodies/56E12226-5674-483A-9510-9DD85B643486.webp"},{"number":81,"file":"5824283839214325187.webp","path":"images/products/hoodies/5824283839214325187.webp"},{"number":82,"file":"5826621611388374233.webp","path":"images/products/hoodies/5826621611388374233.webp"},{"number":83,"file":"5826854978436402416.webp","path":"images/products/hoodies/5826854978436402416.webp"},{"number":84,"file":"5_d72671d3-598b-47b5-906d-565f93d55631.webp","path":"images/products/hoodies/5_d72671d3-598b-47b5-906d-565f93d55631.webp"},{"number":85,"file":"6047453037153947011.jpg","path":"images/products/hoodies/6047453037153947011.jpg"},{"number":86,"file":"851FD2AB-55CA-43E9-8385-F02EC9058990.jpg","path":"images/products/hoodies/851FD2AB-55CA-43E9-8385-F02EC9058990.jpg"},{"number":87,"file":"8B2C1DAC-9BDD-415E-82D8-03B5869DCBBB.webp","path":"images/products/hoodies/8B2C1DAC-9BDD-415E-82D8-03B5869DCBBB.webp"},{"number":88,"file":"ChatGPTImageNov10_2026_05_42_26AM.webp","path":"images/products/hoodies/ChatGPTImageNov10_2026_05_42_26AM.webp"},{"number":89,"file":"ChatGPTImageNov10_2026_05_42_32AM.webp","path":"images/products/hoodies/ChatGPTImageNov10_2026_05_42_32AM.webp"},{"number":90,"file":"ChatGPT_Image_Sep_17_2026_03_32_48_PM.webp","path":"images/products/hoodies/ChatGPT_Image_Sep_17_2026_03_32_48_PM.webp"},{"number":91,"file":"ED583A52-0874-4AAF-AE65-45C1E0DF3D4B.jpg","path":"images/products/hoodies/ED583A52-0874-4AAF-AE65-45C1E0DF3D4B.jpg"},{"number":92,"file":"F2533CFC-52F9-42B7-8F86-E99E8422F25C.webp","path":"images/products/hoodies/F2533CFC-52F9-42B7-8F86-E99E8422F25C.webp"},{"number":93,"file":"IMG_4892.webp","path":"images/products/hoodies/IMG_4892.webp"},{"number":94,"file":"IMG_4894.webp","path":"images/products/hoodies/IMG_4894.webp"},{"number":95,"file":"IMG_4895.webp","path":"images/products/hoodies/IMG_4895.webp"},{"number":96,"file":"IMG_5010.webp","path":"images/products/hoodies/IMG_5010.webp"},{"number":97,"file":"IMG_5019.webp","path":"images/products/hoodies/IMG_5019.webp"},{"number":98,"file":"IMG_5020.webp","path":"images/products/hoodies/IMG_5020.webp"},{"number":99,"file":"IMG_5021.webp","path":"images/products/hoodies/IMG_5021.webp"},{"number":100,"file":"IMG_5029.webp","path":"images/products/hoodies/IMG_5029.webp"},{"number":101,"file":"IMG_5031.webp","path":"images/products/hoodies/IMG_5031.webp"},{"number":102,"file":"IMG_5032.webp","path":"images/products/hoodies/IMG_5032.webp"},{"number":103,"file":"IMG_5033.webp","path":"images/products/hoodies/IMG_5033.webp"},{"number":104,"file":"IMG_5035.webp","path":"images/products/hoodies/IMG_5035.webp"},{"number":105,"file":"IMG_5036.webp","path":"images/products/hoodies/IMG_5036.webp"},{"number":106,"file":"IMG_5039.webp","path":"images/products/hoodies/IMG_5039.webp"},{"number":107,"file":"IMG_5041.webp","path":"images/products/hoodies/IMG_5041.webp"},{"number":108,"file":"IMG_5042.webp","path":"images/products/hoodies/IMG_5042.webp"},{"number":109,"file":"IMG_5044.webp","path":"images/products/hoodies/IMG_5044.webp"},{"number":110,"file":"IMG_5045.webp","path":"images/products/hoodies/IMG_5045.webp"},{"number":111,"file":"IMG_6248.webp","path":"images/products/hoodies/IMG_6248.webp"},{"number":112,"file":"IMG_6250.webp","path":"images/products/hoodies/IMG_6250.webp"},{"number":113,"file":"IMG_6251.webp","path":"images/products/hoodies/IMG_6251.webp"},{"number":114,"file":"IMG_6264.webp","path":"images/products/hoodies/IMG_6264.webp"},{"number":115,"file":"IMG_6266.webp","path":"images/products/hoodies/IMG_6266.webp"},{"number":116,"file":"IMG_6267.webp","path":"images/products/hoodies/IMG_6267.webp"},{"number":117,"file":"IMG_6268.webp","path":"images/products/hoodies/IMG_6268.webp"},{"number":118,"file":"IMG_6270.webp","path":"images/products/hoodies/IMG_6270.webp"},{"number":119,"file":"IMG_6271.webp","path":"images/products/hoodies/IMG_6271.webp"},{"number":120,"file":"freedom-black-hoodie-front.webp","path":"images/products/hoodies/freedom-black-hoodie-front.webp"},{"number":121,"file":"freedom-black-hoodie-side.webp","path":"images/products/hoodies/freedom-black-hoodie-side.webp"},{"number":122,"file":"gray_deec856b-2024-452f-bdab-94fdc273bccf.webp","path":"images/products/hoodies/gray_deec856b-2024-452f-bdab-94fdc273bccf.webp"},{"number":123,"file":"green-1.webp","path":"images/products/hoodies/green-1.webp"},{"number":124,"file":"green-2.webp","path":"images/products/hoodies/green-2.webp"},{"number":125,"file":"green-4.webp","path":"images/products/hoodies/green-4.webp"},{"number":126,"file":"green.webp","path":"images/products/hoodies/green.webp"},{"number":127,"file":"navy-3.webp","path":"images/products/hoodies/navy-3.webp"},{"number":128,"file":"navy-blue-1.webp","path":"images/products/hoodies/navy-blue-1.webp"},{"number":129,"file":"navy-blue-2.webp","path":"images/products/hoodies/navy-blue-2.webp"},{"number":130,"file":"product-001.jpg","path":"images/products/hoodies/product-001.jpg"},{"number":131,"file":"product-002.jpg","path":"images/products/hoodies/product-002.jpg"},{"number":132,"file":"product-003.jpg","path":"images/products/hoodies/product-003.jpg"},{"number":133,"file":"product-004.jpg","path":"images/products/hoodies/product-004.jpg"},{"number":134,"file":"product-010.jpg","path":"images/products/hoodies/product-010.jpg"},{"number":135,"file":"product-011.jpg","path":"images/products/hoodies/product-011.jpg"},{"number":136,"file":"product-012.jpg","path":"images/products/hoodies/product-012.jpg"},{"number":137,"file":"product-017.jpg","path":"images/products/hoodies/product-017.jpg"},{"number":138,"file":"product-018.jpg","path":"images/products/hoodies/product-018.jpg"},{"number":139,"file":"product-019.jpg","path":"images/products/hoodies/product-019.jpg"},{"number":140,"file":"product-023.jpg","path":"images/products/hoodies/product-023.jpg"},{"number":141,"file":"product-024.jpg","path":"images/products/hoodies/product-024.jpg"},{"number":142,"file":"product-026.jpg","path":"images/products/hoodies/product-026.jpg"}];
+
+let currentIndex = 0;
+
+const selections = JSON.parse(
+  localStorage.getItem("monoHoodieSelections") || "{}"
+);
+
+const select = document.getElementById("productSelect");
+const gallery = document.getElementById("gallery");
+const currentImages = document.getElementById("currentImages");
+const message = document.getElementById("message");
+
+function imageUrl(p) {
+  return "/" + p.split("/").map(encodeURIComponent).join("/");
+}
+
+products.forEach((product, index) => {
+  const option = document.createElement("option");
+  option.value = index;
+  option.textContent = product.name + " (" + product.id + ")";
+  select.appendChild(option);
+});
+
+function saveLocal() {
+  localStorage.setItem(
+    "monoHoodieSelections",
+    JSON.stringify(selections)
+  );
+}
+
+function makeCard(image, selected, onClick) {
+  const card = document.createElement("div");
+  card.className = "card" + (selected ? " selected" : "");
+
+  const img = document.createElement("img");
+  img.src = imageUrl(image.path);
+  img.loading = "lazy";
+
+  const number = document.createElement("div");
+  number.className = "number";
+  number.textContent = "#" + image.number;
+
+  const filename = document.createElement("div");
+  filename.className = "filename";
+  filename.textContent = image.file;
+
+  card.append(img, number, filename);
+
+  if (selected) {
+    const status = document.createElement("div");
+    status.className = "status";
+    status.textContent = "✓ SELECTED";
+    card.appendChild(status);
+  }
+
+  card.addEventListener("click", onClick);
+  return card;
+}
+
+function render() {
+  const product = products[currentIndex];
+  const selected = selections[product.id] || [];
+
+  select.value = currentIndex;
+  document.getElementById("position").textContent =
+    currentIndex + 1;
+
+  document.getElementById("productName").textContent =
+    product.name + " (" + product.id + ")";
+
+  document.getElementById("selectedCount").textContent =
+    selected.length + " selected";
+
+  document.getElementById("previous").disabled =
+    currentIndex === 0;
+
+  document.getElementById("next").disabled =
+    currentIndex === products.length - 1;
+
+  currentImages.innerHTML = "";
+
+  if (product.images.length === 0) {
+    currentImages.textContent = "No current images";
+  }
+
+  product.images.forEach((p, index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const img = document.createElement("img");
+    img.src = imageUrl(p);
+
+    const name = document.createElement("div");
+    name.className = "filename";
+    name.textContent = "Current image " + (index + 1) + ": " + p;
+
+    card.append(img, name);
+    currentImages.appendChild(card);
+  });
+
+  gallery.innerHTML = "";
+
+  images.forEach(image => {
+    const isSelected = selected.includes(image.path);
+
+    const card = makeCard(image, isSelected, () => {
+      const current = selections[product.id] || [];
+      const exists = current.includes(image.path);
+
+      selections[product.id] = exists
+        ? current.filter(p => p !== image.path)
+        : [...current, image.path];
+
+      saveLocal();
+      render();
+    });
+
+    gallery.appendChild(card);
+  });
+
+  message.textContent =
+    "Selections are saved in this browser.";
+}
+
+select.addEventListener("change", () => {
+  currentIndex = Number(select.value);
+  render();
+});
+
+document.getElementById("previous").onclick = () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    render();
+  }
+};
+
+document.getElementById("next").onclick = () => {
+  if (currentIndex < products.length - 1) {
+    currentIndex++;
+    render();
+  }
+};
+
+document.getElementById("clear").onclick = () => {
+  const product = products[currentIndex];
+
+  if (confirm("Clear selected images for " + product.name + "?")) {
+    delete selections[product.id];
+    saveLocal();
+    render();
+  }
+};
+
+document.getElementById("export").onclick = () => {
+  const output = {
+    project: "MoNo ARC",
+    type: "Hoodie image review",
+    selections
+  };
+
+  const blob = new Blob(
+    [JSON.stringify(output, null, 2)],
+    {type: "application/json"}
+  );
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = "hoodie-image-selections.json";
+  link.click();
+
+  URL.revokeObjectURL(url);
+  message.textContent = "JSON export requested.";
+};
+
+render();
+</script>
+
+</body>
+</html>
