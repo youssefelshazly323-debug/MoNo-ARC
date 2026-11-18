@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoodies Numbered Gallery</title>
+<style>
+body{margin:0;padding:20px;background:#171717;color:white;font-family:Arial}
+h2{text-align:center}
+.controls{display:flex;justify-content:center;align-items:center;gap:18px;margin:20px}
+button{padding:10px 22px;cursor:pointer;border:0;border-radius:6px;font-weight:bold}
+#grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.item{background:#292929;padding:10px;border-radius:8px;text-align:center;min-width:0}
+.item img{width:100%;height:190px;object-fit:contain;background:#eee;border-radius:5px}
+.num{font-size:20px;font-weight:bold;margin:8px}
+.name{font-size:11px;overflow-wrap:anywhere;color:#ddd}
+@media(max-width:700px){#grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<h2>MoNo ARC - Hoodies Images</h2>
+<div class="controls">
+<button onclick="change(-1)">Previous</button>
+<strong id="page"></strong>
+<button onclick="change(1)">Next</button>
+</div>
+<div id="grid"></div>
+<script>
+const files = ["01B8B633-DC04-4031-912D-41D5A6837481.webp","067376D3-37E7-4BE3-A90C-C531445178AD.webp","09C9C0DF-0A3E-457D-B301-761AED39C787.jpg","0E796B08-39F4-4FA1-BFB6-F0602D46E2E8.webp","1.webp","1_093ecdc7-baa3-4271-bf9d-6fec95a3460c.webp","1_2fbe6031-850a-411e-baeb-78b65c8c7609.webp","1_36986487-bfe9-44f2-ba5a-b39486688836.webp","1_36fbb623-0ab0-4c69-972a-fe53f88132a8.webp","1_3b3d0f65-df63-487e-b90a-5cf40248cce0.webp","1_3c6f7444-e147-4b7b-914a-0d37fb9d0822.webp","1_50935ef2-b916-42d8-bd29-f3e900c1fcc0.webp","1_5b37f884-4496-4916-b482-e40890d7d63c.webp","1_69b72121-bea1-4127-a684-c6613cc542f9.webp","1_79059f2c-80e9-40f7-8355-4d1a2380c3ad.webp","1_98506ab7-fd1f-451f-9f8e-560525085bf6.webp","1_a2ad3d16-0458-4be4-8332-25fc5e7f55e0.webp","1_b4ed3811-d1a8-4bd1-8907-6948d611ca7a.webp","1_b7f56ac1-7b7f-4b32-b4dc-06a9755e9f72.webp","1_c1dc417e-a658-4639-8eae-da78a6adc61b.webp","1_c59ceab2-1f17-4c7f-a8ba-e06d11a60463.webp","1_f7ee37c3-7ca1-4daf-9c8f-1195edda07b7.webp","1_f96e7e98-aa3c-4263-a949-eabda71c91a0.webp","2.webp","2_003ce501-5291-4b31-899f-4688ae0feabe.webp","2_0ac97605-bc68-4dfe-a0e1-571e2babda72.webp","2_29c4e52b-d345-40d8-b850-9aa13ea321dc.webp","2_472375c4-ce33-4a5e-b59a-8e657abe9227.webp","2_83623434-3b14-4da4-b574-5f4c4940108b.webp","2_a375c7ee-5087-4bcd-8c0f-751629c847b8.webp","2_a3d0d881-fdd8-435b-af98-76e775e0e193.webp","2_a77e2768-abdf-4f51-9c4f-e19cb7b4acaf.webp","2_a81a473b-3437-4af2-b86a-567d07f5e79e.webp","2_ad2ab8f5-8afa-4eef-b5c6-908271339321.webp","2_b7ab1741-dae1-4e38-b823-d75fc4e2b605.webp","2_b83c44e3-fe95-4831-9c91-e30e306821b5.webp","2_c3b18154-1cf1-474d-b84a-511a9486451c.webp","2_d94ebdee-45a4-44d2-b30c-a0648a33b86d.webp","2_ed3fb7d6-06cc-444d-a1c1-ff05a0cc23b5.webp","2_f0aafd42-698f-469c-96dc-6534b9503b24.webp","2D3AE4B7-8CD0-4442-A7BD-11BE10DB791B.jpg","2D735B48-D1CF-4913-9B73-35EAA072FD55.webp","3.webp","3_1248e912-6088-40e1-ae35-bb9528cebae1.webp","3_6bcb824b-99cb-4f73-8c5c-0f8b3e7ac8ab.webp","3_7ac376a3-6a23-4348-a4b5-15b0933ad770.webp","3_a7147da2-c023-4efb-995b-c1a00b6b8756.webp","3_c65f451a-034d-4680-8a92-b1e1a8cfd6e0.webp","3_d1e99e60-d600-4e6d-96d6-a5aa3b737bbc.webp","3_dcddae4e-4766-45fe-b629-82dac9ef7038.webp","3_ff6be0e1-233e-48fb-9836-a22babcf07e8.webp","308D23A5-9B93-4DC3-9C70-A8B037A2D389.jpg","30EB5325-569A-4021-87D7-5A248F902791.webp","33.webp","3725932E-8454-4BDF-86D3-146EB90C0CF1.webp","4.webp","4_086ccfd3-c652-43f2-9349-bf033387a990.webp","4_120eeab6-563f-40bc-aca9-81ec682d617e.webp","4_18fc1ef3-8476-4abf-9629-51da4189e45a.webp","4_20925326-a026-4ddd-8d27-58fd1838f181.webp","4_3185c370-adec-4f04-a485-87a3c806d527.webp","4_51b01076-ab84-4c74-ae80-6475ae3c1f69.webp","4_6182afca-5f2d-49ca-94f4-9d39ead479e9.webp","4_7b4b8643-8f91-4976-b72b-394a5b2fcde5.webp","4_8b24d7e5-bd41-4cab-86ef-bfa44478bb2e.webp","4_a3827325-61ee-4ab6-b914-8072912ee743.webp","4_b28803db-e37b-4351-bb5b-6c50c60fad3e.webp","4_b6543964-c3d6-4b47-bbf7-650d7dc0a19a.webp","4_ba3a60f8-66eb-45c4-9712-5411126f14e5.webp","4_cd510ec5-08f4-43fe-baec-4efd8962e5f5.webp","4_ced0cbd3-590a-4769-aaa1-20d8771c3cb0.webp","4_da39e86b-2c7d-4c65-937d-34f82b571924.webp","4_e2c61543-7cbd-41ef-897c-0e69a584b51b.webp","4_f7f7c350-4a73-437e-85a1-e93691f787cb.webp","42801EC7-8A30-4A0D-996C-B22D3700E03B.webp","44.webp","47D56C3E-1FE0-4E6C-A28E-FF81CE3921F5.webp","4C35F3EF-B02B-4CC0-8180-579187CD487E.jpg","5.webp","5_d72671d3-598b-47b5-906d-565f93d55631.webp","56E12226-5674-483A-9510-9DD85B643486.webp","5824283839214325187.webp","5826621611388374233.webp","5826854978436402416.webp","6047453037153947011.jpg","851FD2AB-55CA-43E9-8385-F02EC9058990.jpg","8B2C1DAC-9BDD-415E-82D8-03B5869DCBBB.webp","ChatGPT_Image_Sep_17_2026_03_32_48_PM.webp","ChatGPTImageNov10_2026_05_42_26AM.webp","ChatGPTImageNov10_2026_05_42_32AM.webp","ED583A52-0874-4AAF-AE65-45C1E0DF3D4B.jpg","F2533CFC-52F9-42B7-8F86-E99E8422F25C.webp","freedom-black-hoodie-front.webp","freedom-black-hoodie-side.webp","gray_deec856b-2024-452f-bdab-94fdc273bccf.webp","green.webp","green-1.webp","green-2.webp","green-4.webp","IMG_4892.webp","IMG_4894.webp","IMG_4895.webp","IMG_5010.webp","IMG_5019.webp","IMG_5020.webp","IMG_5021.webp","IMG_5029.webp","IMG_5031.webp","IMG_5032.webp","IMG_5033.webp","IMG_5035.webp","IMG_5036.webp","IMG_5039.webp","IMG_5041.webp","IMG_5042.webp","IMG_5044.webp","IMG_5045.webp","IMG_6248.webp","IMG_6250.webp","IMG_6251.webp","IMG_6264.webp","IMG_6266.webp","IMG_6267.webp","IMG_6268.webp","IMG_6270.webp","IMG_6271.webp","navy-3.webp","navy-blue-1.webp","navy-blue-2.webp","product-001.jpg","product-002.jpg","product-003.jpg","product-004.jpg","product-010.jpg","product-011.jpg","product-012.jpg","product-017.jpg","product-018.jpg","product-019.jpg","product-023.jpg","product-024.jpg","product-026.jpg"];
+const perPage = 40;
+let current = 0;
+function render(){
+ const grid=document.getElementById('grid');
+ grid.innerHTML='';
+ const start=current*perPage;
+ files.slice(start,start+perPage).forEach((file,i)=>{
+  const number=start+i+1;
+  const item=document.createElement('div');
+  item.className='item';
+  const img=document.createElement('img');
+  img.src=encodeURIComponent(file);
+  img.loading='lazy';
+  const num=document.createElement('div');
+  num.className='num';
+  num.textContent='#'+number;
+  const name=document.createElement('div');
+  name.className='name';
+  name.textContent=file;
+  item.append(img,num,name);
+  grid.append(item);
+ });
+ document.getElementById('page').textContent=
+  'Page '+(current+1)+' / '+Math.max(1,Math.ceil(files.length/perPage))+
+  ' — Total images: '+files.length;
+}
+function change(direction){
+ current=Math.max(0,Math.min(Math.ceil(files.length/perPage)-1,current+direction));
+ render();
+}
+render();
+</script>
+</body>
+</html>
