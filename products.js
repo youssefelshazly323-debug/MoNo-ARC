@@ -12,8 +12,9 @@ const PRODUCTS = [
  price:1850,
  colour:"Onyx",
  imgs:[
-  "images/products/hoodies/freedom-black-hoodie-side.webp",
-  "images/products/hoodies/freedom-black-hoodie-front.webp"
+  "images/products/hoodies/5824283839214325187.webp",
+  "images/products/hoodies/5826621611388374233.webp",
+  "images/products/hoodies/5826854978436402416.webp"
  ],
  lead:"A heavyweight hoodie with a deep hood and a drop shoulder, finished with the Mono Arc emblem at the chest.",
  details:["Boxy oversized fit","Double-layer hood","Tonal embroidered emblem","Ribbed cuffs and hem","Made in small batches"],
@@ -176,9 +177,9 @@ const PRODUCTS = [
  colour:"Black",
  sizes:["M","L","XL","XXL"],
  imgs:[
-  "images/products/hoodies/1_478ecea0-5daf-466a-9378-d8258826d839.webp",
-  "images/products/hoodies/2_add76b38-f35c-462d-82d0-4f783d9f264d.webp",
-  "images/products/hoodies/3_ac8a2048-c868-44c6-ac3e-fcc6dda8498f.webp"
+  "images/products/knitwear/1_478ecea0-5daf-466a-9378-d8258826d839.webp",
+  "images/products/knitwear/2_add76b38-f35c-462d-82d0-4f783d9f264d.webp",
+  "images/products/knitwear/3_ac8a2048-c868-44c6-ac3e-fcc6dda8498f.webp"
  ],
  lead:"Spiders Hoodie from the current Fandom catalogue.",
  details:["Listed in hoodies","Available option(s): M, L, XL, XXL","Original product photos are not yet attached to this listing"],
@@ -1427,9 +1428,9 @@ const PRODUCTS = [
  colour:"Various",
  sizes:["M","L","XL","XXL"],
  imgs:[
-  "images/products/tees/gray_deec856b-2024-452f-bdab-94fdc273bccf.webp",
-  "images/products/tees/4_8b24d7e5-bd41-4cab-86ef-bfa44478bb2e.webp",
-  "images/products/tees/5_d72671d3-598b-47b5-906d-565f93d55631.webp"
+  "images/products/hoodies/gray_deec856b-2024-452f-bdab-94fdc273bccf.webp",
+  "images/products/hoodies/4_8b24d7e5-bd41-4cab-86ef-bfa44478bb2e.webp",
+  "images/products/hoodies/5_d72671d3-598b-47b5-906d-565f93d55631.webp"
  ],
  lead:"Basic Gray Tee listed in the current Fandom catalogue.",
  details:["Category: tees","Available option(s): M, L, XL, XXL","Original product photos and full product specifications are not attached yet"],
@@ -2965,9 +2966,9 @@ const PRODUCTS = [
  colour:"Black",
  sizes:["M","L","XL","XXL"],
  imgs:[
-  "images/products/jackets/47D56C3E-1FE0-4E6C-A28E-FF81CE3921F5.webp",
-  "images/products/jackets/01B8B633-DC04-4031-912D-41D5A6837481.webp",
-  "images/products/jackets/0E796B08-39F4-4FA1-BFB6-F0602D46E2E8.webp"
+  "images/products/hoodies/47D56C3E-1FE0-4E6C-A28E-FF81CE3921F5.webp",
+  "images/products/hoodies/01B8B633-DC04-4031-912D-41D5A6837481.webp",
+  "images/products/hoodies/0E796B08-39F4-4FA1-BFB6-F0602D46E2E8.webp"
  ],
  lead:"Bizarre Bloodline Zip Hoodie from the current Fandom catalogue.",
  details:["Listed in jackets","Available option(s): M, L, XL, XXL","Original product photos are not yet attached to this listing"],
@@ -3040,9 +3041,9 @@ const PRODUCTS = [
  colour:"Black",
  sizes:["M","L","XL","XXL"],
  imgs:[
-  "images/products/jackets/3_ff6be0e1-233e-48fb-9836-a22babcf07e8.webp",
-  "images/products/jackets/4_3185c370-adec-4f04-a485-87a3c806d527.webp",
-  "images/products/jackets/1_a2ad3d16-0458-4be4-8332-25fc5e7f55e0.webp"
+  "images/products/hoodies/3_ff6be0e1-233e-48fb-9836-a22babcf07e8.webp",
+  "images/products/hoodies/4_3185c370-adec-4f04-a485-87a3c806d527.webp",
+  "images/products/hoodies/1_a2ad3d16-0458-4be4-8332-25fc5e7f55e0.webp"
  ],
  lead:"Green Zipper from the current Fandom catalogue.",
  details:["Listed in jackets","Available option(s): M, L, XL, XXL","Original product photos are not yet attached to this listing"],
