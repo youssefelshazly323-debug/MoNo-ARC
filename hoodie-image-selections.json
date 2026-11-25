@@ -1,0 +1,11 @@
+{
+  "project": "MoNo ARC",
+  "type": "Hoodie image review",
+  "selections": {
+    "shadow-hoodie": [
+      "images/products/hoodies/5824283839214325187.webp",
+      "images/products/hoodies/5826621611388374233.webp",
+      "images/products/hoodies/5826854978436402416.webp"
+    ]
+  }
+}
